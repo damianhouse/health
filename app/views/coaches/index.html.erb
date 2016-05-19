@@ -14,17 +14,16 @@
   </thead>
 
   <tbody>
-    <% @coaches.each do |coach| %>
       <tr>
-        <td><%= coach.name %></td>
-        <td><%= coach.email %></td>
-        <td><%= coach.password_digest %></td>
-        <td><%= coach.role %></td>
-        <td><%= link_to 'Show', coach %></td>
-        <td><%= link_to 'Edit', edit_coach_path(coach) %></td>
-        <td><%= link_to 'Destroy', coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @coach.name %></td>
+        <td><%= @coach.email %></td>
+        <td><%= @coach.password_digest %></td>
+        <td><%= @coach.role %></td>
+        <td><%= link_to 'Show', @coach %></td>
+        <td><%= link_to 'Edit', edit_coach_path(@coach) %></td>
+        <td><%= link_to 'Destroy', @coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+
   </tbody>
 </table>
 

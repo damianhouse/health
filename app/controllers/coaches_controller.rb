@@ -4,7 +4,7 @@ class CoachesController < ApplicationController
   # GET /coaches
   # GET /coaches.json
   def index
-    @coaches = Coach.all
+    # @coaches = Coach.all
   end
 
 
@@ -74,7 +74,6 @@ class CoachesController < ApplicationController
       else
         @coach = Coach.find(session[:coach_id])
       end
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
