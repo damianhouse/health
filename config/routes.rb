@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :coaches
   resources :users
 
-
   get 'sessions/login'
   post 'sessions/login'
 
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'sessions/logout'
   post 'sessions/logout'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

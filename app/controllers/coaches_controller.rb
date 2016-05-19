@@ -1,11 +1,12 @@
 class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
-
+  before_action :validate_coach, only: [:index]
   # GET /coaches
   # GET /coaches.json
   def index
     @coaches = Coach.all
   end
+
 
   # GET /coaches/1
   # GET /coaches/1.json
@@ -65,6 +66,15 @@ class CoachesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_coach
       @coach = Coach.find(params[:id])
+    end
+
+    def validate_coach
+      if session[:coach_id] == nil
+        redirect_to sessions_login_path
+      else
+        @coach = Coach.find(session[:coach_id])
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
