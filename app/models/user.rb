@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
   belongs_to :coach
   has_secure_password
 
-
-
   def find_coach_1
     Coach.find(self.coach_1)
   end
