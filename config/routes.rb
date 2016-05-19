@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conversations
   resources :coaches
   resources :users
 
