@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:index]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # @users = User.all
   end
 
   # GET /users/1
@@ -66,6 +67,16 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
+    def validate_user
+      if session[:user_id] == nil
+        redirect_to sessions_login_path
+      else
+        @user = User.find(session[:user_id])
+      end
+    end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

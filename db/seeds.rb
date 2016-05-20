@@ -8,10 +8,22 @@
 
 coach1 = Coach.create!(name: "1", password:"password", email: "coach@coach.com")
 coach2 = Coach.create!(name: "2", password:"password", email: "coach2@coach.com")
+coach3 = Coach.create!(name: "3", password:"password", email: "coach3@coach.com")
+coach4 = Coach.create!(name: "4", password:"password", email: "coach4@coach.com")
 
-user1 = User.create!(name: "1", password: "password", email: "user@user.com", coach_id: coach1.id)
-conversation1 = Conversation.create!(user_id: user1.id, coach_id: coach1.id)
-message1 = Message.create!(user_id: user1.id, conversation_id: conversation1.id, body: "hello hello!")
+
+
+user1 = User.create!(name: "1", password: "password", email: "user@user.com", coach_id: coach1.id, coach_1: coach2.id, coach_2: coach3.id, coach_3: coach4.id)
+
+conversation_user1 = Conversation.create!(user_id: user1.id, coach_id: coach1.id)
+conversation_user2 = Conversation.create!(user_id: user1.id, coach_id: coach2.id)
+conversation_user3 = Conversation.create!(user_id: user1.id, coach_id: coach3.id)
+conversation_user4 = Conversation.create!(user_id: user1.id, coach_id: coach4.id)
+message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user1.id, body: "hello hello!")
+message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user2.id, body: "hello hello!")
+message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user3.id, body: "hello hello!")
+message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user4.id, body: "hello hello!")
+
 
 user2 = User.create!(name: "2", password: "password", email: "user2@user.com", coach_id: coach1.id)
 conversation2 = Conversation.create!(user_id: user2.id, coach_id: coach1.id)
@@ -23,7 +35,7 @@ message3 = Message.create!(user_id: user3.id, conversation_id: conversation3.id,
 
 user4 = User.create!(name: "4", password: "password", email: "user4@user.com", coach_id: coach2.id)
 conversation4 = Conversation.create!(user_id: user4.id, coach_id: coach2.id)
-message1 = Message.create!(user_id: user1.id, conversation_id: conversation1.id, body: "hello hello!")
+message1 = Message.create!(user_id: user1.id, conversation_id: conversation4.id, body: "hello hello!")
 
 user5 = User.create!(name: "5", password: "password", email: "user5@user.com", coach_id: coach2.id)
 conversation5 = Conversation.create!(user_id: user5.id, coach_id: coach2.id)
@@ -31,4 +43,9 @@ message1 = Message.create!(user_id: user5.id, conversation_id: conversation5.id,
 
 user6 = User.create!(name: "6", password: "password", email: "user6@user.com", coach_id: coach2.id)
 conversation6 = Conversation.create!(user_id: user6.id, coach_id: coach2.id)
+message1 = Message.create!(user_id: user6.id, conversation_id: conversation6.id, body: "hello hello!")
+
+
+user7 = User.create!(name: "7", password: "password", email: "user7@user.com", coach_id: coach4.id)
+conversation7 = Conversation.create!(user_id: user7.id, coach_id: coach2.id)
 message1 = Message.create!(user_id: user6.id, conversation_id: conversation6.id, body: "hello hello!")

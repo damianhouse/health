@@ -24,8 +24,7 @@ class SessionsController < ApplicationController
     def logout
       session[:user_id] = nil
       session[:coach_id] = nil
-
-      redirect_to authenticate_login_path, notice: "See you real soon!"
+      redirect_to sessions_login_path, notice: "See you real soon!"
     end
 
   end

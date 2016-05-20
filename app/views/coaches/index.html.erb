@@ -16,7 +16,6 @@
   <tbody>
       <tr>
         <td><%= @coach.id %></td>
-
         <td><%= @coach.name %></td>
         <td><%= @coach.email %></td>
         <td><%= @coach.role %></td>
@@ -45,41 +44,30 @@
     </tr>
   </thead>
 
-<tbody>
-  <% @coach.users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><%= user.role %></td>
-      <td><%= user.coach_id %></td>
-      <td><%= user.coach_1 %></td>
-      <td><%= user.coach_2 %></td>
-      <td><%= user.coach_3 %></td>
-      <td><%= user.coach_4 %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <tbody>
+    <% @coach.users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= user.coach_id %></td>
+        <td><%= user.coach_1 %></td>
+        <td><%= user.coach_2 %></td>
+        <td><%= user.coach_3 %></td>
+        <td><%= user.coach_4 %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-      <% user.conversations.each do |convo| %>
-        <% if convo.coach_id == @coach.id %>
-    <td>  <%= convo%> </td>
-    <td><%= link_to 'Show', convo %></td>
-
-
+        <% user.conversations.each do |convo| %>
+          <% if convo.coach_id == @coach.id %>
+      <td>  <%= convo%> </td>
+      <td><%= link_to 'Show', convo %></td>
+          <% end %>
         <% end %>
-      <% end %>
-
-
-
-
-    </tr>
-  <% end %>
-
-
-
-
-
-</tbody>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 

@@ -9,6 +9,19 @@
 <body>
 
 <%= yield %>
+<br>
+<% if session[:coach_id] != nil %>
+  <td><%= link_to 'Dashboard', coaches_path %></td>
+<% elsif session[:user_id] != nil %>
+  <td><%= link_to 'Dashboard', users_path %></td>
+<% end %>
 
+<% if session[:coach_id] != nil || session[:user_id] != nil %>
+  <td><%= link_to 'Logout', sessions_logout_path %></td>
+<% else %>
+  <td><%= link_to 'Login', sessions_login_path %></td>
+<% end %>
 </body>
+
+
 </html>
