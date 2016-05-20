@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :coaches
   resources :users
 
+
   get 'sessions/login'
   post 'sessions/login'
 
