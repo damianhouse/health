@@ -44,6 +44,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+
 <tbody>
   <% @coach.users.each do |user| %>
     <tr>
@@ -58,8 +59,26 @@
       <td><%= link_to 'Show', user %></td>
       <td><%= link_to 'Edit', edit_user_path(user) %></td>
       <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      <% user.conversations.each do |convo| %>
+        <% if convo.coach_id == @coach.id %>
+    <td>  <%= convo%> </td>
+    <td><%= link_to 'Show', convo %></td>
+
+
+        <% end %>
+      <% end %>
+
+
+
+
     </tr>
   <% end %>
+
+
+
+
+
 </tbody>
 </table>
 
