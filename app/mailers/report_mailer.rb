@@ -5,9 +5,8 @@ class ReportMailer < ApplicationMailer
   #
   #   en.report_mailer.invite_friend.subject
   #
-  def invite_friend(address)
-    @greeting = "Hi"
-
+  def invite_friend(address, random_password)
+    @greeting = "Hi, #{random_password}"
     mail to: address, subject: "demo subject"
   end
 

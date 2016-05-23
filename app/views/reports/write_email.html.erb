@@ -1,8 +1,7 @@
+<p id="notice"><%= notice %></p>
+
 <h1> Please Pick A Victim </h1>
-
-
 <%= form_tag reports_send_email_path, multipart: true do %>
-  <%= email_field_tag :address, nil, placeholder: "Email Address" %><br />
-  <!-- <%= file_field_tag :file %><br /> -->
+  <%= email_field_tag :email, nil, placeholder: "Email Address" %><br />
   <%= submit_tag %>
 <% end %>

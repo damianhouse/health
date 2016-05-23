@@ -4,17 +4,21 @@ class ReportsController < ApplicationController
   end
 
   def thank_you
-    @branch = Branch.find(params[:branch][:id])
-    MakeReportJob.set(wait: 15.seconds).perform_later(@branch.id)
   end
 
   def write_email
-
   end
 
   def send_email
-    ReportMailer.invite_friend(params[:address]).deliver_now
 
+    if @user = User.find_by_email(params[:email])
+      random_password = Array.new(10).map { (65 + rand(58)).chr }.join
+      @user.password = random_password
+      @user.save!
+      ReportMailer.invite_friend(params[:email], random_password).deliver_now
+    else
+      redirect_to reports_write_email_path, notice: 'EMAIL NOT FOUND.'
+    end
 
     # File.open("tmp/temp.png", "wb") do |file|
     #   file.write(params[:file].read)
