@@ -12,16 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
 //= require_tree .
-
-// $(function(){ $(document).foundation(); });
-//
-// function refresh_bid() {
-//   $("#bid-form").load(location.href + " #bid-form");
-// }
-//
-// setInterval("refresh_bid();",5000);
 
 
 function refresh_conversation() {

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get 'sessions/logout'
   post 'sessions/logout'
 
-
+  get 'reports/write_email'
+  post 'reports/send_email'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

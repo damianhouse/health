@@ -62,6 +62,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def write_email
+  end
+
+  def send_email
+    
+  end
+
+
+
+
+
+
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
