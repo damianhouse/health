@@ -13,6 +13,9 @@ class ReportsController < ApplicationController
   end
 
   def send_email
+    ReportMailer.invite_friend(params[:address]).deliver_now
+
+
     # File.open("tmp/temp.png", "wb") do |file|
     #   file.write(params[:file].read)
     # end
