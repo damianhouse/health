@@ -1,49 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
-
-<p>
-  <strong>Coach:</strong>
-  <%= @user.coach_id %>
-</p>
-
-<p>
-  <strong>Coach 1:</strong>
-  <%= @user.coach_1 %>
-</p>
-
-<p>
-  <strong>Coach 2:</strong>
-  <%= @user.coach_2 %>
-</p>
-
-<p>
-  <strong>Coach 3:</strong>
-  <%= @user.coach_3 %>
-</p>
-
-<p>
-  <strong>Coach 4:</strong>
-  <%= @user.coach_4 %>
-</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge"><%= @user.name %></span>
+    <strong>Name:</strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.email %></span>
+  <strong>  Email: </strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.coach_id %></span>
+    <strong>Coach:</strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.coach_1 %></span>
+    <strong>Coach 1:</strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.coach_2 %></span>
+    <strong>Coach 2:</strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.coach_3 %></span>
+    <strong>Coach 3:</strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.coach_4 %></span>
+    <strong>Coach 4:</strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"></span>
+<%= link_to 'Edit', edit_user_path(@user), class: 'list-group-item btn btn-info'%>
+  </li>
+</ul>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -8,21 +8,61 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Healthstyle</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <% if session[:coach_id] != nil %>
+              <li><a href="/coaches/">Dashboard</a></li>
+              <li><%= link_to 'My Profile', Coach.find(session[:coach_id]) %></li>
+              <% elsif session[:user_id] != nil %>
+              <li><a href="/users/">Dashboard</a></li>
+              <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>
+              <% end %>
+              <li><a href="#">My Team</a></li>
+              <li><a href="#">Recipes</a></li>
+              <li><a href="#">Community</a></li>
+              <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
+
+              <!-- <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li> -->
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%= yield %>
-<br>
-<% if session[:coach_id] != nil %>
-  <td><%= link_to 'Dashboard', coaches_path %></td>
-<% elsif session[:user_id] != nil %>
-  <td><%= link_to 'Dashboard', users_path %></td>
-<% end %>
 
-<% if session[:coach_id] != nil || session[:user_id] != nil %>
-  <td><%= link_to 'Logout', sessions_logout_path %></td>
-<% else %>
-  <td><%= link_to 'Login', sessions_login_path %></td>
-<% end %>
-</body>
 
 
 </html>
