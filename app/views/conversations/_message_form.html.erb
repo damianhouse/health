@@ -12,28 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :body %><br>
+    <!-- <%= f.label :body %><br> -->
     <%= f.text_area :body %>
   </div>
 
   <div class="field">
-    <!-- <%= f.label :user_id %><br> -->
     <%= f.hidden_field :user_id, value: session[:user_id] %>
   </div>
 
   <div class="field">
-    <!-- <%= f.label :coach_id %><br> -->
     <%= f.hidden_field :coach_id, value: session[:coach_id] %>
   </div>
 
 
   <div class="field">
-    <!-- <%= f.label :conversation_id %><br> -->
     <%= f.hidden_field :conversation_id, value: params[:id] %>
-  </div>
-  <div class="field">
-    <%= f.label :read %><br>
-    <%= f.check_box :read %>
   </div>
   <div class="actions">
     <%= f.submit %>

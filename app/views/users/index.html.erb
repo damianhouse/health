@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User Dashboard </h1>
-
-
+<!-- <h1>User Dashboard </h1> -->
 <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">Welcome <%= @user.name %></h3>
@@ -14,48 +12,45 @@
 
 
 
-<!-- <table class="table table-striped table-hover" >
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <tr>
-        <td><%= @user.name %></td>
-        <td><%= @user.email %></td>
-        <td><%= link_to 'Show', @user %></td>
-        <td><%= link_to 'Edit', edit_user_path(@user) %></td>
-      </tr>
-  </tbody>
-</table>
-<br> -->
-
-
-
 <table class="table table-striped table-hover" >
   <tbody>
-    <thead>
-      <tr>
-        <th>Conversation</th>
-        <th>Name</th>
-        <th>Email</th>
-      </tr>
+
+
 <% @user.conversations.each do |convo| %>
   <% if convo.user_id == @user.id %>
-
-<td><%= link_to 'View Conversation', convo %></td>
+    <% if convo.messages.last.read == false && convo.messages.last.coach_id != nil%>
+      <td>UNREAD</td>
+    <% else %>
+    <td>READ </td>
+    <% end %>
+<td><%= link_to 'View', convo %></td>
   <td><%= convo.coach.name %></td>
   <td><%= convo.coach.email %></td>
+  <td><%= convo.messages.last.body %> </td>
+  <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
+
+
 </tr>
   <% end %>
 <% end %>
   </tbody>
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--
 <table>

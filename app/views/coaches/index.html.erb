@@ -67,15 +67,10 @@
             <% else %>
             <td>READ </td>
             <% end %>
-
-
-
-      <!-- <td>  <%= convo%> </td> -->
-      <td><%= user.name %></td>
-      <td><%= link_to 'View', convo %></td>
-      <td><%= convo.messages.last.body %> </td>
-      <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
-
+            <td><%= user.name %></td>
+            <td><%= link_to 'View', convo %></td>
+            <td><%= convo.messages.last.body %> </td>
+            <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
           <% end %>
         <% end %>
         <td><%= user.email %></td>

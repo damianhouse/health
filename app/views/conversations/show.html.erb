@@ -18,7 +18,6 @@
 <table class="conversation">
   <thead>
     <tr>
-      <th>Conversation</th>
 
       <th>Body</th>
       <th>User id</th>
@@ -31,19 +30,12 @@
   <tbody>
     <% @conversation.messages.each do |message| %>
       <tr>
-        <td><%= message.conversation_id %></td>
         <td><%= message.body %></td>
         <td><%= message.user_id %></td>
         <td><%= message.coach_id %></td>
-        <!-- <td><%= message.read %></td> -->
-        <!-- <td><%= link_to 'Show', message %></td> -->
-        <!-- <td><%= link_to 'Edit', edit_message_path(message) %></td> -->
-        <!-- <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
-  <td><%= link_to 'New', new_message_path(:conversation => @conversation.id) %></td>
-
 </table>
 
 <br>

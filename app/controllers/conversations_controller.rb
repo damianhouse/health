@@ -15,15 +15,13 @@ class ConversationsController < ApplicationController
     @message = Message.new
 
 
+  #mark conversations read after user/coach views
     @conversation.messages.each do |msg|
-
       if session[:coach_id] != nil
           if msg.user_id != nil
             msg.read = true
             msg.save!
           end
-
-
       elsif session[:user_id] != nil
         if msg.coach_id != nil
           msg.read = true
