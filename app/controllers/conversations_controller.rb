@@ -13,6 +13,27 @@ class ConversationsController < ApplicationController
   # GET /conversations/1.json
   def show
     @message = Message.new
+
+
+    @conversation.messages.each do |msg|
+
+      if session[:coach_id] != nil
+          if msg.user_id != nil
+            msg.read = true
+            msg.save!
+          end
+
+
+      elsif session[:user_id] != nil
+        if msg.coach_id != nil
+          msg.read = true
+          msg.save!
+        end
+      end
+    end
+
+
+
   end
 
   # GET /conversations/new
