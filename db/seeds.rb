@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-coach1 = Coach.create!(name: "1", password:"password", email: "coach@coach.com")
-coach2 = Coach.create!(name: "2", password:"password", email: "coach2@coach.com")
-coach3 = Coach.create!(name: "3", password:"password", email: "coach3@coach.com")
-coach4 = Coach.create!(name: "4", password:"password", email: "coach4@coach.com")
+coach1 = Coach.create!(name: "Mike", password:"password", email: "coach@coach.com")
+coach2 = Coach.create!(name: "Jim", password:"password", email: "coach2@coach.com")
+coach3 = Coach.create!(name: "Asher", password:"password", email: "coach3@coach.com")
+coach4 = Coach.create!(name: "Willy", password:"password", email: "coach4@coach.com")
 
 
 
-user1 = User.create!(name: "1", password: "password", email: "user@user.com", coach_id: coach1.id, coach_1: coach2.id, coach_2: coach3.id, coach_3: coach4.id)
+user1 = User.create!(name: "Thomas", password: "password", email: "user@user.com", coach_id: coach1.id, coach_1: coach2.id, coach_2: coach3.id, coach_3: coach4.id)
 
 conversation_user1 = Conversation.create!(user_id: user1.id, coach_id: coach1.id)
 conversation_user2 = Conversation.create!(user_id: user1.id, coach_id: coach2.id)

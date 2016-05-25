@@ -18,7 +18,7 @@
 
 <% @user.conversations.each do |convo| %>
   <% if convo.user_id == @user.id %>
-    <% if convo.messages.last.read == false && convo.messages.last.coach_id != nil%>
+    <% if convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
       <td>UNREAD</td>
     <% else %>
     <td>READ </td>

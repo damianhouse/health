@@ -2,17 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @conversation.user_id %>
+  <%= User.find(@conversation.user_id).name %>
 </p>
 
 <p>
   <strong>Coach:</strong>
-  <%= @conversation.coach_id %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @conversation.active %>
+  <%= Coach.find(@conversation.coach_id).name %>
 </p>
 
 <table class="conversation">
@@ -22,7 +17,6 @@
       <th>Body</th>
       <th>User id</th>
       <th>Coach id</th>
-      <!-- <th>Read</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>

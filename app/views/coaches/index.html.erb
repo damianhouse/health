@@ -62,7 +62,7 @@
       <tr>
         <% user.conversations.each do |convo| %>
           <% if convo.coach_id == @coach.id %>
-            <% if convo.messages.last.read == false && convo.messages.last.user_id != nil%>
+            <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
               <td>UNREAD</td>
             <% else %>
             <td>READ </td>
@@ -82,8 +82,6 @@
         <td><%= user.coach_4 %></td> -->
         <!-- <td><%= link_to 'Edit', edit_user_path(user) %></td> -->
         <!-- <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-
-
       </tr>
     <% end %>
   </tbody>
