@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :coaches
+resources :conversations
+resources :messages
+resources :users
+
+    root to: "coaches#index"
+  end
+
   resources :messages
   resources :conversations
   resources :coaches

@@ -20,4 +20,4 @@ function refresh_conversation() {
   $(".conversation").load(location.href + " .conversation");
 }
 
-setInterval("refresh_conversation();",5000);
+setInterval("refresh_conversation();",25000);
