@@ -5,6 +5,8 @@ ruby '2.3.0'
 
 gem 'puma'
 
+gem "font-awesome-rails"
+
 
 
 gem "administrate", "~> 0.2.1"
