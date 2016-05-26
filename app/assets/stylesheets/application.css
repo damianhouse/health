@@ -3261,6 +3261,19 @@
    background-color: #029acf;
    border-color: #029acf;
  }
+ .btn-health {
+   color: #ffffff;
+   background-color: #FF6600;
+   border-color: #FF6600;
+ }
+
+ .font-health {
+   color: #FF6600;
+
+ }
+
+
+
  .btn-info:focus,
  .btn-info.focus {
    color: #ffffff;
