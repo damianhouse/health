@@ -16,9 +16,14 @@ class SessionsController < ApplicationController
 
         else
           flash[:notice] = "You stink at remembering your password.  Try 'monkey'."
-
         end
+      elsif session[:user_id] != nil
+        redirect_to users_path
+      elsif session[:coach_id] != nil
+        redirect_to coaches_path
       end
+
+
     end
 
     def logout
