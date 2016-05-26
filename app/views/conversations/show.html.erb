@@ -10,7 +10,7 @@
   <span class="text-success"><%= Coach.find(@conversation.coach_id).name %></span>
 </p>
 
-<table class="conversation table table-striped table-hover">
+<table class="conversation table table-striped table-hover ">
 
     <% @conversation.messages.each do |message| %>
       <tr>
@@ -32,9 +32,8 @@
   <%= render partial: "message_form", locals: {f: f} %>
 <% end %>
 
-
-
-
-
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
-<%= link_to 'Back', conversations_path %>
+<% if session[:coach_id] != nil %>
+  <a href="/coaches/" class="btn btn-info">Back</a>
+<% elsif session[:user_id] != nil %>
+  <a href="/users/" class="btn btn-info">Back</a>
+<% end %>
