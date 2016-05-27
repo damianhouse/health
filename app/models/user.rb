@@ -6,19 +6,35 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def find_coach_1
-    Coach.find(self.coach_1)
+    if self.coach_1 != nil
+      Coach.find(self.coach_1)
+    else
+      return nil
+    end
   end
 
   def find_coach_2
-    Coach.find(self.coach_2)
+    if self.coach_2 != nil
+      Coach.find(self.coach_2)
+    else
+      return nil
+    end
   end
 
   def find_coach_3
-    Coach.find(self.coach_3)
+    if self.coach_3 != nil
+      Coach.find(self.coach_3)
+    else
+      return nil
+    end
   end
 
   def find_coach_4
-    Coach.find(self.coach_4)
-  end
+    if self.coach_4 != nil
+      Coach.find(self.coach_4)
+    else
+      return nil
+    end
+end
 
 end

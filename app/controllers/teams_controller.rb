@@ -9,6 +9,9 @@ class TeamsController < ApplicationController
         @user = User.find(session[:user_id])
        end
 
+
+
+@conversation = Conversation.new
     end
 
 

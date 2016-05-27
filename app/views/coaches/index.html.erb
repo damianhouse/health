@@ -15,7 +15,8 @@
     <% @coach.users.each do |user| %>
       <tr>
         <% user.conversations.each do |convo| %>
-          <% if convo.coach_id == @coach.id %>
+
+          <% if convo.coach_id == @coach.id && convo.messages.length > 0%>
             <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
               <td><i class="fa fa-circle" aria-hidden="true"></i></td>
             <% else %>
@@ -25,13 +26,27 @@
             <td><%= link_to convo do %>
               <i class="fa fa-eye" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= convo.messages.last.body %> </td>
+            <td><%= convo.messages.last.body %></td>
             <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
+        </tr>
+          <% else %>
+            <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to convo do %>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              <% end %>
+            </td>
+            <td>Start the conversation now!</td>
+            <td></td>
+
+      </tr>
+
           <% end %>
 
         <% end %>
 
-      </tr>
+
     <% end %>
   </tbody>
 </table>

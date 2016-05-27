@@ -1,0 +1,12 @@
+
+<% @coach.users.each do |user| %>
+<ul class="list-group">
+  <span class="badge"><%= user.name %></span>
+<br>
+<br>
+
+  <li class="list-group-item">
+      <%= render partial: "conversation_form", locals: { user: user} %>
+  </li>
+</ul>
+<% end %>

@@ -1,0 +1,21 @@
+
+    <%= form_for(@conversation) do |f| %>
+      <% if @conversation.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@conversation.errors.count, "error") %> prohibited this conversation from being saved:</h2>
+
+          <ul>
+          <% @conversation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+        <%= f.hidden_field :user_id, value: user.id %>
+
+        <%= f.hidden_field :coach_id, value: @coach.id %>
+        <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+      <span class="badge"> <%= f.submit class: "btn btn-default"%> </span>
+    <% end %>
