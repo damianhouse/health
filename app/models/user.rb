@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   belongs_to :coach
   has_many :conversations
   has_many :messages
+  has_many :notes
   has_secure_password
 
   def find_coach_1

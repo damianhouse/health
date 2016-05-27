@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  coach_id: 1
+  note_1: MyString
+  note_2: MyString
+  note_3: MyString
+  note_4: MyString
+  note_5: MyString
+  note_6: MyString
+  note_7: MyString
+  note_8: MyString
+  note_9: MyString
+  note_10: MyString
+
+two:
+  user_id: 1
+  coach_id: 1
+  note_1: MyString
+  note_2: MyString
+  note_3: MyString
+  note_4: MyString
+  note_5: MyString
+  note_6: MyString
+  note_7: MyString
+  note_8: MyString
+  note_9: MyString
+  note_10: MyString

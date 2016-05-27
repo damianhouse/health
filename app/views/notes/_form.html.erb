@@ -1,0 +1,65 @@
+<%= form_for(@note) do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+      <% @note.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :coach_id %><br>
+    <%= f.number_field :coach_id %>
+  </div>
+  <div class="field">
+    <%= f.label :note_1 %><br>
+    <%= f.text_field :note_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_2 %><br>
+    <%= f.text_field :note_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_3 %><br>
+    <%= f.text_field :note_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_4 %><br>
+    <%= f.text_field :note_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_5 %><br>
+    <%= f.text_field :note_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_6 %><br>
+    <%= f.text_field :note_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_7 %><br>
+    <%= f.text_field :note_7 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_8 %><br>
+    <%= f.text_field :note_8 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_9 %><br>
+    <%= f.text_field :note_9 %>
+  </div>
+  <div class="field">
+    <%= f.label :note_10 %><br>
+    <%= f.text_field :note_10 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

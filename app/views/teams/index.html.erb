@@ -1,0 +1,10 @@
+
+
+
+<% if session[:coach_id] != nil %>
+  <%= render partial: "coaches_team"%>
+
+<% elsif session[:user_id] != nil %>
+  <%= render partial: "users_team"%>
+
+<% end %>

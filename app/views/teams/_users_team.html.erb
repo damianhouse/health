@@ -1,0 +1,62 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @user.coach.id %></td>
+        <td><%= @user.coach.name %></td>
+        <td><%= @user.coach.email %></td>
+        <td><%= @user.coach.role %></td>
+        <td><%= link_to 'Show', @user.coach %></td>
+      </tr>
+
+      <% if @user.coach_1 != nil %>
+      <tr>
+        <td><%= @user.find_coach_1.id %></td>
+        <td><%= @user.find_coach_1.name %></td>
+        <td><%= @user.find_coach_1.email %></td>
+        <td><%= @user.find_coach_1.role %></td>
+        <td><%= link_to 'Show', @user.find_coach_1 %></td>
+      </tr>
+      <% end %>
+
+      <% if @user.coach_2 != nil %>
+      <tr>
+        <td><%= @user.find_coach_2.id %></td>
+        <td><%= @user.find_coach_2.name %></td>
+        <td><%= @user.find_coach_2.email %></td>
+        <td><%= @user.find_coach_2.role %></td>
+        <td><%= link_to 'Show', @user.find_coach_2 %></td>
+      </tr>
+      <% end %>
+
+      <% if @user.coach_3 != nil %>
+      <tr>
+        <td><%= @user.find_coach_3.id %></td>
+        <td><%= @user.find_coach_3.name %></td>
+        <td><%= @user.find_coach_3.email %></td>
+        <td><%= @user.find_coach_3.role %></td>
+        <td><%= link_to 'Show', @user.find_coach_3 %></td>
+      </tr>
+      <% end %>
+
+      <% if @user.coach_4 != nil %>
+      <tr>
+        <td><%= @user.find_coach_4.id %></td>
+        <td><%= @user.find_coach_4.name %></td>
+        <td><%= @user.find_coach_4.email %></td>
+        <td><%= @user.find_coach_4.role %></td>
+        <td><%= link_to 'Show', @user.find_coach_4 %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

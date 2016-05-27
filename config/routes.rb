@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notes
   namespace :admin do
     resources :coaches
 resources :conversations
@@ -29,6 +30,7 @@ resources :users
   get 'reports/write_email'
   post 'reports/send_email'
 
+  get 'teams/index'
 
   root 'sessions#login'
 
