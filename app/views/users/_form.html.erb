@@ -21,32 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.password_field :password, type: "password" %>
   </div>
-  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.text_field :role %>
-  </div>
-  <div class="field">
-    <%= f.label :coach_id %><br>
-    <%= f.number_field :coach_id %>
-  </div>
-  <div class="field">
-    <%= f.label :coach_1 %><br>
-    <%= f.number_field :coach_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :coach_2 %><br>
-    <%= f.number_field :coach_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :coach_3 %><br>
-    <%= f.number_field :coach_3 %>
-  </div>
-  <div class="field">
-    <%= f.label :coach_4 %><br>
-    <%= f.number_field :coach_4 %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
