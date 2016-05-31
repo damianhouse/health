@@ -11,7 +11,10 @@ class TeamsController < ApplicationController
 
 
 
-@conversation = Conversation.new
+        @conversation = Conversation.new
+        @note = Note.new
+
+        
     end
 
 

@@ -1,12 +1,47 @@
 
 <% @coach.users.each do |user| %>
+
+
+<% user_note = user.notes.where(coach_id = @coach.id) %>
+
 <ul class="list-group">
   <span class="badge"><%= user.name %></span>
-<br>
-<br>
+
 
   <li class="list-group-item">
+
+
+
+
+
+<% if user_note.length == 1 %>
+    <span class="badge"><%= link_to 'User Notes', user_note.first , class:"btn btn-default"%></span>
+<% else %>
+
+      <%= render partial: "notes_form", locals: { user: user} %>
+
+
+<% end %>
+
+
+
+    <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+
       <%= render partial: "conversation_form", locals: { user: user} %>
   </li>
+
+
+
+
+
 </ul>
+
+
+
+
+
+
+
+
+
 <% end %>
