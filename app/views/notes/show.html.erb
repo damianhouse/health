@@ -60,5 +60,11 @@
   <%= @note.note_10 %>
 </p>
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Edit', edit_note_path(@note), class: "btn btn-info" %>
+
+
+<% if session[:coach_id] != nil %>
+  <a href="/coaches/" class="btn btn-info">Back</a>
+<% elsif session[:user_id] != nil %>
+  <a href="/users/" class="btn btn-info">Back</a>
+<% end %>

@@ -11,14 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :coach_id %><br>
-    <%= f.number_field :coach_id %>
-  </div>
+<p> for user : </p>
+  <%= User.find(user_id = @note.user_id).name %><br>
+<br>
+
   <div class="field">
     <%= f.label :note_1 %><br>
     <%= f.text_field :note_1 %>
