@@ -44,3 +44,8 @@
 <% end %>
   </tbody>
 </table>
+
+
+<% if @user.conversations.length == 0 %>
+<p>We will notify you as soon as we assign your team of coaches. This shouldn't take long.</p>
+<% end %>

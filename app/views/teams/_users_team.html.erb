@@ -1,7 +1,5 @@
 
 
-
-
 <% coach = @user.coach %>
 
 <ul class="list-group">
@@ -13,10 +11,6 @@
     <%= render partial: "users_conversation_form", locals: { coach: coach} %>
   </li>
 </ul>
-
-
-
-
 
 <% if @user.find_coach_1 != nil %>
   <% coach = @user.find_coach_1 %>
@@ -45,8 +39,6 @@
   </ul>
 <% end %>
 
-
-
 <% if @user.find_coach_3 != nil %>
   <% coach = @user.find_coach_3 %>
   <ul class="list-group">
@@ -59,7 +51,6 @@
     </li>
   </ul>
 <% end %>
-
 
 <% if @user.find_coach_4 != nil %>
 <% coach = @user.find_coach_4 %>
