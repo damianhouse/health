@@ -4226,6 +4226,8 @@
    }
  }
  .navbar-collapse {
+   background-color: yellow;
+
    overflow-x: visible;
    padding-right: 15px;
    padding-left: 15px;
@@ -4380,7 +4382,7 @@
      float: none;
      width: auto;
      margin-top: 0;
-     background-color: transparent;
+     background-color: white;
      border: 0;
      -webkit-box-shadow: none;
              box-shadow: none;
@@ -4539,26 +4541,26 @@
    }
  }
  .navbar-default {
-   background-color: #ffffff;
+   background-color: #ff6600;
    border-color: #eeeeee;
  }
  .navbar-default .navbar-brand {
-   color: #777777;
+   color: white;
  }
  .navbar-default .navbar-brand:hover,
  .navbar-default .navbar-brand:focus {
-   color: #FF6600;
+   color: white;
    background-color: transparent;
  }
  .navbar-default .navbar-text {
-   color: #777777;
+   color: white;
  }
  .navbar-default .navbar-nav > li > a {
-   color: #777777;
+   color: white;
  }
  .navbar-default .navbar-nav > li > a:hover,
  .navbar-default .navbar-nav > li > a:focus {
-   color: #FF6600;
+   color: white;
    background-color: transparent;
  }
  .navbar-default .navbar-nav > .active > a,
@@ -4574,18 +4576,18 @@
    background-color: transparent;
  }
  .navbar-default .navbar-toggle {
-   border-color: #dddddd;
+   border-color: transparent;
  }
  .navbar-default .navbar-toggle:hover,
  .navbar-default .navbar-toggle:focus {
-   background-color: #dddddd;
+   background-color: transparent;
  }
  .navbar-default .navbar-toggle .icon-bar {
-   background-color: #cccccc;
+   background-color: white;
  }
  .navbar-default .navbar-collapse,
  .navbar-default .navbar-form {
-   border-color: #eeeeee;
+   border-color: transparent;
  }
  .navbar-default .navbar-nav > .open > a,
  .navbar-default .navbar-nav > .open > a:hover,
@@ -4803,7 +4805,7 @@
  .pagination > .active > span:focus {
    z-index: 3;
    color: #ffffff;
-   background-color: #FF6600;
+   background-color: #ffffff;
    border-color: #FF6600;
    cursor: default;
  }
@@ -5783,12 +5785,12 @@
    border-bottom-color: #469408;
  }
  .panel-info {
-   border-color: #029acf;
+   border-color: #999999;
  }
  .panel-info > .panel-heading {
    color: #ffffff;
-   background-color: #029acf;
-   border-color: #029acf;
+   background-color: #999999;
+   border-color: #999999;
  }
  .panel-info > .panel-heading + .panel-collapse > .panel-body {
    border-top-color: #029acf;

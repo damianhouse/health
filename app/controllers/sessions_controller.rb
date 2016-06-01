@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
           redirect_to users_path, notice: "Login successful."
 
         else
-          flash[:notice] = "You stink at remembering your password.  Try 'monkey'."
+          flash[:notice] = "Either your password or email are invalid. Both fields are case sensitive."
         end
       elsif session[:user_id] != nil
         redirect_to users_path
