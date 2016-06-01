@@ -4226,8 +4226,8 @@
    }
  }
  .navbar-collapse {
-   background-color: yellow;
-
+   background-color: white;
+   font: yellow;
    overflow-x: visible;
    padding-right: 15px;
    padding-left: 15px;
@@ -4588,6 +4588,7 @@
  .navbar-default .navbar-collapse,
  .navbar-default .navbar-form {
    border-color: transparent;
+   background-color: #FF6600;
  }
  .navbar-default .navbar-nav > .open > a,
  .navbar-default .navbar-nav > .open > a:hover,
@@ -4596,9 +4597,35 @@
    color: #FF6600;
  }
  @media (max-width: 767px) {
-   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-     color: #777777;
+
+
+   .navbar-default .navbar-collapse,
+   .navbar-default .navbar-form {
+     border-color: transparent;
+     background-color: white;
    }
+
+   .navbar-default .navbar-nav > li > a {
+     color: #FF6600;
+   }
+   .navbar-default .navbar-nav > li > a:hover,
+   .navbar-default .navbar-nav > li > a:focus {
+     color: #FF6600;
+     background-color: transparent;
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
      color: #FF6600;
