@@ -1,16 +1,18 @@
 
+<% if @user.coach != nil %>
 
-<% coach = @user.coach %>
+  <% coach = @user.coach %>
 
-<ul class="list-group">
-  <span class="badge"><%= coach.name %></span>
-<br>
-<br>
+  <ul class="list-group">
+    <span class="badge"><%= coach.name %></span>
+  <br>
+  <br>
 
-  <li class="list-group-item">
-    <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-  </li>
-</ul>
+    <li class="list-group-item">
+      <%= render partial: "users_conversation_form", locals: { coach: coach} %>
+    </li>
+  </ul>
+<% end %>
 
 <% if @user.find_coach_1 != nil %>
   <% coach = @user.find_coach_1 %>
