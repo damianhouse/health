@@ -15,7 +15,7 @@
     <% @coach.users.each do |user| %>
       <tr>
         <% user.conversations.each do |convo| %>
-          <% if convo.coach_id == @coach.id && convo.messages.length > 0%>
+          <% if convo.coach_id == @coach.id && convo.messages.length > 0 %>
             <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
               <td><i class="fa fa-circle" aria-hidden="true"></i></td>
             <% else %>
@@ -28,7 +28,7 @@
             <td><%= convo.messages.last.body %></td>
             <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
         </tr>
-          <% else %>
+          <% elsif convo.coach_id == @coach.id %>
             <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
             <td><%= user.name %></td>
             <td>

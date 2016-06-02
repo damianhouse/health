@@ -10,13 +10,19 @@
           <%= render partial: "notes_form", locals: { user: user} %>
       <% end %>
           <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+
+          <% if user.conversations.length >= 1 %>
+            <% user.conversations.each do |convo| %>
+              <% if convo.coach_id == @coach.id %>
+                  <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
+              <% end %>
+            <% end %>
+          <% else %>
           <%= render partial: "conversation_form", locals: { user: user} %>
+          <% end %>
     </li>
   </ul>
 <% end %>
-
-
-
 
 <% @coach.find_user_1.each do |user| %>
   <% user_note = user.notes.where(coach_id = @coach.id) %>
@@ -29,7 +35,16 @@
           <%= render partial: "notes_form", locals: { user: user} %>
       <% end %>
           <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+
+          <% if user.conversations.length >= 1 %>
+            <% user.conversations.each do |convo| %>
+              <% if convo.coach_id == @coach.id %>
+                  <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
+              <% end %>
+            <% end %>
+          <% else %>
           <%= render partial: "conversation_form", locals: { user: user} %>
+          <% end %>
     </li>
   </ul>
 <% end %>
@@ -46,7 +61,16 @@
           <%= render partial: "notes_form", locals: { user: user} %>
       <% end %>
           <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+
+          <% if user.conversations.length >= 1 %>
+            <% user.conversations.each do |convo| %>
+              <% if convo.coach_id == @coach.id %>
+                  <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
+              <% end %>
+            <% end %>
+          <% else %>
           <%= render partial: "conversation_form", locals: { user: user} %>
+          <% end %>
     </li>
   </ul>
 <% end %>
@@ -63,15 +87,21 @@
           <%= render partial: "notes_form", locals: { user: user} %>
       <% end %>
           <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+
+          <% if user.conversations.length >= 1 %>
+            <% user.conversations.each do |convo| %>
+              <% if convo.coach_id == @coach.id %>
+                  <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
+              <% end %>
+            <% end %>
+          <% else %>
           <%= render partial: "conversation_form", locals: { user: user} %>
+          <% end %>
     </li>
   </ul>
 <% end %>
 
-
-
-
-<% @coach.find_user_3.each do |user| %>
+<% @coach.find_user_4.each do |user| %>
   <% user_note = user.notes.where(coach_id = @coach.id) %>
   <ul class="list-group">
     <span class="badge"><%= user.name %></span>
@@ -82,7 +112,16 @@
           <%= render partial: "notes_form", locals: { user: user} %>
       <% end %>
           <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+
+          <% if user.conversations.length >= 1 %>
+            <% user.conversations.each do |convo| %>
+              <% if convo.coach_id == @coach.id %>
+                  <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
+              <% end %>
+            <% end %>
+          <% else %>
           <%= render partial: "conversation_form", locals: { user: user} %>
+          <% end %>
     </li>
   </ul>
 <% end %>
