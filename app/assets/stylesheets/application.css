@@ -38,6 +38,25 @@
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
  /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+
+
+
+.main-image {
+  width: 20%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
  html {
    font-family: sans-serif;
    -ms-text-size-adjust: 100%;
@@ -4606,11 +4625,11 @@
    }
 
    .navbar-default .navbar-nav > li > a {
-     color: #FF6600;
+     color: #666666;
    }
    .navbar-default .navbar-nav > li > a:hover,
    .navbar-default .navbar-nav > li > a:focus {
-     color: #FF6600;
+     color: #666666;
      background-color: transparent;
    }
 

@@ -18,6 +18,17 @@ resources :users
   resources :users
 
 
+
+get 'abouts/welcome'
+
+get 'abouts/aboutus'
+
+get 'abouts/ourcoaches'
+
+get 'abouts/testimonials'
+
+
+
   get 'sessions/login'
   post 'sessions/login'
 
@@ -32,7 +43,7 @@ resources :users
 
   get 'teams/index'
 
-  root 'sessions#login'
+  root 'abouts#welcome'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

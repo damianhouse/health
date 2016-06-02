@@ -29,26 +29,26 @@
         <ul class="nav navbar-nav">
           <% if session[:coach_id] != nil %>
 
-          <li><a href="/coaches/">Dashboard</a></li>
-          <li><%= link_to 'My Profile', Coach.find(session[:coach_id]) %></li>
-          <li><%= link_to 'My Team', teams_index_path %></li>
-          <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
+            <li><a href="/coaches/">Dashboard</a></li>
+            <li><%= link_to 'My Profile', Coach.find(session[:coach_id]) %></li>
+            <li><%= link_to 'My Team', teams_index_path %></li>
+            <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
 
           <% elsif session[:user_id] != nil %>
 
-          <li><a href="/users/">Dashboard</a></li>
-          <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>
-          <li><%= link_to 'My Team', teams_index_path %></li>
-          <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
+            <li><a href="/users/">Dashboard</a></li>
+            <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>
+            <li><%= link_to 'My Team', teams_index_path %></li>
+            <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
 
           <% else %>
-          <li><a href="#">Welcome</a></li>
-          <li><a href="#">Our Coaches</a></li>
-          <li><a href="#">Testimonials</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><%= link_to 'Sign In', sessions_login_path%></li>
-          <li><%= link_to 'Sign Up Now', new_user_path%></li>
-
+          
+            <li><a href="/abouts/welcome">Welcome</a></li>
+            <li><a href="/abouts/ourcoaches">Our Coaches</a></li>
+            <li><a href="/abouts/testimonials">Testimonials</a></li>
+            <li><a href="/abouts/aboutus">About Us</a></li>
+            <li><%= link_to 'Sign In', sessions_login_path%></li>
+            <li><%= link_to 'Sign Up Now', new_user_path%></li>
 
           <% end %>
 
