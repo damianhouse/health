@@ -42,17 +42,9 @@
 
 
 
-.main-image {
-  width: 100%;
-
-}
-
-
-
-
-
-
-
+/*.main-image {
+  max-width: 100%;
+}*/
 
 
 
@@ -1344,8 +1336,20 @@
    font-size: 14px;
    font-weight: 300;
    line-height: 1.4;
+
+
+
+
+
  }
  @media (min-width: 768px) {
+
+
+
+
+
+
+
    .lead {
      font-size: 19.5px;
    }
@@ -5068,6 +5072,12 @@
  .jumbotron > hr {
    border-top-color: #dbdbdb;
  }
+
+ .jumbotron > img {
+max-width: 100%
+}
+
+
  .container .jumbotron,
  .container-fluid .jumbotron {
    border-radius: 6px;
