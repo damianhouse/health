@@ -22,6 +22,12 @@ class UsersController < ApplicationController
   def edit
   end
 
+
+
+
+
+
+
   # POST /users
   # POST /users.json
   def create
@@ -66,7 +72,6 @@ class UsersController < ApplicationController
   end
 
   def send_email
-
   end
 
 

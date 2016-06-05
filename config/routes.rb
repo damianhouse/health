@@ -18,13 +18,10 @@ resources :users
   resources :users
 
 
-
+root 'abouts#welcome'
 get 'abouts/welcome'
-
 get 'abouts/aboutus'
-
 get 'abouts/ourcoaches'
-
 get 'abouts/testimonials'
 
 
@@ -43,8 +40,10 @@ get 'abouts/testimonials'
 
   get 'teams/index'
 
-  root 'abouts#welcome'
-
+  get 'menu/welcome'
+  get 'menu/community'
+  get 'menu/inspiration'
+  get 'menu/support'
 
 
 

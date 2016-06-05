@@ -35,14 +35,17 @@
             <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
 
           <% elsif session[:user_id] != nil %>
-
-            <li><a href="/users/">Dashboard</a></li>
+            <li><%= link_to 'Welcome', menu_welcome_path %></li>
+            <li><a href="/users/">Messages</a></li>
+            <li><%= link_to 'Community', menu_community_path %></li>
+            <li><%= link_to 'Inspiration', menu_inspiration_path %></li>
             <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>
             <li><%= link_to 'My Team', teams_index_path %></li>
+            <li><%= link_to 'Support', menu_support_path %></li>
             <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
 
           <% else %>
-          
+
             <li><a href="/abouts/welcome">Welcome</a></li>
             <li><a href="/abouts/ourcoaches">Our Coaches</a></li>
             <li><a href="/abouts/testimonials">Testimonials</a></li>
