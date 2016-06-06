@@ -23,6 +23,7 @@ get 'abouts/welcome'
 get 'abouts/aboutus'
 get 'abouts/ourcoaches'
 get 'abouts/testimonials'
+get 'abouts/signupconfirmation'
 
 
 

@@ -13,10 +13,13 @@ class AboutsController < ApplicationController
 
     end
 
-
     def testimonials
 
     end
 
+
+    def signupconfirmation
+
+    end
 
   end
