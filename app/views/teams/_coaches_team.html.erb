@@ -1,6 +1,6 @@
 
 <% @coach.users.each do |user| %>
-  <% user_note = user.notes.where(coach_id = @coach.id) %>
+  <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
     <span class="badge"><%= user.name %></span>
     <li class="list-group-item">
@@ -28,7 +28,7 @@
 <% end %>
 
 <% @coach.find_user_1.each do |user| %>
-  <% user_note = user.notes.where(coach_id = @coach.id) %>
+  <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
     <span class="badge"><%= user.name %></span>
     <li class="list-group-item">
@@ -54,7 +54,7 @@
 
 
 <% @coach.find_user_2.each do |user| %>
-  <% user_note = user.notes.where(coach_id = @coach.id) %>
+  <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
     <span class="badge"><%= user.name %></span>
     <li class="list-group-item">
@@ -80,7 +80,7 @@
 
 
 <% @coach.find_user_3.each do |user| %>
-  <% user_note = user.notes.where(coach_id = @coach.id) %>
+  <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
     <span class="badge"><%= user.name %></span>
     <li class="list-group-item">
@@ -105,7 +105,7 @@
 <% end %>
 
 <% @coach.find_user_4.each do |user| %>
-  <% user_note = user.notes.where(coach_id = @coach.id) %>
+  <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
     <span class="badge"><%= user.name %></span>
     <li class="list-group-item">
