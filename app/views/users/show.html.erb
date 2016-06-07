@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1>User Profile</h1>
 
+
+  <span class="badge"><%=image_tag @user.avatar_url, class: "center-block"%></span>
+
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge"><%= @user.name %></span>
@@ -19,42 +22,14 @@
     <span class="badge"><%= @user.zip %></span>
   <strong>  Zip: </strong>
   </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @user.avatar_url %></span>
-  <strong>  Avatar_url: </strong>
-  </li>
 
-
-
-
-  <!-- <li class="list-group-item">
-    <span class="badge"><%= @user.coach_id %></span>
-    <strong>Coach:</strong>
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @user.coach_1 %></span>
-    <strong>Coach 1:</strong>
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @user.coach_2 %></span>
-    <strong>Coach 2:</strong>
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @user.coach_3 %></span>
-    <strong>Coach 3:</strong>
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @user.coach_4 %></span>
-    <strong>Coach 4:</strong>
-  </li> -->
+  <% if @user.id == session[:user_id] %>
   <li class="list-group-item">
     <span class="badge"></span>
-<%= link_to 'Edit', edit_user_path(@user), class: 'list-group-item btn btn-info'%>
+  <%= link_to 'Edit', edit_user_path(@user), class: 'list-group-item btn btn-info'%>
   </li>
+  <% end %>
 </ul>
-
-
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
