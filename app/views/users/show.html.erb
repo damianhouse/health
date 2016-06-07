@@ -10,7 +10,24 @@
     <span class="badge"><%= @user.email %></span>
   <strong>  Email: </strong>
   </li>
+
   <li class="list-group-item">
+    <span class="badge"><%= @user.phone %></span>
+  <strong>  Phone: </strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.zip %></span>
+  <strong>  Zip: </strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @user.avatar_url %></span>
+  <strong>  Avatar_url: </strong>
+  </li>
+
+
+
+
+  <!-- <li class="list-group-item">
     <span class="badge"><%= @user.coach_id %></span>
     <strong>Coach:</strong>
   </li>
@@ -29,7 +46,7 @@
   <li class="list-group-item">
     <span class="badge"><%= @user.coach_4 %></span>
     <strong>Coach 4:</strong>
-  </li>
+  </li> -->
   <li class="list-group-item">
     <span class="badge"></span>
 <%= link_to 'Edit', edit_user_path(@user), class: 'list-group-item btn btn-info'%>

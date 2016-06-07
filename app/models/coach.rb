@@ -3,6 +3,8 @@ class Coach < ActiveRecord::Base
   has_many :messages
   has_many :notes
   has_many :conversations
+  has_attached_file :avatar
+  validates_attachment_content_type :avatar, content_type: /\Aimage\//
 
   has_secure_password
 

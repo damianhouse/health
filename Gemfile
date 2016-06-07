@@ -9,8 +9,11 @@ gem "font-awesome-rails"
 
 gem 'stripe'
 
+gem 'paperclip', "~> 4.3"
+gem 'aws-sdk', '~> 2.3'
 
 
+gem "jquery-fileupload-rails"
 
 gem "administrate", "~> 0.2.1"
 
