@@ -8,6 +8,7 @@
   <p><%= password_field_tag :password, nil, placeholder: "Password" %></p>
   <%= submit_tag "Sign In", class: "btn-health" %>
  <% end %>
-
 <br>
- <%= link_to 'Sign Up Now', new_user_path, class: 'btn btn-default' %>
+ <%= link_to 'Sign Up Now', new_user_path, class: 'send_button' %>
+ <br>
+ <%= link_to 'Forgot your password?', reports_write_email_path, class: 'send_button' %>
