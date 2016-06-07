@@ -3,7 +3,7 @@
 one:
   name: MyString
   email: MyString
-  password: MyString
+  password_digest: MyString
   role: MyString
   coach_id: 1
   coach_1: 1
@@ -14,7 +14,7 @@ one:
 two:
   name: MyString
   email: MyString
-  password: MyString
+  password_digest: MyString
   role: MyString
   coach_id: 1
   coach_1: 1
