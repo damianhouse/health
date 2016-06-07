@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Coaches Profile</h1>
+
+<span class="badge"><%=image_tag @coach.avatar_url, class: "center-block"%></span>
 
 <ul class="list-group">
   <li class="list-group-item">
@@ -10,13 +11,17 @@
   <li class="list-group-item">
     <span class="badge"><%= @coach.email %></span>
     Email:
-
   </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @coach.phone %></span>
+  <strong>  Phone: </strong>
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @coach.zip %></span>
+  <strong>  Zip: </strong>
+  </li>
+
   <li class="list-group-item">
 <%= link_to 'Edit', edit_coach_path(@coach), class: 'list-group-item btn btn-info'%>
   </li>
 </ul>
-
-
-
-<%= link_to 'Back', coaches_path, class: 'btn btn-default' %>
