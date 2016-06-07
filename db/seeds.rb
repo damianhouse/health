@@ -20,9 +20,9 @@ conversation_user2 = Conversation.create!(user_id: user1.id, coach_id: coach2.id
 conversation_user3 = Conversation.create!(user_id: user1.id, coach_id: coach3.id)
 conversation_user4 = Conversation.create!(user_id: user1.id, coach_id: coach4.id)
 message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user1.id, body: "hello hello!")
-message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user2.id, body: "hello hello!")
-message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user3.id, body: "hello hello!")
-message1 = Message.create!(user_id: user1.id, conversation_id: conversation_user4.id, body: "hello hello!")
+message2 = Message.create!(user_id: user1.id, conversation_id: conversation_user2.id, body: "hello hello!")
+message3 = Message.create!(user_id: user1.id, conversation_id: conversation_user3.id, body: "hello hello!")
+message4 = Message.create!(user_id: user1.id, conversation_id: conversation_user4.id, body: "hello hello!")
 
 
 user2 = User.create!(name: "2", password: "password", email: "user2@user.com", coach_id: coach1.id)
