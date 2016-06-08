@@ -30,9 +30,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-
-      session[:user_id] = @user.id
-        format.html { redirect_to abouts_signupconfirmation_path, notice: 'Thank you for signing up, your account was successfully created!' }
+        ReportMailer.send_confirmation(@user).deliver_now
+        session[:user_id] = @user.id
+        format.html { redirect_to abouts_signupconfirmation_path }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -70,10 +70,6 @@ class UsersController < ApplicationController
 
   def send_email
   end
-
-
-
-
 
 
 

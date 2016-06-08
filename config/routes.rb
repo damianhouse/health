@@ -38,6 +38,8 @@ get 'abouts/signupconfirmation'
 
   get 'reports/write_email'
   post 'reports/send_email'
+  get 'reports/send_confirmation'
+  post 'reports/send_confirmation'
 
   get 'teams/index'
 

@@ -26,4 +26,9 @@ class ReportsController < ApplicationController
 
     # ReportMailer.invite_friend(params[:address]).deliver_later(wait_until: Time.now.end_of_day)
   end
+
+  # def send_confirmation
+  #   @user = User.find_by_email(params[:email])
+  #   ReportMailer.send_confirmation(params[:email]).deliver_now
+  # end
 end

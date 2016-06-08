@@ -31,4 +31,10 @@ class ReportMailer < ApplicationMailer
 
     mail to: "to@example.org"
   end
+
+  def send_confirmation(user)
+    @greeting = "Howdy"
+    @recipient = user.name
+    mail to: user.email, subject: "Welcome"
+  end
 end
