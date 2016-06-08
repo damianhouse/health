@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CoachTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "Class exists" do
+    assert Coach
+  end
+
+  
 end

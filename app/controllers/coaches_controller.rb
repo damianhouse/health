@@ -1,6 +1,7 @@
 class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
   before_action :validate_coach, only: [:index]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
   # GET /coaches
   # GET /coaches.json
   def index
@@ -76,8 +77,12 @@ class CoachesController < ApplicationController
       end
     end
 
+    def set_s3_direct_post
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def coach_params
-      params.require(:coach).permit(:name, :email, :password_digest, :role, :password, :uploaded_avatar)
+      params.require(:coach).permit(:name, :email, :password_digest, :role, :password, :avatar_url, :phone, :zip)
     end
 end
