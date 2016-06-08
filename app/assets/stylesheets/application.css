@@ -59,10 +59,14 @@
 }
 
 .send_button{
-  color: white;
-  background-color: #FF6600;
-  border-color: transparent;
-}
+
+    color: #ffffff;
+    background-color: #FF6600;
+    border-color: #FF6600;
+  }
+
+
+
 
  html {
    font-family: sans-serif;
