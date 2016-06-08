@@ -24,3 +24,8 @@ function refresh_conversation() {
 }
 
 setInterval("refresh_conversation();",25000);
+
+
+$("tr[data-link]").click(function() {
+  window.location = this.data("link")
+})
