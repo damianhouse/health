@@ -11,18 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607190410) do
+ActiveRecord::Schema.define(version: 20160608152702) do
 
   create_table "coaches", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
+<<<<<<< HEAD
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+=======
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+>>>>>>> Molly
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
+    t.datetime "avatar_updated_at"
+    t.integer  "avatar_file_size"
+    t.string   "avatar_content_type"
+    t.string   "avatar_file_name"
   end
 
   create_table "conversations", force: :cascade do |t|

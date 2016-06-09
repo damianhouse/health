@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'notifications/notify'
+  post 'notifications/notify' => 'notifications#notify'
+
   resources :notes
   namespace :admin do
     resources :coaches
@@ -38,6 +41,8 @@ get 'abouts/signupconfirmation'
 
   get 'reports/write_email'
   post 'reports/send_email'
+  get 'reports/send_confirmation'
+  post 'reports/send_confirmation'
 
   get 'teams/index'
 

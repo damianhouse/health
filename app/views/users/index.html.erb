@@ -11,37 +11,38 @@
 
 <table class="table table-striped table-hover" >
   <tbody>
-
-<tr>
-  <% @user.conversations.each do |convo| %>
-    <% if convo.messages.length > 0%>
-        <% if convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
-          <td><i class="fa fa-circle" aria-hidden="true"></i></td>
+    <% @user.conversations.each do |convo| %>
+        <% if convo.messages.length > 0%>
+          <tr>
+            <% if convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+              <td><i class="fa fa-circle" aria-hidden="true"></i></td>
+            <% else %>
+              <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
+            <% end %>
+            <td><%= link_to convo do %>
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                <% end %>
+            </td>
+            <td><%= link_to convo.coach.name, Coach.find(convo.coach) %></td>
+            <!-- <td><%= convo.coach.email %></td> -->
+            <td><%= convo.messages.last.body %> </td>
+            <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
+          </tr>
         <% else %>
-          <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-        <% end %>
-        <td><%= link_to convo do %>
-          <i class="fa fa-eye" aria-hidden="true"></i> </td>
-        <% end %>
-        <td><%= link_to convo.coach.name, Coach.find(convo.coach) %></td>
-        <!-- <td><%= convo.coach.email %></td> -->
-        <td><%= convo.messages.last.body %> </td>
-        <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
-      </tr>
-    <% else %>
-      <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-      <td>
-        <%= link_to convo do %>
-          <i class="fa fa-eye" aria-hidden="true"></i>
-        <% end %>
-        <td><%= convo.coach.name %></td>
+          <tr>
+            <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
+            <td>
+              <%= link_to convo do %>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              <% end %>
+              <td><%= convo.coach.name %></td>
 
-      </td>
-      <td>Start the conversation now!</td>
-      <td></td>
-      </tr>
+            </td>
+            <td>Start the conversation now!</td>
+            <td></td>
+          </tr>
+        <% end %>
     <% end %>
-<% end %>
   </tbody>
 </table>
 

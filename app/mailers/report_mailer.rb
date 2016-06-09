@@ -31,4 +31,11 @@ class ReportMailer < ApplicationMailer
 
     mail to: "to@example.org"
   end
+
+  def send_confirmation(user)
+    @greeting = "Howdy"
+    @recipient = user.name
+    attachments.inline['Healthstyle.jpg'] = File.read('app/assets/images/Healthstyle.jpg')
+    mail to: user.email, subject: "Welcome"
+  end
 end
