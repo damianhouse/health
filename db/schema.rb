@@ -18,9 +18,8 @@ ActiveRecord::Schema.define(version: 20160607190410) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "avatar_content_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
