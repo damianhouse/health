@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'notifications/notify'
+  post 'notifications/notify' => 'notifications#notify'
 
   resources :notes
   namespace :admin do
