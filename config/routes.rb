@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/notify'
+
   resources :notes
   namespace :admin do
     resources :coaches
