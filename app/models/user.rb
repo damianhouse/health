@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
 
   belongs_to :coach
   has_many :conversations
