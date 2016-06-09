@@ -18,20 +18,11 @@ ActiveRecord::Schema.define(version: 20160608152702) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
-<<<<<<< HEAD
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-=======
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
->>>>>>> Molly
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
-    t.datetime "avatar_updated_at"
-    t.integer  "avatar_file_size"
-    t.string   "avatar_content_type"
-    t.string   "avatar_file_name"
   end
 
   create_table "conversations", force: :cascade do |t|
