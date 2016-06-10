@@ -79,23 +79,18 @@ Rails.application.configure do
 
 
 
-
-  config.action_mailer.default_url_options = { :host => "http://www.yourdomain.com" }
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.mailgun.org',
-    port:                 587,
-    domain:               ENV["MAILGUN_SANDBOX_DOMAIN"],
-    user_name:            'postmaster@'+ENV["MAILGUN_SANDBOX_DOMAIN"],
-    password:             ENV["MAILGUN_SANDBOX_PASSWORD"],
-    authentication:       'plain',
-    enable_starttls_auto: true  }
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'yourapp.heroku.com',
+    :authentication => :plain,
+  }
+  ActionMailer::Base.delivery_method = :smtp
 
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
 
-  # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
+
+
 end

@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       if @user.save
         ReportMailer.send_confirmation(@user).deliver_now
         session[:user_id] = @user.id
-        format.html { redirect_to notifications_notify_path }
+        format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
