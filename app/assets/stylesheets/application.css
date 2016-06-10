@@ -40,7 +40,9 @@
  /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 
-
+.testimonials {
+  max-width: 100%
+}
 
 /*.main-image {
   max-width: 100%;
