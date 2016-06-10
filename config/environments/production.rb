@@ -79,15 +79,22 @@ Rails.application.configure do
 
 
 
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'healthstyle.herokuapp.com',
-    :authentication => :plain,
-  }
-  ActionMailer::Base.delivery_method = :smtp
+
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              ENV['MAILGUN_SMTP_SERVER'],
+    port:                 ENV['MAILGUN_SMTP_PORT'],
+    domain:               ENV["MAILGUN_SANDBOX_DOMAIN"],
+    user_name:            ENV['MAILGUN_SMTP_LOGIN'],
+    password:             ENV['MAILGUN_SMTP_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
 
 
 
