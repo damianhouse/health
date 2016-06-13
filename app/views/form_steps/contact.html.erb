@@ -1,0 +1,18 @@
+<%= form_for @user, url: wizard_path do |f| %>
+
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.number_field :phone %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.number_field :zip %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit"%>
+  </div>
+
+<% end %>

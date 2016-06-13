@@ -22,7 +22,7 @@ resources :users
   resources :conversations
   resources :coaches
   resources :users
-
+  resources :form_steps
 
 root 'abouts#welcome'
 get 'abouts/welcome'

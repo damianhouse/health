@@ -16,6 +16,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
@@ -26,30 +27,13 @@
     <%= f.password_field :password, type: "password" %>
   </div>
 
-
   <div class="field">
     <%= f.label :avatar_url %><br>
     <%= f.file_field :avatar_url %>
   </div>
 
-
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.number_field :phone %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.number_field :zip %>
-  </div>
-
-
-
-
-
   <div class="actions">
-    <%= f.submit 'Sign Up Now' %>
+    <%= f.submit 'Next' %>
   </div>
 <% end %>
 
