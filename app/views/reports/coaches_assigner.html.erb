@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Please enter the email address to alert user their coach has been assigned!</h1>
+<%= form_tag reports_send_assignment_path, multipart: true do %>
+  <%= email_field_tag :email, nil, placeholder: "Email Address" %><br />
+  <%= submit_tag %>
+<% end %>

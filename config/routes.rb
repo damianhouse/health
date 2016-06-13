@@ -44,6 +44,15 @@ get 'abouts/signupconfirmation'
   get 'reports/send_confirmation'
   post 'reports/send_confirmation'
 
+  get 'reports/coaches_assigner'
+  post 'reports/coaches_assigner'
+  get 'reports/send_assignment'
+  post 'reports/send_assignment'
+
+
+
+
+
   get 'teams/index'
 
   get 'menu/welcome'

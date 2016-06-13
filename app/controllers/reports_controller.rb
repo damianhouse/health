@@ -27,6 +27,32 @@ class ReportsController < ApplicationController
     # ReportMailer.invite_friend(params[:address]).deliver_later(wait_until: Time.now.end_of_day)
   end
 
+  def coaches_assigner
+  end
+
+
+
+  def send_assignment
+
+    if @user = User.find_by_email(params[:email])
+      ReportMailer.coaches_assigned(params[:email]).deliver_now
+    else
+      redirect_to reports_coaches_assigner_path, notice: 'EMAIL NOT FOUND.'
+    end
+
+    # File.open("tmp/temp.png", "wb") do |file|
+    #   file.write(params[:file].read)
+    # end
+
+    # ReportMailer.invite_friend(params[:address]).deliver_later(wait_until: Time.now.end_of_day)
+  end
+
+
+
+
+
+
+
   # def send_confirmation
   #   @user = User.find_by_email(params[:email])
   #   ReportMailer.send_confirmation(params[:email]).deliver_now
