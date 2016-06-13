@@ -11,7 +11,7 @@ class ReportMailer < ApplicationMailer
   end
 
   def coaches_assigned(address)
-    @greeting = "Your coach have been assigned! Check 'My Team' after logging in and start a conversation!"
+    @greeting = "Your coach have been assigned! Check My Team after logging in and start a conversation!"
     mail to: address, subject: "Your Coach Has Been Assigned!"
   end
 
