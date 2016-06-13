@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'notifications/notify'
   post 'notifications/notify' => 'notifications#notify'
+  get 'notifications/text_assignment'
+  # post 'notifications/text_assignment'
+  get 'reports/email_assignment_sent'
 
   resources :notes
   namespace :admin do

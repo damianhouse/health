@@ -23,10 +23,11 @@ class NotificationsController < ApplicationController
     end
   end
 
-
-
-
-
-
+  def text_assignment
+    @user = User.find_by(email: params[:email])
+    client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+    message = client.messages.create from: '8284820730', to: @user.phone,
+    body: 'Hooray! We have your team! Log back in to MyHealthStyleApp.com and begin a conversation, or if you\'re shy they\'ll be reaching out to you very soon! '
+  end
 
 end

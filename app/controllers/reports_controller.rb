@@ -36,6 +36,11 @@ class ReportsController < ApplicationController
 
     if @user = User.find_by_email(params[:email])
       ReportMailer.coaches_assigned(params[:email]).deliver_now
+      unless @user.phone == ""
+        redirect_to notifications_text_assignment_path(request.parameters)
+      else
+        redirect_to reports_email_assignment_sent_path(request.parameters)
+      end
     else
       redirect_to reports_coaches_assigner_path, notice: 'EMAIL NOT FOUND.'
     end
@@ -47,10 +52,9 @@ class ReportsController < ApplicationController
     # ReportMailer.invite_friend(params[:address]).deliver_later(wait_until: Time.now.end_of_day)
   end
 
-
-
-
-
+  def email_assignment_sent
+    @user = User.find_by_email(params[:email])
+  end
 
 
   # def send_confirmation
