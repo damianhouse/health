@@ -2,10 +2,38 @@
 
 
 
-Thanks for signing up! Your account was successfully created! Please check your inbox for the welcome email.
+Thanks for signing up! Your account was successfully created!
 
-<br>
-<br>
+Before any coaches are assigned to assist you, you must pay the subscription below:
 
 
-<%= link_to 'Continue to Welcome Page!', menu_welcome_path, class: "btn btn-primary" %>
+<div class="checkout-amount">
+  <%= form_tag charges_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+
+        Total: &nbsp; <%= number_to_currency(@amount, :unit => "$")  %>
+
+      </label>
+
+    </article>
+    <br>
+
+    <form action="/charges/new" method="POST">
+      <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_l8vHTycCHQtPxRGBPoisKZbh"
+      data-image="assets/images/healthstylesmall.png"
+      data-name="My Healthstyle"
+      data-description="Subscription for 1 week"
+      data-amount="2000"
+      data-label="Sign Me Up!" >
+      </script>
+    </form>
+  <% end %>
+</div>
