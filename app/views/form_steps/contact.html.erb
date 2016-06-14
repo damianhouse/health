@@ -11,6 +11,12 @@
     <%= f.number_field :zip %>
   </div>
 
+  <div class="field">
+    <%= f.check_box :role %>
+    <%= f.label "I have read and agree to the"%>
+    <%= link_to "Terms of Service", abouts_terms_path, target: '_blank' %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Submit"%>
   </div>

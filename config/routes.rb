@@ -23,6 +23,7 @@ resources :users
   resources :coaches
   resources :users
   resources :form_steps
+  get 'abouts/terms'
 
 root 'abouts#welcome'
 get 'abouts/welcome'

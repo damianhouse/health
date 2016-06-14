@@ -22,4 +22,7 @@ class AboutsController < ApplicationController
 
     end
 
+    def terms
+      
+    end
   end
