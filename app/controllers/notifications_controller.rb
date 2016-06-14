@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
         redirect_to abouts_signupconfirmation_path
       rescue
         redirect_to :back
-        flash[:error] =  "Please enter a valid phone number."
+        flash[:notice] =  "Please enter a valid phone number."
       end
     else
       redirect_to abouts_signupconfirmation_path
