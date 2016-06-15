@@ -45,7 +45,7 @@
 }
 
 .main-image {
-  
+
 }
 
 .progress {
@@ -62,11 +62,14 @@
 
 .send_button{
 
-    color: #ffffff;
-    background-color: #FF6600;
+    /*color: #ffffff;*/
+    /*background-color: #FF6600;*/
     border-color: #FF6600;
   }
 
+.orange_text{
+  color: #FF6600;
+}
 
 
 
