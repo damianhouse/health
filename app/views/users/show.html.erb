@@ -5,26 +5,26 @@
 
 <ul class="list-group">
   <li class="list-group-item">
-    <span class="badge"><%= @user.name %></span>
+    <span class="orange_text"><%= @user.name %></span>
     <strong>Name:</strong>
   </li>
   <li class="list-group-item">
-    <span class="badge"><%= @user.email %></span>
+    <span class="orange_text"><%= @user.email %></span>
   <strong>  Email: </strong>
   </li>
 
   <li class="list-group-item">
-    <span class="badge"><%= @user.phone %></span>
+    <span class="orange_text"><%= @user.phone %></span>
   <strong>  Phone: </strong>
   </li>
   <li class="list-group-item">
-    <span class="badge"><%= @user.zip %></span>
+    <span class="orange_text"><%= @user.zip %></span>
   <strong>  Zip: </strong>
   </li>
 
   <% if @user.id == session[:user_id] %>
   <li class="list-group-item">
-    <span class="badge"></span>
+    <span class="orange_text"></span>
   <%= link_to 'Edit', edit_user_path(@user), class: 'list-group-item btn btn-info'%>
   </li>
   <% end %>

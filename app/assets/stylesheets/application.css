@@ -71,6 +71,19 @@
   color: #FF6600;
 }
 
+.list-group-item.active > .orange_text,
+.nav-pills > .active > a > .orange_text {
+  color: #FF6600;
+}
+.list-group-item > .orange_text {
+  float: right;
+}
+.list-group-item > .orange_text + .orange_text {
+  margin-right: 5px;
+}
+.nav-pills > li > a > .orange_text {
+  margin-left: 3px;
+}
 
 
  html {
