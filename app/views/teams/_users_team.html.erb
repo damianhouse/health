@@ -1,86 +1,114 @@
 
-<% if @user.coach != nil %>
-  <% coach = @user.coach %>
-  <% user_convos = coach.conversations.where(user_id: @user.id) %>
-  <ul class="list-group">
-    <span class="badge"><%= coach.name %></span>
-    <span class="badge"><%= link_to 'Coach Details', coach , class:"btn btn-default"%></span>
-    <% if user_convos.length >= 1 %>
-    <% user_convos.each do |convo| %>
-          <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
-          </ul>
-    <% end %>
-  <% else %>
-          <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-        </ul>
-  <% end %>
-<% end %>
+<table class="table table-striped table-hover ">
 
-<% if @user.find_coach_1 != nil %>
-  <% coach = @user.find_coach_1 %>
-  <% user_convos = coach.conversations.where(user_id: @user.id) %>
-  <ul class="list-group">
-    <span class="badge"><%= coach.name %></span>
-    <span class="badge"><%= link_to 'Coach Details', coach , class:"btn btn-default"%></span>
-    <% if user_convos.length >= 1 %>
-    <% user_convos.each do |convo| %>
-          <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
-          </ul>
+    <% if @user.coach != nil %>
+      <% coach = @user.coach %>
+      <% user_convos = coach.conversations.where(user_id: @user.id) %>
+      <tr>
+        <td>
+          <span class="orange_text"><%= coach.name %></span>
+        </td>
+        <td>
+          <span><%= link_to 'Coach Details', coach %></span>
+        </td>
+        <td>
+          <% if user_convos.length >= 1 %>
+            <% user_convos.each do |convo| %>
+              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+            <% end %>
+          <% else %>
+            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-  <% else %>
-          <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-        </ul>
-  <% end %>
-<% end %>
 
-
-<% if @user.find_coach_2 != nil %>
-  <% coach = @user.find_coach_2 %>
-  <% user_convos = coach.conversations.where(user_id: @user.id) %>
-  <ul class="list-group">
-    <span class="badge"><%= coach.name %></span>
-    <span class="badge"><%= link_to 'Coach Details', coach , class:"btn btn-default"%></span>
-    <% if user_convos.length >= 1 %>
-    <% user_convos.each do |convo| %>
-          <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
-          </ul>
+    <% if @user.find_coach_1 != nil %>
+      <% coach = @user.find_coach_1 %>
+      <% user_convos = coach.conversations.where(user_id: @user.id) %>
+      <tr>
+        <td>
+          <span class="orange_text"><%= coach.name %></span>
+        </td>
+        <td>
+          <span><%= link_to 'Coach Details', coach %></span>
+        </td>
+        <td>
+          <% if user_convos.length >= 1 %>
+            <% user_convos.each do |convo| %>
+              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+            <% end %>
+          <% else %>
+            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-  <% else %>
-          <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-        </ul>
-  <% end %>
-<% end %>
 
-<% if @user.find_coach_3 != nil %>
-  <% coach = @user.find_coach_3 %>
-  <% user_convos = coach.conversations.where(user_id: @user.id) %>
-  <ul class="list-group">
-    <span class="badge"><%= coach.name %></span>
-    <span class="badge"><%= link_to 'Coach Details', coach , class:"btn btn-default"%></span>
-    <% if user_convos.length >= 1 %>
-    <% user_convos.each do |convo| %>
-          <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
-          </ul>
+    <% if @user.find_coach_2 != nil %>
+      <% coach = @user.find_coach_2 %>
+      <% user_convos = coach.conversations.where(user_id: @user.id) %>
+      <tr>
+        <td>
+          <span class="orange_text"><%= coach.name %></span>
+        </td>
+        <td>
+          <span><%= link_to 'Coach Details', coach %></span>
+        </td>
+        <td>
+          <% if user_convos.length >= 1 %>
+            <% user_convos.each do |convo| %>
+              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+            <% end %>
+          <% else %>
+            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-  <% else %>
-          <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-        </ul>
-  <% end %>
-<% end %>
 
-<% if @user.find_coach_4 != nil %>
-  <% coach = @user.find_coach_4 %>
-  <% user_convos = coach.conversations.where(user_id: @user.id) %>
-  <ul class="list-group">
-    <span class="badge"><%= coach.name %></span>
-    <span class="badge"><%= link_to 'Coach Details', coach , class:"btn btn-default"%></span>
-  <% if user_convos.length >= 1 %>
-    <% user_convos.each do |convo| %>
-          <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
-          </ul>
+    <% if @user.find_coach_3 != nil %>
+      <% coach = @user.find_coach_3 %>
+      <% user_convos = coach.conversations.where(user_id: @user.id) %>
+      <tr>
+        <td>
+          <span class="orange_text"><%= coach.name %></span>
+        </td>
+        <td>
+          <span><%= link_to 'Coach Details', coach %></span>
+        </td>
+        <td>
+          <% if user_convos.length >= 1 %>
+            <% user_convos.each do |convo| %>
+              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+            <% end %>
+          <% else %>
+            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-  <% else %>
-          <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-        </ul>
-  <% end %>
-<% end %>
+
+    <% if @user.find_coach_4 != nil %>
+      <% coach = @user.find_coach_4 %>
+      <% user_convos = coach.conversations.where(user_id: @user.id) %>
+      <tr>
+        <td>
+          <span class="orange_text"><%= coach.name %></span>
+        </td>
+        <td>
+          <span><%= link_to 'Coach Details', coach %></span>
+        </td>
+        <td>
+          <% if user_convos.length >= 1 %>
+            <% user_convos.each do |convo| %>
+              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+            <% end %>
+          <% else %>
+            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+
+</table>
