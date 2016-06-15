@@ -62,8 +62,8 @@
 
 .send_button{
 
-    /*color: #ffffff;*/
-    /*background-color: #FF6600;*/
+    color: #ffffff;
+    background-color: #FF6600;
     border-color: #FF6600;
   }
 
@@ -1422,14 +1422,14 @@
    color: #a91b0c;
  }
  .text-success {
-   color: #468847;
+   color: #777777;
  }
  a.text-success:hover,
  a.text-success:focus {
    color: #356635;
  }
  .text-info {
-   color: #3a87ad;
+   color: #777777;
  }
  a.text-info:hover,
  a.text-info:focus {
@@ -7035,3 +7035,132 @@ max-width: 100%
  .pager .disabled > a {
    border-color: #dddddd;
  }
+
+/* Messenger */
+.chat {
+  background-color: #dddddd;
+  padding: .5em;
+}
+
+.msg_container {
+    width: 688px;
+    margin: 0 auto;
+}
+
+.msgwhite-shadow {
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .8) 4px, rgba(255, 255, 255, .28) 8px);
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, .8) 4px, rgba(255, 255, 255, .28) 8px);
+    background-image: -ms-linear-gradient(top, rgba(255, 255, 255, .8) 4px, rgba(255, 255, 255, .28) 8px);
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, .8) 4px, rgba(255, 255, 255, .28) 8px);
+    background-image: -linear-gradient(top, rgba(255, 255, 255, .8) 4px, rgba(255, 255, 255, .28) 8px);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, .8)) 4px, to(rgba(255, 255, 255, .28)) 8px);
+    padding: 2px 8px 4px;
+    margin: 0;
+    border-radius: 24px;
+}
+
+.msgtext-left {
+    background-color: #d2d2d2;
+    background-image: -webkit-linear-gradient(top, #9da0a6, #d2d2d2 17px, #e5e5e5 92%);
+    border-radius: 15px;
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.6);
+    font: 15px Helvetica, Arial, sans-serif;
+    margin: 1em 51% 1em 0;
+    padding: 0 4px;
+    position: relative;
+    border-width: 1px;
+    border-color: #9DA0A6 #9DA0A6 #9DA0A6 transparent;
+    border-style: solid;
+}
+
+.msgtext-right {
+    background-color: #ff6600;
+    background-image: -webkit-linear-gradient(top, #cc5200, #ff6600 17px, #ffa366 92%);
+    border-radius: 15px;
+    box-shadow: -2px 1px 2px rgba(0, 0, 0, 0.6);
+    font: 15px Helvetica, Arial, sans-serif;
+    margin: 1em 0 1em 51%;
+    padding: 0 4px;
+    position: relative;
+    border-width: 1px;
+    border-color: #cc5200 transparent #cc5200 #cc5200;
+    border-style: solid;
+}
+
+.msgtext-left:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -1px;
+    height: 6px;
+    border-right: 14px solid #d5d5d5;
+    background: #dbe2ed;
+    -webkit-border-bottom-right-radius: 36px 18px;
+    -moz-border-radius-bottomright: 36px 18px;
+    border-bottom-right-radius: 36px 18px;
+    box-shadow: 2px 2px 2px #9da0a6;
+    -webkit-transform: translate(0, -2px);
+    -moz-transform: translate(0, -2px);
+    -ms-transform: translate(0, -2px);
+    -o-transform: translate(0, -2px);
+    transform: translate(0, -2px);
+    right: 98%;
+}
+
+.msgtext-left:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0px;
+    right: 95.5%;
+    width: 28px;
+    height: 12px;
+    background: #dbe2ed;
+    -webkit-border-bottom-right-radius: 18px 12px;
+    -moz-border-radius-bottomright: 18px 12px;
+    border-bottom-right-radius: 20px 20px;
+    -webkit-transform: translate(-12px, -2px);
+    -moz-transform: translate(-12px, -2px);
+    -ms-transform: translate(-12px, -2px);
+    -o-transform: translate(-12px, -2px);
+    transform: translate(-12px, -2px);
+}
+
+.msgtext-right:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -1px;
+    height: 6px;
+    border-left: 14px solid #a9e24c;
+    background: #dbe2ed;
+    -webkit-border-bottom-left-radius: 36px 18px;
+    -moz-border-radius-bottomleft: 36px 18px;
+    border-bottom-left-radius: 36px 18px;
+    box-shadow: 2px 2px 2px #9da0a6;
+    -webkit-transform: translate(0, -2px);
+    -moz-transform: translate(0, -2px);
+    -ms-transform: translate(0, -2px);
+    -o-transform: translate(0, -2px);
+    transform: translate(0, -2px);
+    left: 98%;
+}
+
+.msgtext-right:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0px;
+    left: 103.5%;
+    width: 28px;
+    height: 12px;
+    background: #dbe2ed;
+    -webkit-border-bottom-left-radius: 20px 12px;
+    -moz-border-radius-bottomleft: 20px 12px;
+    border-bottom-left-radius: 20px 20px;
+    -webkit-transform: translate(-12px, -2px);
+    -moz-transform: translate(-12px, -2px);
+    -ms-transform: translate(-12px, -2px);
+    -o-transform: translate(-12px, -2px);
+    transform: translate(-12px, -2px);
+}

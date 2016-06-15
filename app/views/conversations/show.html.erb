@@ -10,24 +10,23 @@
   <span class="text-success"><%= Coach.find(@conversation.coach_id).name %></span>
 </p>
 
-<table class="conversation table table-striped table-hover ">
-
-    <% @conversation.messages.each do |message| %>
-      <tr>
-        <% if message.user_id != nil %>
-          <td class="info text-right" ><%= message.body %></td>
-        <% elsif message.coach_id != nil %>
-        <td class="success text-left"><%= message.body %></td>
-        <% end %>
-      </tr>
+<div class="chat">
+  <% @conversation.messages.each do |message| %>
+    <% if message.user_id != nil %>
+      <div class="msgtext-right">
+        <p class="msgwhite-shadow"><%= message.body %></p>
+      </div>
+    <% elsif message.coach_id != nil %>
+      <div class="msgtext-left">
+        <p class="msgwhite-shadow"><%= message.body %></p>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</div>
 
 <br>
 
-
-
+<p>Enter New Message:</p>
 <%= form_for @message do |f| %>
   <%= render partial: "message_form", locals: {f: f} %>
 <% end %>
