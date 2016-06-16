@@ -13,7 +13,7 @@
   <tbody>
     <% @user.conversations.each do |convo| %>
         <% if convo.messages.length > 0%>
-          <tr>
+          <tr class='clickable-row' data-href='/conversations/<%= convo.id %>'>
             <% if convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
               <td><i class="fa fa-circle" aria-hidden="true"></i></td>
             <% else %>

@@ -29,3 +29,11 @@ setInterval("refresh_conversation();",25000);
 $("tr[data-link]").click(function() {
   window.location = this.data("link")
 })
+
+
+
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});
