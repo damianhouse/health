@@ -6,6 +6,14 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td>
+          <!-- <span class="badge"><%=image_tag coach.avatar_url, class: "center-block"%></span> -->
+          <% if coach.avatar_url != nil %>
+            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:115px;height:115px;" /></span>
+          <% else %>
+            <p>ughhh</p>
+          <% end %>
+        </td>
+        <td>
           <span class="orange_text"><%= coach.name %></span>
         </td>
         <td>
