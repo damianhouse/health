@@ -27,11 +27,11 @@
             <% if convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
               <span class="orange_text"><i>New message!</i></span>
             <% else %>
-              <i>No new messages</i>
+              <i>No unread messages</i>
             <% end %>
           </td>
           <td>
-            <%= convo.messages.last.body %>
+            <%= convo.messages.last.body_snippet %>
           </td>
           <td>
             <%= convo.messages.last.created_at.to_formatted_s(:short)  %>
