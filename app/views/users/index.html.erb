@@ -35,7 +35,7 @@
               <%= link_to convo do %>
                 <i class="fa fa-eye" aria-hidden="true"></i>
               <% end %>
-              <td><%= convo.coach.name %></td>
+              <td><%= link_to convo.coach.name, Coach.find(convo.coach) %></td>
 
             </td>
             <td>Start the conversation now!</td>

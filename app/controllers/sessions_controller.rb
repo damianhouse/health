@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     def login
       if request.post?
         coach = Coach.find_by(email: params[:email])
-          user = User.find_by(email: params[:email])
+        user = User.find_by(email: params[:email])
 
         if coach && coach.authenticate(params[:password])
           session[:coach_id] = coach.id
