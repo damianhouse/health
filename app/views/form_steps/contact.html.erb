@@ -1,9 +1,21 @@
 <p id="notice"><%= notice %></p>
 <%= form_for @user, url: wizard_path do |f| %>
 
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.number_field :phone %>
+<!-- <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %> -->
+
+  <div class="field" >
+    <%= f.label :phone %>*<br/>
+    <%= f.telephone_field :phone, required: true, pattern: '^\d{3}-\d{3}-\d{4}$', placeholder: "xxx-xxx-xxxx", title: "format: xxx-xxx-xxxx" %>
   </div>
 
 
@@ -12,11 +24,11 @@
     <%= f.number_field :zip %>
   </div>
 
-  <div class="field">
-    <%= f.check_box :role %>
+  <!-- <div class="field">
+    <%= f.check_box :role, required: true %>
     <%= f.label "I have read and agree to the"%>
     <%= link_to "Terms of Service", abouts_terms_path, target: '_blank' %>
-  </div>
+  </div> -->
 
   <div class="actions">
     <%= f.submit "Submit"%>

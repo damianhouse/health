@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  validates :password, length: { in: 8..20 }
   belongs_to :coach
   has_many :conversations
   has_many :messages
   has_many :notes
   has_secure_password
+  validates :password, length: { minimum: 8 }, allow_nil: true
 
   def find_coach_1
     if self.coach_1 != nil
