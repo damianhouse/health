@@ -7283,4 +7283,7 @@ only screen and (max-width: 760px),
 	td:nth-of-type(2):before { content: "Name"; }
 	td:nth-of-type(3):before { content: "stuff"; }
 	td:nth-of-type(10):before { content: "Arbitrary Data"; }*/
+
+  .smalltext {
+  }
 }

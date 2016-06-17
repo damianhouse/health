@@ -13,17 +13,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name %>*<br>
+    <%= f.text_field :name, required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %>*<br>
     <%= f.email_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password %>*<br>
     <%= f.password_field :password, type: "password" %>
   </div>
 
@@ -32,6 +32,7 @@
     <%= f.file_field :avatar_url %>
   </div>
 
+  <p class="smalltext"><i>* = Required field</i></p>
   <div class="actions">
     <%= f.submit 'Next' %>
   </div>
