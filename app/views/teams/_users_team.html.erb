@@ -1,5 +1,5 @@
 
-<table class="table table-striped table-hover ">
+<table class="table table-responsive table-striped table-hover ">
 
     <% if @user.coach != nil %>
       <% coach = @user.coach %>
@@ -8,9 +8,9 @@
         <td>
           <!-- <span class="badge"><%=image_tag coach.avatar_url, class: "center-block"%></span> -->
           <% if coach.avatar_url != nil %>
-            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:115px;height:115px;" /></span>
+            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
           <% else %>
-            <p>ughhh</p>
+            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
           <% end %>
         </td>
         <td>
@@ -22,7 +22,7 @@
         <td>
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+              <span><%= link_to 'View Conversation', convo %></span>
             <% end %>
           <% else %>
             <%= render partial: "users_conversation_form", locals: { coach: coach} %>
@@ -36,6 +36,13 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td>
+          <% if coach.avatar_url != nil %>
+            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+          <% else %>
+            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+          <% end %>
+        </td>
+        <td>
           <span class="orange_text"><%= coach.name %></span>
         </td>
         <td>
@@ -44,7 +51,7 @@
         <td>
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+              <span><%= link_to 'View Conversation', convo %></span>
             <% end %>
           <% else %>
             <%= render partial: "users_conversation_form", locals: { coach: coach} %>
@@ -58,6 +65,13 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td>
+          <% if coach.avatar_url != nil %>
+            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+          <% else %>
+            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+          <% end %>
+        </td>
+        <td>
           <span class="orange_text"><%= coach.name %></span>
         </td>
         <td>
@@ -66,7 +80,7 @@
         <td>
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+              <span><%= link_to 'View Conversation', convo %></span>
             <% end %>
           <% else %>
             <%= render partial: "users_conversation_form", locals: { coach: coach} %>
@@ -80,6 +94,13 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td>
+          <% if coach.avatar_url != nil %>
+            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+          <% else %>
+            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+          <% end %>
+        </td>
+        <td>
           <span class="orange_text"><%= coach.name %></span>
         </td>
         <td>
@@ -88,7 +109,7 @@
         <td>
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+              <span><%= link_to 'View Conversation', convo %></span>
             <% end %>
           <% else %>
             <%= render partial: "users_conversation_form", locals: { coach: coach} %>
@@ -101,6 +122,13 @@
       <% coach = @user.find_coach_4 %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
+        <td>
+          <% if coach.avatar_url != nil %>
+            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+          <% else %>
+            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+          <% end %>
+        </td>
         <td>
           <span class="orange_text"><%= coach.name %></span>
         </td>
