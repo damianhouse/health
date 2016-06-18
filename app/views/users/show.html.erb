@@ -25,7 +25,7 @@
   <% if @user.id == session[:user_id] %>
   <li class="list-group-item">
     <span class="orange_text"></span>
-  <%= link_to 'Edit', edit_user_path(@user), class: 'list-group-item btn btn-info'%>
+  <%= link_to 'Edit', edit_user_path(@user), class: 'list-group-item btn btn-info edit'%>
   </li>
   <% end %>
 </ul>

@@ -3329,6 +3329,12 @@
    background-color: #ff6600;
    border-color: #ff6600;
  }
+
+ .btn-info.edit {
+   max-width: 200px;
+   margin: auto;
+ }
+
  .btn-health {
    color: #ffffff;
    background-color: #FF6600;
