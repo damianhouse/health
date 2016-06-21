@@ -20,7 +20,8 @@
             <td><i class="fa fa-circle" aria-hidden="true"></i> </td>
           <% end %>
           <td>
-            <%= link_to convo.coach.first, Coach.find(convo.coach) %>
+            <%= convo.coach.first %>
+            <%= convo.coach.last %>
           </td>
             <!-- <td><%= convo.coach.email %></td> -->
           <td>
@@ -42,7 +43,8 @@
           <td>
             <i class="fa fa-circle-o" aria-hidden="true"></i>
           </td>
-          <td><%= link_to convo.coach.first, Coach.find(convo.coach) %></td>
+          <td><<%= convo.coach.first %>
+<%= convo.coach.last %></td>
           <td>
             <i>No new messages</i>
           </td>
