@@ -40,6 +40,15 @@
  /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 
+
+
+.link {
+    color: #FF6600;
+    text-decoration: none;
+}
+
+
+
 .testimonials {
   max-width: 100%
 }

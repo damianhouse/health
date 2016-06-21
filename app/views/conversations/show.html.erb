@@ -2,12 +2,16 @@
 
 <p>
   <strong>User:</strong>
-  <span class="text-info"><%= User.find(@conversation.user_id).name %></span>
+  <span class="text-info"><%= User.find(@conversation.user_id).first %></span>
+  <span class="text-info"><%= User.find(@conversation.user_id).last %></span>
+
 </p>
 
 <p>
   <strong>Coach:</strong>
-  <span class="text-success"><%= Coach.find(@conversation.coach_id).name %></span>
+  <span class="text-success"><%= Coach.find(@conversation.coach_id).first %></span>
+  <span class="text-info"><%= User.find(@conversation.user_id).last %></span>
+
 </p>
 
 <div class="chat">
