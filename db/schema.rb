@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608152702) do
+ActiveRecord::Schema.define(version: 20160618220511) do
 
   create_table "coaches", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first"
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160608152702) do
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
+    t.string   "last"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -61,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160608152702) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first"
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160608152702) do
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
+    t.string   "last"
   end
 
 end
