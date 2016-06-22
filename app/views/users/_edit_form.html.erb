@@ -14,8 +14,12 @@
   <div class="list-group-info active">
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :first %><br>
+    <%= f.text_field :first %>
+  </div>
+  <div class="field">
+    <%= f.label :last %><br>
+    <%= f.text_field :last %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
@@ -37,10 +41,11 @@
     <%= f.file_field :avatar_url %>
   </div>
 
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.number_field :phone %>
+  <div class="field" >
+    <%= f.label :phone %>*<br/>
+    <%= f.telephone_field :phone, required: true, pattern: '^\d{3}-\d{3}-\d{4}$', placeholder: "xxx-xxx-xxxx", title: "format: xxx-xxx-xxxx" %>
   </div>
+
 
 
   <div class="field">

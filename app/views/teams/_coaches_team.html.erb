@@ -2,7 +2,8 @@
 <% @coach.users.each do |user| %>
   <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
-    <span class="badge"><%= user.name %></span>
+    <span class="badge"><%= user.first %></span>
+    <span class="badge"><%= user.last %></span>
     <li class="list-group-item">
 
 
@@ -30,7 +31,8 @@
 <% @coach.find_user_1.each do |user| %>
   <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
-    <span class="badge"><%= user.name %></span>
+    <span class="badge"><%= user.first %></span>
+    <span class="badge"><%= user.last %></span>
     <li class="list-group-item">
       <% if user_note.empty? == false %>
           <span class="badge"><%= link_to 'User Notes', user_note.first , class:"btn btn-default"%></span>
@@ -56,7 +58,8 @@
 <% @coach.find_user_2.each do |user| %>
   <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
-    <span class="badge"><%= user.name %></span>
+    <span class="badge"><%= user.first %></span>
+    <span class="badge"><%= user.last %></span>
     <li class="list-group-item">
       <% if user_note.empty? == false %>
           <span class="badge"><%= link_to 'User Notes', user_note.first , class:"btn btn-default"%></span>
@@ -82,7 +85,8 @@
 <% @coach.find_user_3.each do |user| %>
   <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
-    <span class="badge"><%= user.name %></span>
+    <span class="badge"><%= user.first %></span>
+    <span class="badge"><%= user.last %></span>
     <li class="list-group-item">
       <% if user_note.empty? == false %>
           <span class="badge"><%= link_to 'User Notes', user_note.first , class:"btn btn-default"%></span>
@@ -107,7 +111,8 @@
 <% @coach.find_user_4.each do |user| %>
   <% user_note = user.notes.where(coach_id: @coach.id) %>
   <ul class="list-group">
-    <span class="badge"><%= user.name %></span>
+    <span class="badge"><%= user.first %></span>
+    <span class="badge"><%= user.last %></span>
     <li class="list-group-item">
       <% if user_note.empty? == false %>
           <span class="badge"><%= link_to 'User Notes', user_note.first , class:"btn btn-default"%></span>

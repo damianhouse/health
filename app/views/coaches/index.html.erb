@@ -3,7 +3,7 @@
 <h1>Coaches Dashboard</h1>
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Welcome <%= @coach.name %>,</h3>
+    <h3 class="panel-title">Welcome <%= @coach.first %>,</h3>
   </div>
   <!-- <div class="panel-body">
   </div> -->
@@ -21,7 +21,9 @@
             <% else %>
               <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
+
             <td><%= link_to convo do %>
               <i class="fa fa-eye" aria-hidden="true"></i> </td>
             <% end %>
@@ -30,7 +32,8 @@
         </tr>
           <% elsif convo.coach_id == @coach.id %>
             <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td>
               <%= link_to convo do %>
                 <i class="fa fa-eye" aria-hidden="true"></i>
@@ -58,7 +61,8 @@
             <% else %>
               <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td><%= link_to convo do %>
               <i class="fa fa-eye" aria-hidden="true"></i> </td>
             <% end %>
@@ -67,7 +71,8 @@
         </tr>
           <% else %>
             <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td>
               <%= link_to convo do %>
                 <i class="fa fa-eye" aria-hidden="true"></i>
@@ -97,7 +102,8 @@
             <% else %>
               <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td><%= link_to convo do %>
               <i class="fa fa-eye" aria-hidden="true"></i> </td>
             <% end %>
@@ -106,7 +112,8 @@
         </tr>
           <% else %>
             <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td>
               <%= link_to convo do %>
                 <i class="fa fa-eye" aria-hidden="true"></i>
@@ -136,7 +143,8 @@
             <% else %>
               <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td><%= link_to convo do %>
               <i class="fa fa-eye" aria-hidden="true"></i> </td>
             <% end %>
@@ -145,8 +153,9 @@
         </tr>
           <% else %>
             <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.name %></td>
-            <td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
+                        <td>
               <%= link_to convo do %>
                 <i class="fa fa-eye" aria-hidden="true"></i>
               <% end %>
@@ -176,7 +185,8 @@
             <% else %>
               <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td><%= link_to convo do %>
               <i class="fa fa-eye" aria-hidden="true"></i> </td>
             <% end %>
@@ -185,7 +195,8 @@
         </tr>
           <% else %>
             <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.name %></td>
+            <td><%= user.first %></td>
+            <td><%= user.last %></td>
             <td>
               <%= link_to convo do %>
                 <i class="fa fa-eye" aria-hidden="true"></i>
