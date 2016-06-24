@@ -1,0 +1,36 @@
+.jumbotron.welcome {
+  padding-top:10px;
+}
+ul.nav.welcome {
+  text-align:right;
+  list-style-type: none;
+  padding:0;
+  margin:0;
+}
+ul.nav.welcome li {
+  display: inline-block;
+}
+ul.nav.welcome li a {
+  display: inline-block;
+  padding:10px 0;
+  margin:0;
+  color:#FF6600;
+}
+ul.nav.welcome li.divider {
+  color:#e6e6e6;
+}
+div.tagline h2 span.tagline {
+  display:inline-block;
+  margin-bottom:5px;
+  white-space: nowrap;
+  font-size:6.1vw;
+}
+div.learn-more {
+  margin-top:78px;
+}
+div.learn-more h2 {
+  margin-bottom:18px;
+}
+div.learn-more p {
+  font-size:4.1vw;
+}
