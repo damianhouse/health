@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160618220511) do
 
   create_table "coaches", force: :cascade do |t|
@@ -77,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160618220511) do
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
+    t.string   "last_name"
     t.string   "last"
   end
 
