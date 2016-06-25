@@ -5,8 +5,6 @@ class Coach < ActiveRecord::Base
   has_many :conversations
   has_secure_password
 
-
-
   def find_user_1
     User.where(coach_1: self.id)
   end
