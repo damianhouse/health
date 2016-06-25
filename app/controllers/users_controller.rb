@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :validate_user, only: [:index]
+  # before_action :validate_user, only: [:index]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
   before_action :logged_in?, only: [:edit]
   # GET /users
   # GET /users.json
   def index
     # @users = User.all
+    @user = User.joins(:conversations).order(params[:sort])
   end
 
   # GET /users/1

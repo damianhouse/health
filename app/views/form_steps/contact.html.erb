@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice_login"><%= notice %></p>
+<% end %>
+
 <%= form_for @user, url: wizard_path do |f| %>
 
 <!-- <% if @user.errors.any? %>
@@ -27,7 +30,7 @@
   <div class="field">
     <%= f.check_box :role, required: true %>
     <%= f.label "I have read and agree to the"%>
-    <%= link_to "Terms of Service", abouts_terms_path, target: '_blank' %>
+    <%= link_to "Terms of Use and Terms of Service", abouts_terms_path, target: '_blank' %>
   </div>
 
   <p class="smalltext"><i>* = Required field</i></p>
