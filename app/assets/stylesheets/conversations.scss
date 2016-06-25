@@ -56,29 +56,29 @@ div.chat div.msgtext {
 div.chat div.msg {
   position:relative;
 }
-div.chat div.msg.user {
+div.chat div.msg.send {
   text-align:right;
 }
-div.chat div.msg.user div.msgtext {
+div.chat div.msg.send div.msgtext {
   background:#FF6600;
   color:#fff;
   border-bottom-right-radius:0;
   margin-right:9px;
 }
-div.chat div.msg.user div.time {
+div.chat div.msg.send div.time {
   text-align:right;
 }
-div.chat div.msg.coach {
+div.chat div.msg.receive {
   text-align:left;
 }
-div.chat div.msg.coach div.msgtext {
+div.chat div.msg.receive div.msgtext {
   border-bottom-left-radius:0;
   margin-left:8px;
 }
-div.chat div.msg.coach div.time {
+div.chat div.msg.receive div.time {
   text-align:left;
 }
-.msg.coach div.msgtext:before {
+.msg.receive div.msgtext:before {
   border-bottom: 10px solid #ccc;
   border-left: 9px solid rgba(0, 0, 0, 0);
   position: absolute;
@@ -86,7 +86,7 @@ div.chat div.msg.coach div.time {
   left: -8px;
   content: "";
 }
-.msg.user div.msgtext:before {
+.msg.send div.msgtext:before {
   border-bottom: 9px solid #ff6600;
   border-right: 9px solid rgba(0, 0, 0, 0);
   position: absolute;

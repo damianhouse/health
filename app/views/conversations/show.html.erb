@@ -2,15 +2,15 @@
   <div class="container-fluid" style="padding:0 1px;">
     <div class="nav row">
       <div class="col-xs-4"><a href="<%= teams_index_path %>"><i class="fa fa-angle-left"></i><span>Conversations</span></a></div>
-      <div class="col-xs-4 name"><%= @conversation.coach.first %> <%= @conversation.coach.last %></div>
-      <div class="col-xs-4 details"><%= link_to 'View Profile', @conversation.coach %></div>
+      <div class="col-xs-4 name"><%= @name %></div>
+      <div class="col-xs-4 details"><%= link_to 'View Profile', @profile %></div>
     </div>
   </div>
 </nav>
 
-<div class="chat">
+<div class="chat <%= @perspective %>">
   <% @conversation.messages.each do |message| %>
-    <div class="msg <%= message.user_id != nil ? "user" : "coach" %>">
+    <div class="msg <%= session[:coach_id] != nil ? (message.user_id != nil ? "receive" : "send") : (message.user_id != nil ? "send" : "receive") %>">
       <div class="msgtext"><%= message.body.empty? ? raw("&nbsp;") : message.body %></div>
       <div class="time"><%= message.updated_at.strftime('%H:%M') %></div>
     </div>
