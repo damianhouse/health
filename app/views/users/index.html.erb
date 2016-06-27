@@ -19,7 +19,7 @@
       <th><%= link_to "Date", :sort => "created_at" %></th>
     </tr>
     <% @user.conversations.each do |convo| %>
-    
+
       <% if convo.messages.length > 0%>
         <tr class='clickable-row' data-href='/conversations/<%= convo.id %>'>
           <% if convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
@@ -51,12 +51,11 @@
           <td>
             <i class="fa fa-circle-o" aria-hidden="true"></i>
           </td>
-          <td><<%= convo.coach.first %>
-<%= convo.coach.last %></td>
+          <td><<%= convo.coach.first %><%= convo.coach.last %></td>
           <td>
             <i>No new messages</i>
           </td>
-          <td>Start the conversation now!</td>
+          <td><%= link_to "Start the conversation now!", controller: :conversations, action: :new %></td>
           <td></td>
         </tr>
       <% end %>
