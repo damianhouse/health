@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
           redirect_to users_path, notice: "Login successful."
 
         else
-          flash[:notice] = "Either your password or email are invalid."
+          flash.now[:notice] = "Either your password or email are invalid."
         end
       elsif session[:user_id] != nil
         redirect_to users_path
