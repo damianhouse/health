@@ -3,3 +3,7 @@
 <p>
   <%= @greeting %>
 </p>
+<p>
+  or
+</p>
+<p><%= link_to 'Chat now!', controller: :conversations, action: :show, :id => @link, host: "localhost:3000" %></p>

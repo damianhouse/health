@@ -40,7 +40,9 @@ class ReportsController < ApplicationController
         @convo = Conversation.create!(user_id: @user.id, coach_id: @user.coach_id)
         Message.create!(body: "Hi, this is an auto-generated message from your coach", user_id: @convo.user_id, conversation_id: @convo.id, coach_id: @convo.coach_id)
       end
-      ReportMailer.coaches_assigned(params[:email]).deliver_now
+      convo = @user.conversations.find_by(coach_id: @user.coach_id)
+      convo_id = convo.id
+      ReportMailer.coaches_assigned(params[:email], convo_id).deliver_now
       unless @user.phone == ""
         redirect_to notifications_text_assignment_path(request.parameters)
       else

@@ -10,12 +10,11 @@ class ReportMailer < ApplicationMailer
     mail to: address, subject: "Your New Password!"
   end
 
-  def coaches_assigned(address)
-    @greeting = "Your coaches have been assigned! Check My Team after logging in and start a conversation!"
+  def coaches_assigned(address, convo_id)
+    @greeting = "Your coaches have been assigned! Check My Team after logging in to view your coach assignments,"
+    @link = convo_id
     mail to: address, subject: "Your Coach Has Been Assigned!"
   end
-
-
 
 
   # Subject can be set in your I18n file at config/locales/en.yml
