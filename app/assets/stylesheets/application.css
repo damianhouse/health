@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require font-awesome
  *= require_self
  */
 /*@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");*/
@@ -18,6 +19,9 @@
 body.healthstyle {
   margin-top:10px;
   background:#fcfcfc;
+}
+body.healthstyle div.content { 
+  background:#fff;
 }
 .link {
     color: #FF6600;

@@ -1,42 +1,24 @@
-<p id="notice"><%= notice %></p>
+<nav class="messages navbar navbar-static">
+  <div class="container-fluid" style="padding:0 1px;">
+    <div class="nav row">
+      <div class="col-xs-4"><a href="<%= teams_index_path %>"><i class="fa fa-angle-left"></i><span>Conversations</span></a></div>
+      <div class="col-xs-4 name"><%= @name %></div>
+      <div class="col-xs-4 details"><%= link_to 'View Profile', @profile %></div>
+    </div>
+  </div>
+</nav>
 
-<p>
-  <strong>User:</strong>
-  <span class="text-info"><%= User.find(@conversation.user_id).first %></span>
-  <span class="text-info"><%= User.find(@conversation.user_id).last %></span>
-
-</p>
-
-<p>
-  <strong>Coach:</strong>
-  <span class="text-success"><%= Coach.find(@conversation.coach_id).first %></span>
-  <span class="text-info"><%= User.find(@conversation.user_id).last %></span>
-
-</p>
-
-<div class="chat">
+<div class="chat <%= @perspective %>">
   <% @conversation.messages.each do |message| %>
-    <% if message.user_id != nil %>
-      <div class="msgtext-right">
-        <p class="msgwhite-shadow"><%= message.body %></p>
-      </div>
-    <% elsif message.coach_id != nil %>
-      <div class="msgtext-left">
-        <p class="msgwhite-shadow"><%= message.body %></p>
-      </div>
-    <% end %>
+    <div class="msg <%= session[:coach_id] != nil ? (message.user_id != nil ? "receive" : "send") : (message.user_id != nil ? "send" : "receive") %>">
+      <div class="msgtext"><%= message.body.empty? ? raw("&nbsp;") : message.body %></div>
+      <div class="time"><%= message.updated_at.strftime('%H:%M') %></div>
+    </div>
   <% end %>
 </div>
 
-<br>
-
-<p>Enter New Message:</p>
-<%= form_for @message do |f| %>
-  <%= render partial: "message_form", locals: {f: f} %>
-<% end %>
-
-<% if session[:coach_id] != nil %>
-  <a href="/coaches/" class="">Message List</a>
-<% elsif session[:user_id] != nil %>
-  <a href="/users/" class="">Message List</a>
-<% end %>
+<div class="sendmsg row">
+  <%= form_for @message do |f| %>
+    <%= render partial: "message_form", locals: {f: f} %>
+  <% end %>
+</div>
