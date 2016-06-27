@@ -2,7 +2,6 @@
   <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
-
       <ul>
       <% @message.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,23 +9,14 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <!-- <%= f.label :body %><br> -->
-    <%= f.text_area :body, class: 'form-control' %>
-  </div>
 
-  <div class="field">
+  <div class="hidden">
     <%= f.hidden_field :user_id, value: session[:user_id] %>
-  </div>
-
-  <div class="field">
     <%= f.hidden_field :coach_id, value: session[:coach_id] %>
-  </div>
-
-
-  <div class="field">
     <%= f.hidden_field :conversation_id, value: params[:id] %>
   </div>
-  <div class="actions">
-  <%= f.submit 'Send', :class => 'send_button' %>
+  <div class="col-xs-1 upload"><i class="fa fa-camera"></i></div>
+  <div class="field text col-xs-9">
+    <%= f.text_area :body, class: 'form-control', placeholder: 'Enter a message' %>
   </div>
+  <div class="actions col-xs-2"><%= f.submit 'Send', :class => 'send_button' %></div>

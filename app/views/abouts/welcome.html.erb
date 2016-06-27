@@ -1,11 +1,15 @@
-<div class="jumbotron ">
-  <%= image_tag "Healthstyle2K_SM.jpg", class: "main-image "%>
-  <div class="col-md-16 text-center">
-    <span id="mobileshow"><h2>Three Coaches, <br/>One Goal: <br/>A Healthier You!</h2></span>
-    <span id="desktopshow"><h2>Three Coaches, One Goal: <br/>A Healthier You!</h2></span>
-    <br>
-
-
+<ul class="welcome nav">
+  <li><a href="#next">Learn More</a></li>
+  <li class="divider">|</li>
+  <li><%= link_to 'Sign Up', new_user_path%></li>
+  <li class="divider">|</li>
+  <li><%= link_to 'Sign In', sessions_login_path%></li>
+</ul>
+<div class="jumbotron welcome">
+  <%= image_tag "Healthstyle2K_SM.jpg", class: "main-image"%>
+  <div class="col-md-12 text-center tagline">
+    <span id="mobileshow"><h2><span class="tagline">Three Coaches, One Goal:</span> A Healthier You!</h2></span>
+    <span id="desktopshow"><h2>Three Coaches, One Goal: A Healthier You!</h2></span>
     <!-- <a href="#next" class="btn btn-primary btn-lg button-center">Learn more </a> -->
     <!-- <a href="#next" class="orange_text large">Learn more</a> -->
     <div>
@@ -16,17 +20,23 @@
   <br>
 </div>
 
-<br>
-
 <a name="next"></a>
-<h2 id="#uno">What is My HealthStyle?</h2>
-
-
-<div>
-  <h4>My HealthStyle, Inc. puts the power of personal Health Coaching in the palm of your hand. No algorithms, no automation, real, licensed, certified professionals dedicated to mentoring you as you journey to your individual health goal.</h4>
-  <h4>When you join My HealthStyle, Inc., for less than two fast food meals a week, you will receive three health coaches will help guide you to your best health goals.</h4>
-  <h4>These three trained, My HealthStyle Coaches will inspire you via holistic and positive behavior change motivation and caring, honest support. Your Lead Coach with be in touch every day, while your two Team Coaches will encourage you twice a week.</h4>
-  <h4>Using this proven approach and special incentives from our website, we create an uplifting environment of education and hope that enables our clients to thrive.</h4>
-  <h4>Best of all, you get all the benefits of a private office experience with none of the hassle of public waiting rooms or meetings. It is this human-to-human contact, every day, with licensed, certified Health Coaches that makes all the difference in reaching and maintaining your goals.</h4>
-  <h4>Let My HealthStyle, Inc. make a difference for you.</h4>
+<div class="next learn-more">
+  <h2 id="#uno">What is My HealthStyle?</h2>
+  <p>
+  My HealthStyle, Inc. puts the power of personal Health Coaching in the palm of your hand. No algorithms, no automation, real, licensed, certified professionals dedicated to mentoring you as you journey to your individual health goal.
+  </p>
+  <p>
+  When you join My HealthStyle, Inc., for less than two fast food meals a week, you will receive three health coaches will help guide you to your best health goals.
+  </p>
+  <p>
+  These three trained, My HealthStyle Coaches will inspire you via holistic and positive behavior change motivation and caring, honest support. Your Lead Coach with be in touch every day, while your two Team Coaches will encourage you twice a week.
+  </p>
+  <p>
+  Using this proven approach and special incentives from our website, we create an uplifting environment of education and hope that enables our clients to thrive.
+  </p>
+  <p>
+  Best of all, you get all the benefits of a private office experience with none of the hassle of public waiting rooms or meetings. It is this human-to-human contact, every day, with licensed, certified Health Coaches that makes all the difference in reaching and maintaining your goals.
+  </p>
+  <p>Let My HealthStyle, Inc. make a difference for you.</p>
 </div>

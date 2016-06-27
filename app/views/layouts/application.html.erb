@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Health</title>
-
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -12,8 +11,8 @@
 
 
 </head>
-<body class="container-fluid">
-  <nav class="navbar navbar-default">
+<body class="healthstyle">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -60,20 +59,8 @@
     </div>
   </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="content container-fluid" style="margin-top:40px;">
 <%= yield %>
-
-
+</div>
 
 </html>

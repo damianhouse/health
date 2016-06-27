@@ -23,7 +23,7 @@ function refresh_conversation() {
   $(".conversation").load(location.href + " .conversation");
 }
 
-setInterval("refresh_conversation();",25000);
+setInterval("refresh_conversation();",2000);
 
 
 $("tr[data-link]").click(function() {
