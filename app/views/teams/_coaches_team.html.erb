@@ -1,3 +1,48 @@
+<!--
+<table class="table table-responsive table-striped table-hover ">
+
+  <% @coach.users.each do |user| %>
+    <% user_note = user.notes.where(coach_id: @coach.id) %>
+    <tr>
+      <td>
+        <%= user.first %><%= user.last%>
+      </td>
+      <td>
+        <% if user.avatar_url != nil %>
+          <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
+        <% else %>
+          <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+        <% end %>
+      </td>
+      <td>
+        <% if user_note.empty? == false %>
+            <span class="badge"><%= link_to 'User Notes', user_note.first , class:"btn btn-default"%></span>
+        <% else %>
+            <%= render partial: "notes_form", locals: { user: user} %>
+        <% end %>
+      </td>
+      <td>
+        <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
+      </td>
+      <td>
+        <% if user.conversations.length >= 1 %>
+          <% user.conversations.each do |convo| %>
+            <% if convo.coach_id == @coach.id %>
+                <span class="badge"><%= link_to 'View Conversation', convo, class:"btn btn-default"%></span>
+            <% end %>
+          <% end %>
+        <% else %>
+        <%= render partial: "conversation_form", locals: { user: user} %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+ -->
+
+
+
+
+
 
 <% @coach.users.each do |user| %>
   <% user_note = user.notes.where(coach_id: @coach.id) %>
@@ -5,15 +50,11 @@
     <span class="badge"><%= user.first %></span>
     <span class="badge"><%= user.last %></span>
     <li class="list-group-item">
-
-
       <% if user_note.empty? == false %>
           <span class="badge"><%= link_to 'User Notes', user_note.first , class:"btn btn-default"%></span>
       <% else %>
           <%= render partial: "notes_form", locals: { user: user} %>
       <% end %>
-
-
           <span class="badge"><%= link_to 'User Details', user , class:"btn btn-default"%></span>
           <% if user.conversations.length >= 1 %>
             <% user.conversations.each do |convo| %>
@@ -27,6 +68,8 @@
     </li>
   </ul>
 <% end %>
+
+
 
 <% @coach.find_user_1.each do |user| %>
   <% user_note = user.notes.where(coach_id: @coach.id) %>
