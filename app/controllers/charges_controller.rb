@@ -5,7 +5,6 @@ class ChargesController < ApplicationController
 
     if @amount <= 0
       redirect_to carts_path, notice: 'Please Add A Design Before Checking Out!'
-
     end
   end
 
@@ -22,8 +21,6 @@ class ChargesController < ApplicationController
     )
 
 
-
-
     @charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => charge_amount = (@amount * 100).to_i,
@@ -31,7 +28,7 @@ class ChargesController < ApplicationController
       :currency    => 'usd',
       :receipt_email => customer.email
     )
-    
+
     @user = User.find_by(email: params[:stripeEmail])
     @user.update_attribute(:paid, true)
 
@@ -39,7 +36,5 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to new_charge_path
   end
-
-
 
 end

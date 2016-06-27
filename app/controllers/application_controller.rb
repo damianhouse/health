@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def paid?
-    # @current_user = User.find_by(token: params[:token])
-    # render json: "Invalid TOKEN" unless params[:token] && @current_user
+    @current_user = User.find_by(id: session[:user_id])
+    render json: "Please pay before accessing this page." unless @current_user.paid == true
   end
 end
