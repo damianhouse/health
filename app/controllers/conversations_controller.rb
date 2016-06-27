@@ -14,15 +14,6 @@ class ConversationsController < ApplicationController
   def show
     @message = Message.new
 
-    if session[:user_id] != nil
-      @profile = @conversation.coach
-      @perspective = "user"
-    else
-      @profile = @conversation.user
-      @perspective = "coach"
-    end
-
-    @name = "#{@profile.first} #{@profile.last}"
 
   #mark conversations read after user/coach views
     @conversation.messages.each do |msg|
@@ -38,6 +29,8 @@ class ConversationsController < ApplicationController
         end
       end
     end
+
+
 
   end
 
