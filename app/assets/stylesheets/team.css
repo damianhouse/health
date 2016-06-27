@@ -1,0 +1,81 @@
+table.team {
+  margin-top:10px;
+  color:#999;
+  font-size:3.6vw;
+  border:0;
+  background:transparent;
+}
+table.team td.avatar {
+  display:inline-block;
+}
+table.team td.convo {
+  padding:5px 8px 8px 16px;
+}
+table.team td.convo a {
+  color: #FF6600;
+  font-size:3.5vw;
+}
+table.team td.details {
+  display:inline-block;
+}
+table.team tr {
+  background:#fff;
+  border:0 !important;
+  border-radius:5px;
+  box-shadow:0px 3px 3px 1px #ccc;
+  margin:2px 5px 5px;
+}
+table.team td {
+  border:0 !important;
+}
+table.team tr:first {
+  border-top:1px solid #FF6600;
+}
+table.team td.title {
+  position:relative;
+  padding:8px 8px 0px;
+}
+table.team td.title h2 {
+  color:#999;
+  font-size:4.5vw;
+  margin:0;
+  padding:4px 0px 6px 5px;
+}
+table.team td.title div.msg {
+  position:absolute;
+  top:10px;
+  right:8px;
+  text-align:center;
+}
+table.team td.title div.msg i.status {
+   display:inline-block;
+   background:#ccc;
+   width:12px;
+   height:12px;
+   border-radius:12px;
+   border:1px solid #fff;
+   box-shadow:0px 0px 1px 1px #ccc;
+}
+table.team td.title div.msg i.status.unread {
+   background:#FF6600;
+   box-shadow:0px 0px 1px 1px #FF6600;
+}
+table.team td.title div.msg i.status.new {
+   background:#009900;
+   box-shadow:0px 0px 1px 1px #00aa00;
+}
+table.team td.title div.msg span {
+  display:block;
+  font-size:0.8em;
+}
+table.team img.avatar {
+  width:100px;
+  height:100px;
+  border:1px solid #ccc;
+}
+table.team td.details div {
+  padding:5px 2px;
+}
+table.team td.details a {
+  color:#FF6600;
+}
