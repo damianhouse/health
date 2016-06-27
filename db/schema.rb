@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618220511) do
+ActiveRecord::Schema.define(version: 20160627191044) do
 
   create_table "coaches", force: :cascade do |t|
     t.string   "first"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20160618220511) do
     t.string   "zip"
     t.string   "last_name"
     t.string   "last"
+    t.boolean  "paid"
   end
 
 end

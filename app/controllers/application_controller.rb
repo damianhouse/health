@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by(id: session[:user_id])
     # render json: "You may only edit your own shtuff." unless session[:user_id] == @current_user.id
   end
+
+  def paid?
+    # @current_user = User.find_by(token: params[:token])
+    # render json: "Invalid TOKEN" unless params[:token] && @current_user
+  end
 end

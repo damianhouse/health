@@ -1,5 +1,4 @@
 class ChargesController < ApplicationController
-
   def new
     # @cart = Cart.where(user_id: session[:user_id]).first
     @amount = 20
@@ -32,10 +31,15 @@ class ChargesController < ApplicationController
       :currency    => 'usd',
       :receipt_email => customer.email
     )
+    
+    @user = User.find_by(email: params[:stripeEmail])
+    @user.update_attribute(:paid, true)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+
 
 end
