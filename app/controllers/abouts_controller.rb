@@ -27,6 +27,12 @@ class AboutsController < ApplicationController
     end
 
     def survey
-      
+
+    end
+
+    def survey_results
+      @coach1 = Coach.find_by(id: 1)
+      @coach2 = Coach.find_by(id: 2)
+      @coach3 = Coach.find_by(id: 3)
     end
   end

@@ -1,0 +1,70 @@
+<p>Great! Thanks for taking the survey!</p>
+
+<p>Here is who we think would be a great coach:</p>
+
+
+<table class="table table-responsive table-hover team">
+  <tr>
+    <td>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @coach1.first %><%= @coach1.last %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="panel-body-left">
+            <% if @coach1.avatar_url != nil %>
+              <img class="avatar" src="<%= @coach1.avatar_url %>" alt="coach avatar"/>
+            <% else %>
+              <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
+            <% end %>
+          </div>
+          <div class="panel-body-right">
+            <p>Hi! My name's <%= @coach1.first %>! I have 33 years of experience in nutritional counseling and am so excited to start this journey with you! fjkalfja; fjkdalf a;adfj fjdklf;ja fa fjeioczjv;ejiaova vkzljfoeaj </p>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @coach2.first %><%= @coach2.last %></h3>
+        </div>
+        <div class="panel-body">
+          <% if @coach2.avatar_url != nil %>
+            <img class="avatar" src="<%= @coach2.avatar_url %>" alt="coach avatar"/>
+          <% else %>
+            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
+          <% end %>
+        </div>
+        <div class="panel-body-right">
+          <p>Hi! My name's <%= @coach2.first %>! fjkalfja; fjkdalf a;adfj fjdklf;ja fa fjeioczjv;ejiaova vkzljfoeaj </p>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @coach3.first %><%= @coach3.last %></h3>
+        </div>
+        <div class="panel-body">
+          <% if @coach3.avatar_url != nil %>
+            <img class="avatar" src="<%= @coach3.avatar_url %>" alt="coach avatar"/>
+          <% else %>
+            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
+          <% end %>
+        </div>
+        <div class="panel-body-right">
+          <p>Hi! My name's <%= @coach3.first %>! fjkalfja; fjkdalf a;adfj fjdklf;ja fa fjeioczjv;ejiaova vkzljfoeaj </p>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<p>Ready to get started?</p>
+
+<%= link_to "Sign up today!", new_user_path, class: "btn btn-info" %>

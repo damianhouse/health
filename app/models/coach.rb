@@ -25,4 +25,5 @@ class Coach < ActiveRecord::Base
     User.where(coach_5: self.id)
   end
 
+
 end

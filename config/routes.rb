@@ -31,8 +31,8 @@ get 'abouts/aboutus'
 get 'abouts/ourcoaches'
 get 'abouts/testimonials'
 get 'abouts/signupconfirmation'
-get 'abouts/survey'
-
+get 'survey' => 'abouts#survey'
+get 'our_picks' => 'abouts#survey_results'
 
 
   get 'sessions/login'

@@ -14,4 +14,14 @@ class ApplicationController < ActionController::Base
       redirect_to :back, notice: "Please pay before accessing this page."
     end
   end
+
+  # def generate_random
+  #   coach_id_array = []
+  #   r = rand(1..5)
+  #   3.times do
+  #     unless coach_id_array.include?(r)
+  #       coach_id_array << r
+  #     end
+  #   end
+  # end
 end
