@@ -73,3 +73,8 @@ body.healthstyle div.content {
 .nav-pills > li > a > .orange_text {
   margin-left: 3px;
 }
+
+.btn-info.edit {
+  max-width: 200px;
+  margin: auto;
+}

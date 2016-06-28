@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
 
   def paid?
     @current_user = User.find_by(id: session[:user_id])
-    render json: "Please pay before accessing this page." unless @current_user.paid == true
+    unless @current_user.paid == true
+      redirect_to :back, notice: "Please pay before accessing this page."
+    end
   end
 end

@@ -14,5 +14,4 @@ before_action :paid?, only: [:index]
 
     end
 
-
   end
