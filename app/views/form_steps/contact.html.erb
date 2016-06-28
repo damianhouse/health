@@ -15,10 +15,11 @@
     </ul>
   </div>
 <% end %> -->
-
+<br/>
   <div class="field" >
     <%= f.label :phone %>*<br/>
     <%= f.telephone_field :phone, required: true, pattern: '^\d{3}-\d{3}-\d{4}$', placeholder: "xxx-xxx-xxxx", title: "format: xxx-xxx-xxxx" %>
+    <p class="smalltext">(Please enter phone number in the format xxx-xxx-xxxx)</p>
   </div>
 
 
@@ -33,7 +34,7 @@
     <%= link_to "Terms of Use and Terms of Service", abouts_terms_path, target: '_blank' %>
   </div>
 
-  <p class="smalltext"><i>* = Required field</i></p>
+  <p class="smalltext">* = Required field</p>
   <div class="actions">
     <%= f.submit "Submit"%>
   </div>

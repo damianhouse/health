@@ -30,6 +30,7 @@
   <div class="field">
     <%= f.label :password %>*<br>
     <%= f.password_field :password, type: "password" %>
+    <p class="smalltext">(Password must be at least 8 characters long.)</p>
   </div>
 
   <div class="field">
@@ -37,7 +38,7 @@
     <%= f.file_field :avatar_url %>
   </div>
 
-  <p class="smalltext"><i>* = Required field</i></p>
+  <p class="smalltext">* = Required field</p>
   <div class="actions">
     <%= f.submit 'Next' %>
   </div>

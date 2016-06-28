@@ -19,10 +19,14 @@ class AboutsController < ApplicationController
 
 
     def signupconfirmation
-      
+
     end
 
     def terms
 
+    end
+
+    def survey
+      
     end
   end

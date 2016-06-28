@@ -31,6 +31,7 @@ get 'abouts/aboutus'
 get 'abouts/ourcoaches'
 get 'abouts/testimonials'
 get 'abouts/signupconfirmation'
+get 'abouts/survey'
 
 
 

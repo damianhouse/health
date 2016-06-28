@@ -78,3 +78,8 @@ body.healthstyle div.content {
   max-width: 200px;
   margin: auto;
 }
+
+.smalltext {
+  color: gray;
+  font-style: italic;
+}
