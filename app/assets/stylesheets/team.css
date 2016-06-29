@@ -61,8 +61,12 @@ table.team td.title div.msg i.status.unread {
    box-shadow:0px 0px 1px 1px #FF6600;
 }
 table.team td.title div.msg i.status.new {
-   background:#009900;
-   box-shadow:0px 0px 1px 1px #00aa00;
+   background:#999;
+   box-shadow:0px 0px 1px 1px #999;
+}
+table.team td.title div.msg i.status.empty {
+   background:#ffffff;
+   box-shadow:0px 0px 1px 1px #999;
 }
 table.team td.title div.msg span {
   display:block;

@@ -7,7 +7,22 @@
       <tr>
         <td class="title">
           <h2>Coach 1</h2>
-          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+          <div class="msg">
+            <% if user_convos.length >= 1 %>
+              <% user_convos.each do |convo| %>
+                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+                  <i class="status msg unread"></i><span><i>New Message</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last == nil %>
+                  <i class="status msg empty"></i><span><i>No messages</i></span>
+                <% end %>
+              <% end %>
+            <% elsif user_convos.length == 0 %>
+              <i class="status msg empty"></i><span><i>No messages</i></span>
+            <% end %>
         </td>
         <td class="avatar">
           <!-- <span class="badge"><%=image_tag coach.avatar_url, class: "center-block"%></span> -->
@@ -36,13 +51,32 @@
       </tr>
     <% end %>
 
+
+
+
     <% if @user.find_coach_1 != nil %>
       <% coach = @user.find_coach_1 %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td class="title">
           <h2>Coach 2</h2>
-          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+          <div class="msg">
+            <% if user_convos.length >= 1 %>
+              <% user_convos.each do |convo| %>
+                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+                  <i class="status msg unread"></i><span><i>New Message</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last == nil %>
+                  <i class="status msg empty"></i><span><i>No messages</i></span>
+                <% end %>
+              <% end %>
+            <% elsif user_convos.length == 0 %>
+              <i class="status msg empty"></i><span><i>No messages</i></span>
+            <% end %>
+          </div>
         </td>
         <td class="avatar">
           <% if coach.avatar_url != nil %>
@@ -76,7 +110,22 @@
       <tr>
         <td class="title">
           <h2>Coach 3</h2>
-          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+          <div class="msg">
+            <% if user_convos.length >= 1 %>
+              <% user_convos.each do |convo| %>
+                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+                  <i class="status msg unread"></i><span><i>New Message</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last == nil %>
+                  <i class="status msg empty"></i><span><i>No messages</i></span>
+                <% end %>
+              <% end %>
+            <% elsif user_convos.length == 0 %>
+              <i class="status msg empty"></i><span><i>No messages</i></span>
+            <% end %>
         </td>
         <td class="avatar">
           <% if coach.avatar_url != nil %>
@@ -110,7 +159,22 @@
       <tr>
         <td class="title">
           <h2>Coach 4</h2>
-          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+          <div class="msg">
+            <% if user_convos.length >= 1 %>
+              <% user_convos.each do |convo| %>
+                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+                  <i class="status msg unread"></i><span><i>New Message</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last == nil %>
+                  <i class="status msg empty"></i><span><i>No messages</i></span>
+                <% end %>
+              <% end %>
+            <% elsif user_convos.length == 0 %>
+              <i class="status msg empty"></i><span><i>No messages</i></span>
+            <% end %>
         </td>
         <td class="avatar">
           <% if coach.avatar_url != nil %>
@@ -144,7 +208,22 @@
       <tr>
         <td class="title">
           <h2>Coach 5</h2>
-          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+          <div class="msg">
+            <% if user_convos.length >= 1 %>
+              <% user_convos.each do |convo| %>
+                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+                  <i class="status msg unread"></i><span><i>New Message</i></span>
+                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                <% elsif convo.messages.last == nil %>
+                  <i class="status msg empty"></i><span><i>No messages</i></span>
+                <% end %>
+              <% end %>
+            <% elsif user_convos.length == 0 %>
+              <i class="status msg empty"></i><span><i>No messages</i></span>
+            <% end %>
         </td>
         <td class="avatar">
           <% if coach.avatar_url != nil %>
