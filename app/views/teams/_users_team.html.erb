@@ -40,21 +40,25 @@
       <% coach = @user.find_coach_1 %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
-        <td>
+        <td class="title">
+          <h2>Coach 2</h2>
+          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+        </td>
+        <td class="avatar">
           <% if coach.avatar_url != nil %>
-            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
-            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
           <% end %>
         </td>
-        <td>
-          <span class="orange_text"><%= coach.first %></span>
-          <span class="orange_text"><%= coach.last %></span>
+        <td class="details">
+          <div class="name"><%= coach.first %> <%= coach.last %></div>
+          <div class="email"><%= coach.email %></div>
+          <div class="details">
+            <%= link_to 'View Profile', coach %>
+          </div>
         </td>
-        <td>
-          <span><%= link_to 'Coach Details', coach %></span>
-        </td>
-        <td>
+        <td class="convo">
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
               <span><%= link_to 'View Conversation', convo %></span>
@@ -70,22 +74,25 @@
       <% coach = @user.find_coach_2 %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
-        <td>
+        <td class="title">
+          <h2>Coach 3</h2>
+          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+        </td>
+        <td class="avatar">
           <% if coach.avatar_url != nil %>
-            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
-            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
           <% end %>
         </td>
-        <td>
-          <span class="orange_text"><%= coach.first %></span>
-          <span class="orange_text"><%= coach.last %></span>
-
+        <td class="details">
+          <div class="name"><%= coach.first %> <%= coach.last %></div>
+          <div class="email"><%= coach.email %></div>
+          <div class="details">
+            <%= link_to 'View Profile', coach %>
+          </div>
         </td>
-        <td>
-          <span><%= link_to 'Coach Details', coach %></span>
-        </td>
-        <td>
+        <td class="convo">
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
               <span><%= link_to 'View Conversation', convo %></span>
@@ -101,21 +108,25 @@
       <% coach = @user.find_coach_3 %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
-        <td>
+        <td class="title">
+          <h2>Coach 4</h2>
+          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+        </td>
+        <td class="avatar">
           <% if coach.avatar_url != nil %>
-            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
-            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
           <% end %>
         </td>
-        <td>
-          <span class="orange_text"><%= coach.first %></span>
-          <span class="orange_text"><%= coach.last %></span>
+        <td class="details">
+          <div class="name"><%= coach.first %> <%= coach.last %></div>
+          <div class="email"><%= coach.email %></div>
+          <div class="details">
+            <%= link_to 'View Profile', coach %>
+          </div>
         </td>
-        <td>
-          <span><%= link_to 'Coach Details', coach %></span>
-        </td>
-        <td>
+        <td class="convo">
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
               <span><%= link_to 'View Conversation', convo %></span>
@@ -131,24 +142,28 @@
       <% coach = @user.find_coach_4 %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
-        <td>
+        <td class="title">
+          <h2>Coach 5</h2>
+          <div class="msg"><i class="status msg new"></i><span>Msg</span></div>
+        </td>
+        <td class="avatar">
           <% if coach.avatar_url != nil %>
-            <span class="badge"><img src="<%= coach.avatar_url %>" alt="coach avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
-            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
           <% end %>
         </td>
-        <td>
-          <span class="orange_text"><%= coach.first %></span>
-          <span class="orange_text"><%= coach.last %></span>
+        <td class="details">
+          <div class="name"><%= coach.first %> <%= coach.last %></div>
+          <div class="email"><%= coach.email %></div>
+          <div class="details">
+            <%= link_to 'View Profile', coach %>
+          </div>
         </td>
-        <td>
-          <span><%= link_to 'Coach Details', coach %></span>
-        </td>
-        <td>
+        <td class="convo">
           <% if user_convos.length >= 1 %>
             <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo, class:"btn btn-default" %></span>
+              <span><%= link_to 'View Conversation', convo %></span>
             <% end %>
           <% else %>
             <%= render partial: "users_conversation_form", locals: { coach: coach} %>
