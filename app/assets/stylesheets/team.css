@@ -79,3 +79,12 @@ table.team td.details div {
 table.team td.details a {
   color:#FF6600;
 }
+
+@media (min-width: 770px) {
+  table.team td.title h2{
+    font-size: 1.5vw;
+  }
+  table.team td.convo a{
+    font-size: 1.2vw;
+  }
+}
