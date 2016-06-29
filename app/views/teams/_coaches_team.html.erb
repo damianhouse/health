@@ -1,19 +1,22 @@
 
-<table class="table table-responsive table-striped table-hover ">
+<table class="table table-responsive table-hover team coach">
 
   <% @coach.users.each do |user| %>
     <% user_note = user.notes.where(coach_id: @coach.id) %>
     <tr>
-      <td>
+      <td class="avatar">
         <% if user.avatar_url != nil %>
           <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
         <% else %>
           <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
         <% end %>
       </td>
-      <td>
-        <span class="orange_text"><%= user.first %></span>
-        <span class="orange_text"><%= user.last%></span>
+      <td class="details">
+        <div class="name"><%= user.first %> <%= user.last %></div>
+        <div class="email"><%= user.email %></div>
+        <div class="details">
+          <%= link_to 'View Profile', user %>
+        </div>
       </td>
       <td>
         <% if user_note.empty? == false %>
@@ -23,9 +26,6 @@
         <% end %>
       </td>
       <td>
-        <span><%= link_to 'User Details', user %></span>
-      </td>
-      <td>
         <% if user.conversations.length >= 1 %>
           <% user.conversations.each do |convo| %>
             <% if convo.coach_id == @coach.id %>
@@ -33,8 +33,9 @@
             <% end %>
           <% end %>
         <% else %>
-        <%= render partial: "conversation_form", locals: { user: user} %>
+          <%= render partial: "conversation_form", locals: { user: user} %>
         <% end %>
       </td>
     </tr>
   <% end %>
+</table>
