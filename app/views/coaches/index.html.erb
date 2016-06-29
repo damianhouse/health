@@ -1,213 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Dashboard</h1>
+<h1>Messages Dashboard</h1>
 <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">Welcome <%= @coach.first %></h3>
   </div>
-  <!-- <div class="panel-body">
-  </div> -->
 </div>
-
 
 <table class="table table-striped table-hover ">
   <tbody>
+    <tr id="desktopshow">
+      <th></th>
+      <th>User</th>
+      <th>Status</th>
+      <th>Message</th>
+      <th>Date</th>
+    </tr>
     <% @coach.users.each do |user| %>
-      <tr>
         <% user.conversations.each do |convo| %>
           <% if convo.coach_id == @coach.id && convo.messages.length > 0 %>
+          <tr class='clickable-row' data-href='/conversations/<%= convo.id %>'>
             <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
-              <td><i class="fa fa-circle" aria-hidden="true"></i></td>
+              <td><i class="fa fa-circle orange_text" aria-hidden="true"></i></td>
             <% else %>
-              <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
+              <td><i class="fa fa-circle" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-
-            <td><%= link_to convo do %>
-              <i class="fa fa-eye" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= convo.messages.last.body %></td>
+            <td><%= user.first %><%= user.last %></td>
+            <td>
+              <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
+                <span class="orange_text"><i>New message!</i></span>
+              <% else %>
+                <i>No unread messages</i>
+              <% end %>
+            </td>
+            <td><%= convo.messages.last.body_snippet %></td>
             <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
         </tr>
           <% elsif convo.coach_id == @coach.id %>
+          <tr>
             <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
+            <td><%= user.first %><%= user.last %></td>
             <td>
-              <%= link_to convo do %>
-                <i class="fa fa-eye" aria-hidden="true"></i>
-              <% end %>
+              <i>No new messages</i>
             </td>
-            <td>Start the conversation now!</td>
+            <td><%= link_to "Start the conversation now!", controller: :conversations, action: :new %></td>
             <td></td>
-      </tr>
-
+          </tr>
           <% end %>
-
-        <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<table class="table table-striped table-hover container-fluid">
-  <tbody>
-    <% @coach.find_user_1.each do |user| %>
-      <tr>
-        <% user.conversations.each do |convo| %>
-          <% if convo.coach_id == @coach.id && convo.messages.length > 0%>
-            <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
-              <td><i class="fa fa-circle" aria-hidden="true"></i></td>
-            <% else %>
-              <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-            <td><%= link_to convo do %>
-              <i class="fa fa-eye" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= convo.messages.last.body %></td>
-            <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
-        </tr>
-          <% else %>
-            <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-            <td>
-              <%= link_to convo do %>
-                <i class="fa fa-eye" aria-hidden="true"></i>
-              <% end %>
-            </td>
-            <td>Start the conversation now!</td>
-            <td></td>
-      </tr>
-
-          <% end %>
-
-        <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-<table class="table table-striped table-hover container-fluid">
-  <tbody>
-    <% @coach.find_user_2.each do |user| %>
-      <tr>
-        <% user.conversations.each do |convo| %>
-          <% if convo.coach_id == @coach.id && convo.messages.length > 0%>
-            <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
-              <td><i class="fa fa-circle" aria-hidden="true"></i></td>
-            <% else %>
-              <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-            <td><%= link_to convo do %>
-              <i class="fa fa-eye" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= convo.messages.last.body %></td>
-            <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
-        </tr>
-          <% else %>
-            <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-            <td>
-              <%= link_to convo do %>
-                <i class="fa fa-eye" aria-hidden="true"></i>
-              <% end %>
-            </td>
-            <td>Start the conversation now!</td>
-            <td></td>
-      </tr>
-
-          <% end %>
-
-        <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-<table class="table table-striped table-hover container-fluid">
-  <tbody>
-    <% @coach.find_user_3.each do |user| %>
-      <tr>
-        <% user.conversations.each do |convo| %>
-          <% if convo.coach_id == @coach.id && convo.messages.length > 0%>
-            <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
-              <td><i class="fa fa-circle" aria-hidden="true"></i></td>
-            <% else %>
-              <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-            <td><%= link_to convo do %>
-              <i class="fa fa-eye" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= convo.messages.last.body %></td>
-            <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
-        </tr>
-          <% else %>
-            <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-                        <td>
-              <%= link_to convo do %>
-                <i class="fa fa-eye" aria-hidden="true"></i>
-              <% end %>
-            </td>
-            <td>Start the conversation now!</td>
-            <td></td>
-      </tr>
-
-          <% end %>
-
-        <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-
-<table class="table table-striped table-hover container-fluid">
-  <tbody>
-    <% @coach.find_user_4.each do |user| %>
-      <tr>
-        <% user.conversations.each do |convo| %>
-          <% if convo.coach_id == @coach.id && convo.messages.length > 0%>
-            <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
-              <td><i class="fa fa-circle" aria-hidden="true"></i></td>
-            <% else %>
-              <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-            <td><%= link_to convo do %>
-              <i class="fa fa-eye" aria-hidden="true"></i> </td>
-            <% end %>
-            <td><%= convo.messages.last.body %></td>
-            <td><%= convo.messages.last.created_at.to_formatted_s(:short)  %> </td>
-        </tr>
-          <% else %>
-            <td><i class="fa fa-circle-o" aria-hidden="true"></i> </td>
-            <td><%= user.first %></td>
-            <td><%= user.last %></td>
-            <td>
-              <%= link_to convo do %>
-                <i class="fa fa-eye" aria-hidden="true"></i>
-              <% end %>
-            </td>
-            <td>Start the conversation now!</td>
-            <td></td>
-      </tr>
-
-          <% end %>
-
         <% end %>
     <% end %>
   </tbody>

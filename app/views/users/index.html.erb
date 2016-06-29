@@ -12,9 +12,9 @@
 <table class="table table-striped table-hover" >
   <tbody>
     <tr>
-      <th>Status</th>
+      <th></th>
       <th><%= link_to "Coach", :sort => "coach.first" %></th>
-      <th>More Status</th>
+      <th>Status</th>
       <th>Message</th>
       <th><%= link_to "Date", :sort => "created_at" %></th>
     </tr>
@@ -62,6 +62,10 @@
     <% end %>
   </tbody>
 </table>
+
+
+
+
 
 
 <% if @user.conversations.length == 0 %>
