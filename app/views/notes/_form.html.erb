@@ -11,10 +11,9 @@
     </div>
   <% end %>
 
-<p> for user : </p>
-  <%= User.find(user_id = @note.user_id).first %><br>
+<p> Notes for: </p>
+  <%= User.find(user_id = @note.user_id).first %><%= User.find(user_id = @note.user_id).last %><br>
 <br>
-
   <div class="field">
     <%= f.label :note_1 %><br>
     <%= f.text_field :note_1 %>

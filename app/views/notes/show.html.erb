@@ -1,70 +1,90 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @note.user_id %>
+  <strong>Notes for:</strong>
+  <%= User.find_by(id: @note.user_id).first %> <%= User.find_by(id: @note.user_id).last %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Coach:</strong>
   <%= @note.coach_id %>
+</p> -->
+
+<p>
+  <% if @note.note_1 != nil %>
+    <strong>Note 1:</strong>
+    <%= @note.note_1 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 1:</strong>
-  <%= @note.note_1 %>
+  <% if @note.note_2 != nil %>
+    <strong>Note 2:</strong>
+    <%= @note.note_2 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 2:</strong>
-  <%= @note.note_2 %>
+  <% if @note.note_3 != nil %>
+    <strong>Note 3:</strong>
+    <%= @note.note_3 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 3:</strong>
-  <%= @note.note_3 %>
+  <% if @note.note_4 != nil %>
+    <strong>Note 4:</strong>
+    <%= @note.note_4 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 4:</strong>
-  <%= @note.note_4 %>
+  <% if @note.note_5 != nil %>
+    <strong>Note 5:</strong>
+    <%= @note.note_5 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 5:</strong>
-  <%= @note.note_5 %>
+  <% if @note.note_6 != nil %>
+    <strong>Note 6:</strong>
+    <%= @note.note_6 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 6:</strong>
-  <%= @note.note_6 %>
+  <% if @note.note_7 != nil %>
+    <strong>Note 7:</strong>
+    <%= @note.note_7 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 7:</strong>
-  <%= @note.note_7 %>
+  <% if @note.note_2 != nil %>
+    <strong>Note 2:</strong>
+    <%= @note.note_2 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 8:</strong>
-  <%= @note.note_8 %>
+  <% if @note.note_8 != nil %>
+    <strong>Note 8:</strong>
+    <%= @note.note_8 %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Note 9:</strong>
-  <%= @note.note_9 %>
+  <% if @note.note_9 != nil %>
+    <strong>Note 9:</strong>
+    <%= @note.note_9 %>
+  <% end %>
 </p>
 
-<p>
-  <strong>Note 10:</strong>
-  <%= @note.note_10 %>
-</p>
-
-<%= link_to 'Edit', edit_note_path(@note), class: "btn btn-info" %>
+<%= link_to 'Edit/Add Note', edit_note_path(@note), class: "btn btn-info" %>
 
 
 <% if session[:coach_id] != nil %>
-  <a href="/coaches/" class="btn btn-info">Back</a>
+  <a href="/teams/index" class="btn btn-info">Back</a>
 <% elsif session[:user_id] != nil %>
   <a href="/users/" class="btn btn-info">Back</a>
 <% end %>

@@ -2,12 +2,9 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @note %> |
-
-
 
 <% if session[:coach_id] != nil %>
-  <a href="/coaches/" class="btn btn-info">Back</a>
+  <a href="/notes/<%=@note.id%>" class="btn btn-info">Back</a>
 <% elsif session[:user_id] != nil %>
   <a href="/users/" class="btn btn-info">Back</a>
 <% end %>
