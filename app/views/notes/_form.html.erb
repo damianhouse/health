@@ -11,11 +11,15 @@
     </div>
   <% end %>
 
-<p> Notes for: <%= User.find_by(id: params[:user_id]).first %> <%= User.find_by(id: params[:user_id]).last %></p>
+<p> Notes for: <% user = User.find_by(id: params[:user_id] || user = User.find_by(id: @note.user_id)) %><%= user.first %> <%= user.last %> </p>
 <br>
 
-<%= f.hidden_field :user_id, value: params[:user_id] %>
-<%= f.hidden_field :coach_id, value: params[:coach_id] %>
+<% if params[:user_id] == nil %>
+
+<% else %>
+ <%= f.hidden_field :user_id, value: params[:user_id]  %>
+ <%= f.hidden_field :coach_id, value: params[:coach_id] %>
+<% end %>
 
   <div class="field">
     <%= f.label :note_1 %><br>

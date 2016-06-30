@@ -30,7 +30,7 @@
 
             <li><a href="/coaches/">Dashboard</a></li>
             <li><%= link_to 'My Profile', Coach.find(session[:coach_id]) %></li>
-            <li><%= link_to 'My Team', teams_index_path %></li>
+            <li><%= link_to 'My Clients', teams_index_path %></li>
             <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
 
           <% elsif session[:user_id] != nil %>
