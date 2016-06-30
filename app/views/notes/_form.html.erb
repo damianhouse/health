@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<p> Notes for: </p>
+<p> Notes for: <%= User.find_by(id: params[:user_id]).first %> <%= User.find_by(id: params[:user_id]).last %></p>
 <br>
 
 <%= f.hidden_field :user_id, value: params[:user_id] %>
