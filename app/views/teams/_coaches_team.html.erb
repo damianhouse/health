@@ -22,9 +22,25 @@
         <% if user_note.empty? == false %>
             <span><%= link_to 'User Notes', user_note.first %></span>
         <% else %>
-            <%= render partial: "notes_form", locals: { user: user} %>
+            <%= link_to "New Note", controller: :notes, action: :new, locals: { user: user} %>
         <% end %>
       </td>
+      <!-- <td>
+        <% if user.conversations.length >= 1 %>
+          <% convo = user.conversations.find_by(coach_id: @coach.id) %>
+          <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+            <i class="status msg new"></i><span><i>No new messages</i></span>
+          <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+            <i class="status msg unread"></i><span><i>New Message</i></span>
+          <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+            <i class="status msg new"></i><span><i>No new messages</i></span>
+          <% elsif convo.messages.last == nil %>
+            <i class="status msg empty"></i><span><i>No messages</i></span>
+          <% end %>
+        <% elsif user.conversations.length == 0 %>
+          <i class="status msg empty"></i><span><i>No messages</i></span>
+        <% end %>
+      </td> -->
       <td>
         <% if user.conversations.length >= 1 %>
           <% user.conversations.each do |convo| %>
