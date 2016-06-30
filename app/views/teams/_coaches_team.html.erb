@@ -22,7 +22,7 @@
         <% if user_note.empty? == false %>
             <span><%= link_to 'User Notes', user_note.first %></span>
         <% else %>
-            <%= render partial: "notes_form", locals: { user: user} %>
+          <%= link_to "New Note", new_note_path(user_id: user.id, coach_id: @coach.id) %>
         <% end %>
       </td>
       <!-- <td>
