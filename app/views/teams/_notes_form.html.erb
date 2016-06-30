@@ -12,10 +12,11 @@
   <% end %>
 
   <%= f.hidden_field :user_id, value: user.id %>
-
   <%= f.hidden_field :coach_id, value: @coach.id %>
 
+  <div class="field">
+    <%= f.text_field :note_1, placeholder: "Write note here..." %>
+  </div>
 
     <span> <%= f.submit class: "orange_text"%> </span>
-  </div>
 <% end %>

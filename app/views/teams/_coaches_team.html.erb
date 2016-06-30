@@ -22,7 +22,7 @@
         <% if user_note.empty? == false %>
             <span><%= link_to 'User Notes', user_note.first %></span>
         <% else %>
-            <%= link_to "New Note", controller: :notes, action: :new, locals: { user: user} %>
+            <%= render partial: "notes_form", locals: { user: user} %>
         <% end %>
       </td>
       <!-- <td>
