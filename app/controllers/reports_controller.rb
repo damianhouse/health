@@ -36,7 +36,7 @@ class ReportsController < ApplicationController
   def send_assignment
 
     if @user = User.find_by_email(params[:email])
-      unless @user.conversations.includes(coach_id: @user.coach_id)
+      unless @user.conversations.include?(coach_id: @user.coach_id)
         @convo = Conversation.create!(user_id: @user.id, coach_id: @user.coach_id)
         Message.create!(body: "Hi, this is an auto-generated message from your coach", user_id: @convo.user_id, conversation_id: @convo.id, coach_id: @convo.coach_id)
       end
