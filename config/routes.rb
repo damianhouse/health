@@ -33,6 +33,7 @@ get 'abouts/testimonials'
 get 'abouts/signupconfirmation'
 get 'survey' => 'abouts#survey'
 get 'our_picks' => 'abouts#survey_results'
+get 'views' => 'abouts#screenshots'
 
 
   get 'sessions/login'

@@ -25,7 +25,7 @@
             <% else %>
               <td><i class="fa fa-circle" aria-hidden="true"></i> </td>
             <% end %>
-            <td><%= user.first %><%= user.last %></td>
+            <td><%= user.first %> <%= user.last %></td>
             <td>
               <% if convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
                 <span class="orange_text"><i>New message!</i></span>

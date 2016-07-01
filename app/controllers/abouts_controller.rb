@@ -35,4 +35,7 @@ class AboutsController < ApplicationController
       @coach2 = Coach.find_by(id: 2)
       @coach3 = Coach.find_by(id: 3)
     end
+
+    def screenshots
+    end
   end
