@@ -25,10 +25,5 @@ class Coach < ActiveRecord::Base
   def find_user_5
     User.where(coach_5: self.id)
   end
-  private
-
-  def downcase_email
-    self.email = email.downcase if email.present?
-  end
 
 end
