@@ -31,7 +31,8 @@ body.healthstyle div.content {
   max-width: 100%
 }
 .main-image {
-  margin: 0 auto;
+  display: block;
+  margin: auto;
 }
 
 .progress {

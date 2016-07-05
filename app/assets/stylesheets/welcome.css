@@ -34,3 +34,23 @@ div.learn-more h2 {
 div.learn-more p {
   font-size:4.1vw;
 }
+@media (min-width: 568px) {
+  div.learn-more p {
+    font-size:2.5vw;
+  }
+}
+@media (min-width: 736px) {
+  div.learn-more p {
+    font-size:1.8vw;
+  }
+}
+@media (min-width: 1024px) {
+  div.learn-more p {
+    font-size:1.3vw;
+  }
+}
+@media (max-width: 1024px) {
+  .mobile_hide {
+    display: none;
+  }
+}
