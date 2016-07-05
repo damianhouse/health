@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password, length: { minimum: 8 }, allow_nil: true
+  validate :uniqueness_of_email_across_models
   belongs_to :coach
   has_many :conversations
   has_many :messages
@@ -38,6 +39,10 @@ class User < ActiveRecord::Base
     else
       return nil
     end
+  end
+
+  def uniqueness_of_email_across_models
+    self.errors.add(:email, 'is already taken') if Coach.where('lower(email) = ?', self.email.downcase).exists?
   end
 
 end
