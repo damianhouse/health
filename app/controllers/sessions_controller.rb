@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
 
     def login
       if request.post?
-        coach = Coach.find_by(email: params[:email].downcase)
-        user = User.find_by(email: params[:email].downcase)
+        coach = Coach.find_by('lower(email) = ?', params[:email].downcase)
+        user = User.find_by('lower(email) = ?', params[:email].downcase)
 
         if coach && coach.authenticate(params[:password])
           session[:coach_id] = coach.id

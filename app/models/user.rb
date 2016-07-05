@@ -38,6 +38,6 @@ class User < ActiveRecord::Base
     else
       return nil
     end
-end
+  end
 
 end
