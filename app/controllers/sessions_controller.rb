@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
     def logout
       session[:user_id] = nil
       session[:coach_id] = nil
+      
       redirect_to sessions_login_path, alert: "You've beens successfully logged out. Check back soon!"
     end
 
