@@ -14,17 +14,17 @@
   <div class="list-group-info active">
 
   <div class="field">
-    <%= f.label :first %><br>
-    <%= f.text_field :first %>
+    <%= f.label :first %>*<br>
+    <%= f.text_field :first, required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :last %><br>
-    <%= f.text_field :last %>
+    <%= f.label :last %>*<br>
+    <%= f.text_field :last, required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %>*<br>
     <%= f.text_field :email %>
   </div>
 </div>
@@ -32,8 +32,9 @@
     <!-- <%= f.label :password %><br>
     <%= f.password_field :password_digest %> -->
 
-    <%= f.label :password %> <br>
+    <%= f.label :password %>* <br>
     <%= f.password_field :password, type: "password" %>
+    <p class="smalltext">(Password must be at least 8 characters long.)</p>
   </div>
 
   <div class="field">
@@ -42,8 +43,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label :phone %>*<br>
     <%= f.telephone_field :phone, required: true, pattern: '^\d{3}-\d{3}-\d{4}$', placeholder: "xxx-xxx-xxxx", title: "format: xxx-xxx-xxxx" %>
+    <p class="smalltext">(Please enter phone number in the format xxx-xxx-xxxx)</p>
   </div>
 
 
@@ -56,6 +58,7 @@
     <%= f.label :role %><br>
     <%= f.text_field :role %>
   </div> -->
+  <p class="smalltext">* = Required field</p>
   <div class="actions">
     <%= f.submit %>
   </div>
