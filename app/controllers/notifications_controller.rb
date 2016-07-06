@@ -21,7 +21,7 @@ class NotificationsController < ApplicationController
   end
 
   def text_assignment
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email].downcase)
     client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
     message = client.messages.create from: '8284820730', to: @user.phone,
 
