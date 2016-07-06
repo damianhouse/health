@@ -34,7 +34,7 @@ get 'abouts/signupconfirmation'
 get 'survey' => 'abouts#survey'
 get 'our_picks' => 'abouts#survey_results'
 get 'views' => 'abouts#screenshots'
-
+get 'thanks' => 'abouts#thank_you'
 
   get 'sessions/login'
   post 'sessions/login'

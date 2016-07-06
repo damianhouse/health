@@ -38,4 +38,7 @@ class AboutsController < ApplicationController
 
     def screenshots
     end
+
+    def thank_you
+    end
   end
