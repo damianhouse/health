@@ -1,1 +1,5 @@
-<h1><%= @user.first %> <%= @user.last %>  has been notified of their coach assignment via email (<%= params[:email].downcase %>) and text message (<%= @user.phone %>). </h1>
+<% if notice %>
+  <p id="notice_login"><%= notice %></p>
+<% else %>
+  <h1><%= @user.first %> <%= @user.last %>  has been notified of their coach assignment via email (<%= params[:email].downcase %>) and text message (<%= @user.phone %>). </h1>
+<% end %>
