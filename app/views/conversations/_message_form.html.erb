@@ -15,8 +15,8 @@
     <%= f.hidden_field :coach_id, value: session[:coach_id] %>
     <%= f.hidden_field :conversation_id, value: params[:id] %>
   </div>
-  <div class="col-xs-1 upload"><i class="fa fa-camera"></i></div>
+  <!-- <div class="col-xs-1 upload"><i class="fa fa-camera"></i></div> -->
   <div class="field text col-xs-9">
     <%= f.text_area :body, class: 'form-control', placeholder: 'Enter a message' %>
   </div>
-  <div class="actions col-xs-2"><%= f.submit 'Send', :class => 'send_button' %></div>
+  <div class="actions col-xs-3"><%= f.submit 'Send', :class => 'send_button' %></div>
