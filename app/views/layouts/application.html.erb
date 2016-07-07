@@ -30,12 +30,13 @@
             <li><a href="/coaches/">Dashboard</a></li>
             <li><%= link_to 'My Profile', Coach.find(session[:coach_id]) %></li>
             <li><%= link_to 'My Clients', teams_index_path %></li>
+            <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
             <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
 
           <% elsif session[:user_id] != nil %>
             <li><%= link_to 'Welcome', menu_welcome_path %></li>
             <li><a href="/users/">Messages</a></li>
-            <li><%= link_to 'Community', menu_community_path %></li>
+            <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
             <li><%= link_to 'Inspiration', menu_inspiration_path %></li>
             <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>
             <li><%= link_to 'My Team', teams_index_path %></li>
@@ -48,6 +49,8 @@
             <li><a href="/abouts/ourcoaches">Our Coaches</a></li>
             <li><a href="/abouts/testimonials">Testimonials</a></li>
             <li><a href="/abouts/aboutus">About Us</a></li>
+            <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
+
             <li><%= link_to 'Sign In', sessions_login_path%></li>
             <li><%= link_to 'Sign Up Now', new_user_path%></li>
 
