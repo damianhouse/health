@@ -44,7 +44,7 @@
 
   <div class="field">
     <%= f.label :phone %>*<br>
-    <%= f.telephone_field :phone, required: true, pattern: '^\d{3}-\d{3}-\d{4}$', placeholder: "xxx-xxx-xxxx", title: "format: xxx-xxx-xxxx" %>
+    <%= f.number_field :phone, required: true, pattern: '^\d{3}-\d{3}-\d{4}$', placeholder: "xxx-xxx-xxxx", title: "format: xxx-xxx-xxxx" %>
     <p class="smalltext">(Please enter phone number in the format xxx-xxx-xxxx)</p>
   </div>
 
