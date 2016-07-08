@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 <h1>Coaches Profile</h1>
 
-<span class="badge"><%=image_tag @coach.avatar_url, class: "center-block"%></span>
-
+<% if @coach.avatar_url == nil %>
+  <div id="profile_img">
+    <span class="badge"><img class="center-block" src="/assets/generic_avatar.jpg" alt="alt avatar"/></span>
+  </div>
+<% else %>
+<div id="profile_img">
+  <span class="badge"><%=image_tag @coach.avatar_url, class: "center-block"%></span>
+</div>
+<% end %>
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge"><%= @coach.first %></span>

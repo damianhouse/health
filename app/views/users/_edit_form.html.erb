@@ -17,7 +17,7 @@
     <%= f.label :first %><br>
     <%= f.text_field :first %>
   </div>
-  
+
   <div class="field">
     <%= f.label :last %><br>
     <%= f.text_field :last %>
@@ -40,10 +40,9 @@
 
   <div class="field" >
     <%= f.label :phone %>*<br/>
-    <%= f.telephone_field :phone, required: true, pattern: '^\d{3}-\d{3}-\d{4}$', placeholder: "xxx-xxx-xxxx", title: "format: xxx-xxx-xxxx" %>
+    <%= f.telephone_field :phone, required: true, pattern: '^\d{10}$', placeholder: "Mobile Number", title: "format: xxxxxxxxxx" %>
+    <p class="smalltext">(Please enter in the format: xxxxxxxxxx (no spaces, dashes, etc.))</p>
   </div>
-
-
 
   <div class="field">
     <%= f.label :zip %><br>
