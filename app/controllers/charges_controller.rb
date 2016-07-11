@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
   def new
     # @cart = Cart.where(user_id: session[:user_id]).first
-    @amount = 20
+    @amount = 10
 
     if @amount <= 0
       redirect_to carts_path, notice: 'Please Add A Design Before Checking Out!'
@@ -10,7 +10,7 @@ class ChargesController < ApplicationController
 
   def create
     # @cart = Cart.where(user_id: session[:user_id]).first
-    @amount = 20.00
+    @amount = 10.00
 
 
     # Create a Customer

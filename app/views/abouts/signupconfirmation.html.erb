@@ -17,7 +17,7 @@ Before any coaches are assigned to assist you, you must pay the subscription bel
       <% end %>
       <label class="amount">
 
-        Total: &nbsp; <%= number_to_currency(@amount, :unit => "$")  %>
+        Total: &nbsp; $10.00
 
       </label>
 
@@ -27,11 +27,11 @@ Before any coaches are assigned to assist you, you must pay the subscription bel
     <form action="/charges/new" method="POST">
       <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="pk_test_l8vHTycCHQtPxRGBPoisKZbh"
-      data-image="assets/images/healthstylesmall.png"
+      data-key="pk_live_WgdJx398eCuZd3o391sfvY4X"
+      data-image="assets/images/Healthstyle2K_SM.jpg"
       data-name="My Healthstyle"
       data-description="Subscription for 1 week"
-      data-amount="2000"
+      data-amount="1000"
       data-label="Sign Me Up!" >
       </script>
     </form>
