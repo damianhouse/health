@@ -27,7 +27,8 @@ class MenuController < ApplicationController
   end
 
   def inspiration
-  end 
+    @daily_inspo = Inspiration.new.random_inspo
+  end
 
 
 end
