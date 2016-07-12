@@ -50,7 +50,7 @@ gem 'wicked'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'httparty'
 group :production do
   gem 'pg'
   gem 'rails_12factor'

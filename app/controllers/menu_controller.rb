@@ -26,5 +26,8 @@ class MenuController < ApplicationController
   def community
   end
 
+  def inspiration
+  end 
+
 
 end
