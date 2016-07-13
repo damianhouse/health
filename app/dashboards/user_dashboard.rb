@@ -18,12 +18,17 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     password_digest: Field::String,
     role: Field::String,
+    coach_id: Field::Number,
     coach_1: Field::Number,
     coach_2: Field::Number,
     coach_3: Field::Number,
     coach_4: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    avatar_url: Field::String,
+    phone: Field::String,
+    zip: Field::String,
+    paid: Field::Boolean,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -50,12 +55,17 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :password_digest,
     :role,
+    :coach_id,
     :coach_1,
     :coach_2,
     :coach_3,
     :coach_4,
     :created_at,
     :updated_at,
+    :avatar_url,
+    :phone,
+    :zip,
+    :paid,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -70,10 +80,15 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :password_digest,
     :role,
+    :coach_id,
     :coach_1,
     :coach_2,
     :coach_3,
     :coach_4,
+    :avatar_url,
+    :phone,
+    :zip,
+    :paid,
   ].freeze
 
   # Overwrite this method to customize how users are displayed

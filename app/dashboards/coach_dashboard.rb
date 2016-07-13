@@ -19,6 +19,10 @@ class CoachDashboard < Administrate::BaseDashboard
     role: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    avatar_url: Field::String,
+    phone: Field::String,
+    zip: Field::String,
+    greeting: Field::Text,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -47,6 +51,10 @@ class CoachDashboard < Administrate::BaseDashboard
     :role,
     :created_at,
     :updated_at,
+    :zip,
+    :phone,
+    :avatar_url,
+    :greeting,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -61,6 +69,10 @@ class CoachDashboard < Administrate::BaseDashboard
     :email,
     :password_digest,
     :role,
+    :zip,
+    :phone,
+    :avatar_url,
+    :greeting,
   ].freeze
 
   # Overwrite this method to customize how coaches are displayed
