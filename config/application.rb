@@ -22,6 +22,7 @@ module Health
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    
+    Rails.application.config.assets.precompile << /\.(?:png|jpg|jpeg|gif)\z/
+    Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
   end
 end
