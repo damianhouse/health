@@ -38,7 +38,7 @@ class ReportsController < ApplicationController
     if @user = User.find_by_email(params[:email].downcase)
       unless @user.conversations.exists?(coach_id: @user.coach_id)
         @convo = Conversation.create!(user_id: @user.id, coach_id: @user.coach_id)
-        Message.create!(body: "Hi, this is an auto-generated message from your coach", conversation_id: @convo.id, coach_id: @convo.coach_id)
+        Message.create!(body: Coach.find_by(id: @convo.coach_id).greeting, conversation_id: @convo.id, coach_id: @convo.coach_id)
       else
         flash[:notice] = "This user has already been notified of their coaches assignment. You can still update those assignments through the admin dashboard."
       end

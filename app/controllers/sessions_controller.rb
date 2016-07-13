@@ -10,10 +10,12 @@ class SessionsController < ApplicationController
           session[:coach_id] = coach.id
           redirect_to teams_index_path, notice: "Login successful."
 
-        elsif user && user.authenticate(params[:password])
+        elsif user && user.authenticate(params[:password]) && user.paid
           session[:user_id] = user.id
           redirect_to teams_index_path, notice: "Login successful."
-
+        elsif user && user.authenticate(params[:password]) && user.paid == nil
+          session[:user_id] = user.id
+          redirect_to menu_welcome_path
         else
           flash.now[:notice] = "Either your password or email are invalid."
         end
