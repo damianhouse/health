@@ -23,6 +23,7 @@ class CoachDashboard < Administrate::BaseDashboard
     phone: Field::String,
     zip: Field::String,
     greeting: Field::Text,
+    philosophy: Field::Text,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -55,6 +56,7 @@ class CoachDashboard < Administrate::BaseDashboard
     :phone,
     :avatar_url,
     :greeting,
+    :philosophy,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -73,6 +75,7 @@ class CoachDashboard < Administrate::BaseDashboard
     :phone,
     :avatar_url,
     :greeting,
+    :philosophy,
   ].freeze
 
   # Overwrite this method to customize how coaches are displayed
