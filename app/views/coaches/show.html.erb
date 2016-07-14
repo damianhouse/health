@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
-<h1>Coaches Profile</h1>
+<% if session[:user_id] %>
+  <h1>Coach <%= @coach.first %> <%= @coach.last %></h1>
+<% else %>
+  <h1>Coaches Profile</h1>
+<% end %>
 
 <% if @coach.avatar_url == nil %>
   <div id="profile_img">
@@ -10,29 +14,39 @@
   <span class="badge"><%=image_tag @coach.avatar_url, class: "center-block"%></span>
 </div>
 <% end %>
-<ul class="list-group">
-  <li class="list-group-item">
-    <span class="badge"><%= @coach.first %></span>
-    Name:
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @coach.last %></span>
-    Name:
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @coach.email %></span>
-    Email:
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @coach.phone %></span>
-  <strong>  Phone: </strong>
-  </li>
-  <li class="list-group-item">
-    <span class="badge"><%= @coach.zip %></span>
-  <strong>  Zip: </strong>
-  </li>
+<% if !@coach.philosophy.blank? %>
+  <blockquote>
+    <p><i>"<%= @coach.philosophy %>"</i></p>
+    <small>Coach <%= @coach.first %></small>
+  </blockquote>
+<% end %>
+<% unless session[:user_id] %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="orange_text"><%= @coach.first %></span>
+      <strong>First name:</strong>
+    </li>
+    <li class="list-group-item">
+      <span class="orange_text"><%= @coach.last %></span>
+      <strong>Last name:</strong>
+    </li>
 
-  <li class="list-group-item">
-<%= link_to 'Edit', edit_coach_path(@coach), class: 'list-group-item btn btn-info edit'%>
-  </li>
+    <li class="list-group-item">
+      <span class="orange_text"><%= @coach.email %></span>
+      <strong>Email:</strong>
+    </li>
+    <li class="list-group-item">
+      <span class="orange_text"><%= @coach.phone %></span>
+      <strong>  Phone: </strong>
+    </li>
+    <li class="list-group-item">
+      <span class="orange_text"><%= @coach.zip %></span>
+      <strong>  Zip: </strong>
+    </li>
+  <% if session[:coach_id] == @coach.id %>
+    <li class="list-group-item">
+      <%= link_to 'Edit', edit_coach_path(@coach), class: 'list-group-item btn btn-info edit'%>
+    </li>
+  <% end %>
+<% end %>
 </ul>
