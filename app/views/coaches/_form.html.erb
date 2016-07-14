@@ -54,6 +54,18 @@
     <%= f.number_field :zip %>
   </div>
 
+  <div class="field">
+    <%= f.label :greeting %><br>
+    <%= f.text_field :greeting %>
+    <p class="smalltext">Please enter a custom greeting that will be automatically sent to your clients when they are assigned to you. This should include a personal introduction and some questions to get the conversation started. Feel free to include some info about your approach to health and wellness!</p>
+  </div>
+
+  <div class="field">
+    <%= f.label :philosophy, "Personal Philosophy" %><br>
+    <%= f.text_field :philosophy %>
+    <p class="smalltext">Please include a brief personal philosophy that will show on your profile page.</p>
+  </div>
+
   <!-- <div class="field">
     <%= f.label :role %><br>
     <%= f.text_field :role %>
