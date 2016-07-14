@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def logged_in?
-    @current_user = User.find_by(id: session[:user_id])
+    @current_user = User.find_by(id: session[:user_id]) || Coach.find_by(id: session[:coach_id])
     # render json: "You may only edit your own shtuff." unless session[:user_id] == @current_user.id
   end
 

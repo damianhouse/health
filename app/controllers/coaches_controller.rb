@@ -2,6 +2,7 @@ class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
   before_action :validate_coach, only: [:index]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+  before_action :logged_in?, only: [:edit]
   # GET /coaches
   # GET /coaches.json
   def index
@@ -21,6 +22,11 @@ class CoachesController < ApplicationController
 
   # GET /coaches/1/edit
   def edit
+    if @coach.id == @current_user.id
+      edit_coach_path
+    else
+      render json: "You do not have permission to access this page."
+    end
   end
 
   # POST /coaches
