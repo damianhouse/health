@@ -27,9 +27,9 @@
             <%= link_to "New Note", new_note_path(user_id: user.id, coach_id: @coach.id) %>
           <% end %>
         </td>
-        
+
         <td>
-          <% if user.conversations.length >= 1 %>
+          <% if user.conversations.length >= 1 && user.conversations.exists?(coach_id: @coach.id)%>
             <% user.conversations.each do |convo| %>
               <% if convo.coach_id == @coach.id %>
                   <span><%= link_to 'View Conversation', convo%></span>
