@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
-    if @current_user.id == @conversation.coach_id || @current_user.id == @conversation.user_id
+    if @current_user && (@current_user.id == @conversation.coach_id || @current_user.id == @conversation.user_id)
       @message = Message.new
 
       if session[:user_id] != nil
