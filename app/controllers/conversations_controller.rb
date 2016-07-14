@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in?, only: [:show]
   # GET /conversations
   # GET /conversations.json
   def index
@@ -12,31 +12,35 @@ class ConversationsController < ApplicationController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
-    @message = Message.new
+    if @current_user.id == @conversation.coach_id || @current_user.id == @conversation.user_id
+      @message = Message.new
 
-    if session[:user_id] != nil
-      @profile = @conversation.coach
-      @perspective = "user"
-    else
-      @profile = @conversation.user
-      @perspective = "coach"
-    end
+      if session[:user_id] != nil
+        @profile = @conversation.coach
+        @perspective = "user"
+      else
+        @profile = @conversation.user
+        @perspective = "coach"
+      end
 
-    @name = "#{@profile.first} #{@profile.last}"
+      @name = "#{@profile.first} #{@profile.last}"
 
-  #mark conversations read after user/coach views
-    @conversation.messages.each do |msg|
-      if session[:coach_id] != nil
-          if msg.user_id != nil
+    #mark conversations read after user/coach views
+      @conversation.messages.each do |msg|
+        if session[:coach_id] != nil
+            if msg.user_id != nil
+              msg.read = true
+              msg.save!
+            end
+        elsif session[:user_id] != nil
+          if msg.coach_id != nil
             msg.read = true
             msg.save!
           end
-      elsif session[:user_id] != nil
-        if msg.coach_id != nil
-          msg.read = true
-          msg.save!
         end
       end
+    else
+      render json: "You do not have permission to access that page."
     end
 
   end
