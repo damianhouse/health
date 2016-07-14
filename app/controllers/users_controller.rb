@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if session[:user_id] != @user.id && !session[:coach_id]
+      render json: "You do not have permission to access this page"
+    end
   end
 
   # GET /users/new
