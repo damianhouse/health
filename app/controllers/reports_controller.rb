@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
   def send_email
 
     if @user = User.find_by_email(params[:email])
-      charset = Array('A'..'Z') + Array('a'..'z')
+      charset = Array('A'..'Z') + Array('a'..'z') + Array(1..9)
       random_password = Array.new(10) { charset.sample }.join
       @user.password = random_password
       @user.save!
