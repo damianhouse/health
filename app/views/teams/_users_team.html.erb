@@ -30,7 +30,7 @@
         </td>
         <td class="avatar">
           <!-- <span class="badge"><%=image_tag coach.avatar_url, class: "center-block"%></span> -->
-          <% if coach.avatar_url != nil %>
+          <% if !coach.avatar_url.blank? %>
             <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
             <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
@@ -82,7 +82,7 @@
           </div>
         </td>
         <td class="avatar">
-          <% if coach.avatar_url != nil %>
+          <% if !coach.avatar_url.blank? %>
             <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
             <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
@@ -131,7 +131,7 @@
           </div>
         </td>
         <td class="avatar">
-          <% if coach.avatar_url != nil %>
+          <% if !coach.avatar_url.blank? %>
             <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
             <img class="avatar" src="/assets/male_coach.jpg" alt="alt avatar"/>
@@ -180,7 +180,7 @@
           </div>
         </td>
         <td class="avatar">
-          <% if coach.avatar_url != nil %>
+          <% if !coach.avatar_url.blank? %>
             <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
             <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
@@ -229,7 +229,7 @@
           </div>
         </td>
         <td class="avatar">
-          <% if coach.avatar_url != nil %>
+          <% if !coach.avatar_url.blank? %>
             <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
           <% else %>
             <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
