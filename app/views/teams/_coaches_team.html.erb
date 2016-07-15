@@ -7,7 +7,7 @@
       <% user_note = user.notes.where(coach_id: @coach.id) %>
       <tr>
         <td class="avatar">
-          <% if user.avatar_url != nil %>
+          <% if user.avatar_url %>
             <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
           <% else %>
             <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
