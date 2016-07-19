@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if @user.id || User.find(session[:user_id]).admin?
+    if @user.id == @current_user.id
       edit_user_path
     else
       render json: "You do not have permission to access this page"

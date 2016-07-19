@@ -2,7 +2,9 @@
 
 <p>
   <strong>Notes for:</strong>
-  <%= User.find_by(id: @note.user_id).first %> <%= User.find_by(id: @note.user_id).last %>
+  <% if User.find_by(id: @note.user_id) %>
+    <%= User.find_by(id: @note.user_id).first %> <%= User.find_by(id: @note.user_id).last %>
+  <% end %>
 </p>
 
 <!-- <p>

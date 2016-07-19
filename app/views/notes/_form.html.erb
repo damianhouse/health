@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
-
-<p> Notes for: <% user = User.find_by(id: params[:user_id] || user = User.find_by(id: @note.user_id)) %><%= user.first %> <%= user.last %> </p>
-<br>
+<% if User.find_by(id: @note.user_id) %>
+  <p> Notes for: <% user = User.find_by(id: params[:user_id] || user = User.find_by(id: @note.user_id)) %><%= user.first %> <%= user.last %> </p>
+  <br>
+<% end %>
 
 <% if params[:user_id] == nil %>
 

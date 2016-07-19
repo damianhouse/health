@@ -7,9 +7,9 @@ one:
   role: MyString
   coach_id: 1
   coach_1: 1
-  coach_2: 1
-  coach_3: 1
-  coach_4: 1
+  coach_2: 2
+  coach_3: 3
+  coach_4: 4
   phone: 2342342342
 
 two:
@@ -19,7 +19,7 @@ two:
   role: MyString
   coach_id: 2
   coach_1: 1
-  coach_2: 1
-  coach_3: 1
-  coach_4: 1
+  coach_2: 2
+  coach_3: 3
+  coach_4: 4
   phone: 1231231231
