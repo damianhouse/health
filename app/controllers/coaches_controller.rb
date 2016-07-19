@@ -22,7 +22,7 @@ class CoachesController < ApplicationController
 
   # GET /coaches/1/edit
   def edit
-    if @coach.id == @current_user.id
+    if @coach.id || User.find(session[:user_id]).admin?
       edit_coach_path
     else
       render json: "You do not have permission to access this page."

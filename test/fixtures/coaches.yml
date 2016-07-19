@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
+  first: MyString
+  email: coaches1asdf@gmail.com
   password_digest: MyString
   role: MyString
 
 two:
-  name: MyString
-  email: MyString
+  first: MyString
+  email: coaches2asdf@gmail.com
   password_digest: MyString
   role: MyString

@@ -20,8 +20,6 @@ class MessagesControllerTest < ActionController::TestCase
     assert_difference('Message.count') do
       post :create, message: { body: @message.body, conversation_id: @message.conversation_id, read: @message.read, user_id: @message.user_id }
     end
-
-    assert_redirected_to message_path(assigns(:message))
   end
 
   test "should show message" do

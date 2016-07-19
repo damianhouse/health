@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
+  first: MyString
+  email: MyString1@gmail.com
   password_digest: MyString
   role: MyString
   coach_id: 1
@@ -10,14 +10,16 @@ one:
   coach_2: 1
   coach_3: 1
   coach_4: 1
+  phone: 2342342342
 
 two:
-  name: MyString
-  email: MyString
+  first: MyString
+  email: MyString2@gmail.com
   password_digest: MyString
   role: MyString
-  coach_id: 1
+  coach_id: 2
   coach_1: 1
   coach_2: 1
   coach_3: 1
   coach_4: 1
+  phone: 1231231231

@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :notes
   namespace :admin do
     resources :coaches
-resources :conversations
-resources :messages
-resources :users
+    resources :conversations
+    resources :messages
+    resources :users
 
     root to: "coaches#index"
   end

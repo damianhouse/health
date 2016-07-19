@@ -13,7 +13,7 @@ coach4 = Coach.create!(first: "Willy",last: "fake", password:"password", email: 
 
 
 
-user1 = User.create!(first: "Thomas", password: "password", email: "user@user.com", coach_id: coach1.id, coach_1: coach2.id, coach_2: coach3.id, coach_3: coach4.id)
+user1 = User.create!(first: "Thomas", password: "password", email: "user@user.com", coach_id: coach1.id, coach_1: coach2.id, coach_2: coach3.id, coach_3: coach4.id, admin: true)
 
 conversation_user1 = Conversation.create!(user_id: user1.id, coach_id: coach1.id)
 conversation_user2 = Conversation.create!(user_id: user1.id, coach_id: coach2.id)
