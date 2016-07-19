@@ -33,6 +33,8 @@ div.learn-more h2 {
 }
 div.learn-more p {
   font-size:4.1vw;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-bottom: 15px;
 }
 @media (min-width: 568px) {
   div.learn-more p {
