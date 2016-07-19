@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+require 'byebug'
 
     def login
       if request.post?
@@ -9,8 +9,12 @@ class SessionsController < ApplicationController
         if coach && coach.authenticate(params[:password])
           session[:coach_id] = coach.id
           redirect_to teams_index_path, notice: "Login successful."
-
         elsif user && user.authenticate(params[:password]) && user.paid
+          session[:user_id] = user.id
+          session[:admin] = true if user.admin
+          redirect_to teams_index_path, notice: "Login successful."
+        elsif user && user.authenticate(params[:password]) && user.paid
+          byebug
           session[:user_id] = user.id
           redirect_to teams_index_path, notice: "Login successful."
         elsif user && user.authenticate(params[:password]) && user.paid == nil
@@ -31,7 +35,7 @@ class SessionsController < ApplicationController
     def logout
       session[:user_id] = nil
       session[:coach_id] = nil
-
+      session[:admin] = nil
       redirect_to sessions_login_path, alert: "You've beens successfully logged out. Check back soon!"
     end
 
