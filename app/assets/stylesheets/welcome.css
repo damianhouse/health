@@ -49,6 +49,8 @@ div.learn-more p {
 @media (min-width: 1024px) {
   div.learn-more p {
     font-size:1.3vw;
+    padding: 15px;
+    line-height: 1.3;
   }
 }
 @media (max-width: 1024px) {
