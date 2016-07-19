@@ -3,9 +3,9 @@ class Coach < ActiveRecord::Base
   validates :password, length: { minimum: 8 }, allow_nil: true
   validate :uniqueness_of_email_across_models
   has_many :users
-  has_many :messages
-  has_many :notes
-  has_many :conversations
+  has_many :messages, dependent: :destroy
+  has_many :notes, dependent: :destroy
+  has_many :conversations, dependent: :destroy
   has_secure_password
   before_save { |user| user.email = user.email.downcase }
 
