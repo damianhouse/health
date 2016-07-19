@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-require 'byebug'
-
     def login
       if request.post?
         coach = Coach.find_by('lower(email) = ?', params[:email].downcase)
