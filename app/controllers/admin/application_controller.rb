@@ -10,8 +10,8 @@ module Admin
     before_filter :authenticate_admin
 
     def authenticate_admin
-      @current_user = User.find(session[:user_id])
-      unless @current_user.admin?
+      @current_user = User.find(session[:user_id]) if session[:user_id]
+      unless @current_user && @current_user.admin?
         redirect_to '/', alert: 'Not authorized.'
       end
     end

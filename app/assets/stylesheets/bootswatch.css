@@ -10,7 +10,51 @@
   * Copyright 2011-2015 Twitter, Inc.
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
- /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+ /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */.btn-sample {
+  color: #ffffff;
+  background-color: #FF6600;
+  border-color: #130269;
+}
+
+.btn-sample:hover,
+.btn-sample:focus,
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  color: #ffffff;
+  background-color: #FE981C;
+  border-color: #130269;
+}
+
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  background-image: none;
+}
+
+.btn-sample.disabled,
+.btn-sample[disabled],
+fieldset[disabled] .btn-sample,
+.btn-sample.disabled:hover,
+.btn-sample[disabled]:hover,
+fieldset[disabled] .btn-sample:hover,
+.btn-sample.disabled:focus,
+.btn-sample[disabled]:focus,
+fieldset[disabled] .btn-sample:focus,
+.btn-sample.disabled:active,
+.btn-sample[disabled]:active,
+fieldset[disabled] .btn-sample:active,
+.btn-sample.disabled.active,
+.btn-sample[disabled].active,
+fieldset[disabled] .btn-sample.active {
+  background-color: #FF6600;
+  border-color: #130269;
+}
+
+.btn-sample .badge {
+  color: #FF6600;
+  background-color: #ffffff;
+}
 .link {
     color: #FF6600;
     text-decoration: none;

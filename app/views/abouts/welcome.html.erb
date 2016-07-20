@@ -1,20 +1,20 @@
 
-<ul class="welcome nav">
-  <li><a href="#next">Learn More</a></li>
-  <li class="divider">|</li>
-  <li><%= link_to 'Sign Up', new_user_path%></li>
-  <li class="divider">|</li>
-  <li><%= link_to 'Sign In', sessions_login_path%></li>
-</ul>
 <div class="jumbotron welcome">
   <%= image_tag "HS_Logo_B3_LO.jpg", class: "main-image"%>
   <div class="col-md-12 text-center tagline">
+    <button class="btn sign-up-button"><a href="#next" class="sign-up-text">Learn More</a></button>
     <span id="mobileshow"><h2><span class="tagline">Three Coaches, One Goal:</span> A Healthier You!</h2></span>
     <span id="desktopshow"><h2>Three Coaches, One Goal: A Healthier You!<br/></h2></span><br/>
     <span class="mobile_hide"><br/><br/></span>
     <!-- <a href="#next" class="btn btn-primary btn-lg button-center">Learn more </a> -->
     <!-- <a href="#next" class="orange_text large">Learn more</a> -->
+    <div class="sign-up-button-group">
 
+      <!-- <li class="divider">|</li> -->
+      <button class="btn sign-up-button"><%= link_to 'Sign Up Now', new_user_path, class: "sign-up-text"%></button>
+      <!-- <li class="divider">|</li> -->
+      <button class="btn sign-up-button"><%= link_to 'Sign In', sessions_login_path, class: "sign-up-text"%></button>
+    </div>
     <div>
       <a class="arrow-wrap" href="#next" style="opacity: 0.395792;">
       <span class="arrow"></span></a>
@@ -22,7 +22,9 @@
   </div>
   <br>
 </div>
+<!-- <ul class="welcome nav"> -->
 
+<!-- </ul> -->
 <a name="next"></a>
 <div class="next learn-more text-center">
   <br/>

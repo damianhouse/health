@@ -7,6 +7,21 @@ ul.nav.welcome {
   padding:0;
   margin:0;
 }
+button.btn {
+  background-color: #FF6600;
+  color: #FFFFFF !important;
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+.sign-up-text {
+  color: #FFFFFF;
+}
+.arrow {
+  padding-bottom: 20px;
+}
+.sign-up-button-group {
+  padding-bottom: 25px;
+  margin: 0;
+}
 ul.nav.welcome li {
   display: inline-block;
 }
