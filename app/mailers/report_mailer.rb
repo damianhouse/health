@@ -6,7 +6,7 @@ class ReportMailer < ApplicationMailer
   #   en.report_mailer.invite_friend.subject
   #
   def invite_friend(address, random_password)
-    @greeting = "Hi, please use the following code as your new pasword #{random_password}, and login. Afterward, edit your profile to update your password. Thanks!!"
+    @greeting = "Hi, please use the following code as your new password #{random_password}, and login. Afterward, edit your profile to update your password. Thanks!!"
     mail to: address, subject: "Your New Password!"
   end
 

@@ -30,7 +30,6 @@ class ChargesController < ApplicationController
 
     @user = User.find_by(email: params[:stripeEmail])
     @user.update_attribute(:paid, true)
-
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path

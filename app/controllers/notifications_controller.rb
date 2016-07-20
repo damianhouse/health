@@ -20,6 +20,20 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def notify_admin(user)
+    unless user.phone == ""
+      begin
+        client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+        message = client.messages.create from: '8284820730', to: ENV['ALEXS_PHONE_NUMBER'],
+
+        body: 'We have a new user! Check the admin page and set them up!'
+      rescue
+        redirect_to :back
+        flash[:notice] =  "Please enter a valid phone number."
+      end
+    end
+  end
+
   def text_assignment
     @user = User.find_by(email: params[:email].downcase)
     client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
