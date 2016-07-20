@@ -1,5 +1,5 @@
 <div class="order-receipt">
-  <h4>Thank you for placing an order!</h4>
+  <h4>Thank you for your payment!</h4>
   <h4>Amount Paid: </h4><%= number_to_currency(@amount, :unit => "$") %>, <%= @charge[:source][:brand] %> **** **** **** <%= @charge[:source][:last4] %><br>
   <h4>Recipient: </h4><%= @charge[:source][:name] %>
 
