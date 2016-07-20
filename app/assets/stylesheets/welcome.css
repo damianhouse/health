@@ -18,6 +18,9 @@ button.btn {
 .arrow {
   padding-bottom: 20px;
 }
+.nav-bar-avatar {
+  max-height: 40px;
+}
 .sign-up-button-group {
   padding-bottom: 25px;
   margin: 0;

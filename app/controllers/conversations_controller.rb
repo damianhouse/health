@@ -7,8 +7,6 @@ class ConversationsController < ApplicationController
     @conversations = @current_user.conversations
   end
 
-
-
   # GET /conversations/1
   # GET /conversations/1.json
   def show

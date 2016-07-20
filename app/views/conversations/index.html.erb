@@ -7,7 +7,7 @@
     <tr>
       <th>User</th>
       <th>Coach</th>
-      <th>Active</th>
+      <th>Last Message</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
     <% @conversations.each do |conversation| %>
       <tr>
-        <td><%= conversation.user_id %></td>
-        <td><%= conversation.coach_id %></td>
-        <td><%= conversation.active %></td>
+        <td><%= conversation.user.first %></td>
+        <td><%= conversation.coach.first %></td>
+        <td><%= conversation.messages.last.body %></td>
         <td><%= link_to 'Show', conversation %></td>
         <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
         <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
