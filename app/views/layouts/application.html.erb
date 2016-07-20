@@ -34,7 +34,7 @@
             <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
           <% elsif session[:admin] == true %>
             <li><%= link_to 'Welcome', menu_welcome_path %></li>
-            <li><a href="/users/">Messages</a></li>
+            <li><a href="/conversations/">Messages</a></li>
             <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
             <li><%= link_to 'Inspiration', menu_inspiration_path %></li>
             <li><%= link_to 'Admin', admin_coaches_path %></li>
@@ -44,7 +44,7 @@
             <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
           <% elsif session[:user_id] != nil %>
             <li><%= link_to 'Welcome', menu_welcome_path %></li>
-            <li><a href="/users/">Messages</a></li>
+            <li><a href="/conversations/">Messages</a></li>
             <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
             <li><%= link_to 'Inspiration', menu_inspiration_path %></li>
             <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>

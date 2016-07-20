@@ -1,10 +1,10 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in?, only: [:show]
+  before_action :logged_in?, only: [:show, :index]
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.all
+    @conversations = @current_user.conversations
   end
 
 
