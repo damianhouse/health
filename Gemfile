@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+require 'minitest/pride'
 
 ruby '2.3.0'
 
