@@ -10,6 +10,7 @@ class NotificationsController < ApplicationController
         message = client.messages.create from: '8284820730', to: user.phone,
 
         body: 'Welcome to MyHealthStyle! We are so excited and will contact you as soon as your coaching team is assigned to you!'
+        notify_admin(user)
         redirect_to abouts_signupconfirmation_path
       rescue
         redirect_to :back

@@ -3,45 +3,43 @@ Rails.application.routes.draw do
   post 'notifications/notify' => 'notifications#notify'
   get 'notifications/text_assignment'
   # post 'notifications/text_assignment'
-  get 'reports/email_assignment_sent'
 
   resources :notes
+  resources :messages
+  resources :conversations
+  resources :coaches
+  resources :users
+  resources :form_steps
+  resources :charges
+
   namespace :admin do
     resources :coaches
     resources :conversations
     resources :messages
     resources :users
-
     root to: "coaches#index"
   end
 
 
 
 
-  resources :messages
-  resources :conversations
-  resources :coaches
-  resources :users
-  resources :form_steps
-  get 'abouts/terms'
 
-root 'abouts#welcome'
-get 'abouts/welcome'
-get 'abouts/aboutus'
-get 'abouts/ourcoaches'
-get 'abouts/testimonials'
-get 'abouts/signupconfirmation'
-get 'survey' => 'abouts#survey'
-get 'our_picks' => 'abouts#survey_results'
-get 'views' => 'abouts#screenshots'
-get 'thanks' => 'abouts#thank_you'
+  get 'abouts/terms'
+  root 'abouts#welcome'
+  get 'abouts/welcome'
+  get 'abouts/aboutus'
+  get 'abouts/ourcoaches'
+  get 'abouts/testimonials'
+  get 'abouts/signupconfirmation'
+  get 'survey' => 'abouts#survey'
+  get 'our_picks' => 'abouts#survey_results'
+  get 'views' => 'abouts#screenshots'
+  get 'thanks' => 'abouts#thank_you'
 
   get 'sessions/login'
   post 'sessions/login'
-
   get 'sessions/signup'
   post 'sessions/signup'
-
   get 'sessions/logout'
   post 'sessions/logout'
 
@@ -49,15 +47,11 @@ get 'thanks' => 'abouts#thank_you'
   post 'reports/send_email'
   get 'reports/send_confirmation'
   post 'reports/send_confirmation'
-
   get 'reports/coaches_assigner'
   post 'reports/coaches_assigner'
   get 'reports/send_assignment'
   post 'reports/send_assignment'
-
-
-
-
+  get 'reports/email_assignment_sent'
 
   get 'teams/index'
 
@@ -71,7 +65,6 @@ get 'thanks' => 'abouts#thank_you'
 
   post 'charges/index'
   post 'charges/new'
-  resources :charges
 
 
 

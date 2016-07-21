@@ -33,8 +33,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        ReportMailer.send_confirmation(@user).deliver_now
-        NotifcationsController.notify_admin(@user)
+        user = @user
+        # ReportMailer.send_confirmation(@user).deliver_now
         session[:user_id] = @user.id
         format.html { redirect_to form_steps_path }
         format.json { render :show, status: :created, location: @user }

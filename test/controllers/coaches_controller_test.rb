@@ -3,6 +3,7 @@ require 'test_helper'
 class CoachesControllerTest < ActionController::TestCase
   setup do
     @coach = coaches(:one)
+    session[:coach_id] = @coach.id
   end
 
   test "should get new" do

@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
-    @current_user = users(:one)
+    session[:user_id] = @user.id
   end
 
   test "should get new" do
@@ -17,8 +17,8 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    patch :update, id: @user, user: { coach_1: @user.coach_1, coach_2: @user.coach_2, coach_3: @user.coach_3, coach_4: @user.coach_4, coach_id: @user.coach_id, email: @user.email, first: @user.first, password_digest: @user.password_digest, role: @user.role }
-    assert_redirected_to user_path(assigns(:user))
+    patch :update, id: @user, user: { coach_1: @user.coach_1, coach_2: @user.coach_2, coach_3: @user.coach_3, coach_4: @user.coach_4, coach_id: @user.coach_id, email: @user.email, first: @user.first, password: @user.password, role: @user.role }
+    assert_response :success
   end
 
   test "should destroy user" do
