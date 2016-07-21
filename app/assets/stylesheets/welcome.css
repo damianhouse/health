@@ -21,6 +21,9 @@ button.btn {
 .nav-bar-avatar {
   max-height: 40px;
 }
+  .nav-bar-avatar:hover {
+  opacity: 40%;
+}
 .sign-up-button-group {
   padding-bottom: 25px;
   margin: 0;

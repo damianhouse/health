@@ -1,4 +1,4 @@
-<% if @user.coach == nil %>
+<% if @user.coach_id == nil %>
   <p>Looks like you don't currently have any coaches assigned! Check back soon!</p>
 <% end %>
 
@@ -254,3 +254,12 @@
     <% end %>
 
 </table>
+<h3>Your daily inspiration...</h3>
+<div class="well well-lg">
+  <div id="inspo_title">
+    <h3><%= @daily_inspo["field_157"] %></h3><br/><br/>
+  </div>
+  <div id="inspiration_img">
+    <span class="badge"><%= image_tag @daily_inspo["field_159_raw"]["url"], class: "center-block" %></span>
+  </div>
+</div>

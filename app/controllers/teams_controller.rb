@@ -9,6 +9,8 @@ before_action :logged_in?
        end
       @conversation = Conversation.new
       @note = Note.new
+      @daily_inspo = Inspiration.new.random_inspo
+
     end
 
   end
