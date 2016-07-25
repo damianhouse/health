@@ -29,7 +29,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <% if session[:coach_id] != nil %>
-              <li><a href="/coaches/">Dashboard</a></li>
               <li><%= link_to 'My Clients', teams_index_path %></li>
               <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
               <li><%= link_to 'My Profile', Coach.find(session[:coach_id]) %></li>
