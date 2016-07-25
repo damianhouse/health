@@ -2,8 +2,53 @@
   <p>Looks like you don't currently have any clients!</p>
 <% else %>
   <table class="table table-responsive table-hover team coach">
-
+    <h1>My Primary Coach Users</h1>
     <% @coach.users.each do |user| %>
+      <% user_note = user.notes.where(coach_id: @coach.id) %>
+      <tr>
+        <td class="avatar">
+          <% if !user.avatar_url.blank? %>
+            <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
+          <% else %>
+            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+          <% end %>
+        </td>
+        <td class="details">
+          <div class="name"><%= user.first %> <%= user.last %></div>
+
+          <div class="details">
+            <%= link_to 'View Profile', user %>
+          </div>
+        </td>
+        <td>
+          <% if user_note.empty? == false %>
+              <span><%= link_to 'Client Notes', user_note.first %></span>
+          <% else %>
+            <%= link_to "New Note", new_note_path(user_id: user.id, coach_id: @coach.id) %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if user.conversations.length >= 1 && user.conversations.exists?(coach_id: @coach.id)%>
+            <% user.conversations.each do |convo| %>
+              <% if convo.coach_id == @coach.id %>
+                  <span><%= link_to 'View Conversation', convo%></span>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= render partial: "conversation_form", locals: { user: user} %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<% if @secondary_coach.empty? == true %>
+  <p>Looks like you don't currently have any secondary clients!</p>
+<% else %>
+  <table class="table table-responsive table-hover team coach">
+    <h1>My Secondary Coach Users</h1>
+    <% @secondary_coach.each do |user| %>
       <% user_note = user.notes.where(coach_id: @coach.id) %>
       <tr>
         <td class="avatar">

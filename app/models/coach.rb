@@ -1,6 +1,7 @@
 class Coach < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password, length: { minimum: 8 }, allow_nil: true
+  validates :greeting, presence: true
   validate :uniqueness_of_email_across_models
   has_many :users
   has_many :messages
@@ -9,6 +10,10 @@ class Coach < ActiveRecord::Base
   has_secure_password
   before_save { |user| user.email = user.email.downcase }
 
+  def secondary_coach(coach)
+    User.all.select { |u| u.coach_1 == coach.id || u.coach_2 == coach.id || u.coach_3 == coach.id || u.coach_4 == coach.id }
+  end
+  
   def find_user_1
     User.where(coach_1: self.id)
   end

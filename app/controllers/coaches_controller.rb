@@ -1,6 +1,6 @@
 class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
-  before_action :validate_coach_or_admin, only: [:show, :edit, :update, :destroy]
+  before_action :validate_coach_or_admin, only: [:edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
   before_action :logged_in?, only: [:edit]
   # GET /coaches
