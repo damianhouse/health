@@ -9,11 +9,13 @@
 </nav>
 <div class="conversation">
   <div class="chat <%= @perspective %>">
-    <% @conversation.messages.each do |message| %>
-      <div class="msg <%= session[:coach_id] != nil ? (message.user_id != nil ? "receive" : "send") : (message.user_id != nil ? "send" : "receive") %>">
-        <div class="msgtext"><%= message.body.empty? ? raw("&nbsp;") : message.body.html_safe %></div>
-        <div class="time"><%= message.updated_at.strftime('%H:%M') %></div>
-      </div>
+    <% if @conversation.messages != nil %>
+      <% @conversation.messages.each do |message| %>
+        <div class="msg <%= session[:coach_id] != nil ? (message.user_id != nil ? "receive" : "send") : (message.user_id != nil ? "send" : "receive") %>">
+          <div class="msgtext"><%= message.body.empty? ? raw("&nbsp;") : message.body.html_safe %></div>
+          <div class="time"><%= message.updated_at.strftime('%H:%M') %></div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
