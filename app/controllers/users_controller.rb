@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :validate_user_or_admin, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user_or_admin, only: [:edit, :update, :destroy]
+  before_action :validate_user_or_coach, only: [:show]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
   before_action :logged_in?, only: [:edit]
   # GET /users
@@ -86,6 +87,14 @@ class UsersController < ApplicationController
 
     def validate_user_or_admin
       if (@user.id == session[:user_id]) || (User.find(session[:user_id]).admin if session[:user_id])
+        edit_coach_path
+      else
+        render json: "You do not have permission to access this page."
+      end
+    end
+
+    def validate_user_or_coach
+      if (@user.id == session[:user_id]) || session[:coach_id]
         edit_coach_path
       else
         render json: "You do not have permission to access this page."
