@@ -17,6 +17,6 @@
   </div>
   <!-- <div class="col-xs-1 upload"><i class="fa fa-camera"></i></div> -->
   <div class="field text col-xs-9">
-    <%= f.text_area :body, class: 'form-control', placeholder: 'Enter a message' %>
+    <%= f.text_area :body, class: 'form-control', placeholder: 'Enter a message', data: {textarea: "message"} %>
   </div>
-  <div class="actions col-xs-3"><%= f.submit 'Send', :class => 'send_button' %></div>
+  <div class="actions col-xs-3"><%= f.submit "send", class: "btn btn-primary", style: "display: none", data: {send: "message"}%></div>

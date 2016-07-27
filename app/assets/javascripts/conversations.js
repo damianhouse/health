@@ -1,9 +1,12 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('ready page:load', function () {
   submitNewMessage();
 });
-
 function submitNewMessage(){
-  $('textarea#message_body').keypress( function( e ) {
-  if( e.keyCode == 13 ) { $(this).closest('form').trigger('submit'); }
-} );
+  $('textarea#message_body').keydown(function(event) {
+    if (event.keyCode == 13) {
+        $('[data-send="message"]').click();
+        $('[data-textarea="message"]').val(" ")
+        return false;
+     }
+  });
 }
