@@ -16,7 +16,7 @@
     <%= f.hidden_field :conversation_id, value: params[:id] %>
   </div>
   <!-- <div class="col-xs-1 upload"><i class="fa fa-camera"></i></div> -->
-  <div class="field text col-xs-9">
+  <div class="field text col-xs-12">
     <%= f.text_area :body, class: 'form-control', placeholder: 'Enter a message', data: {textarea: "message"} %>
   </div>
   <div class="actions col-xs-3"><%= f.submit "send", class: "btn btn-primary", style: "display: none", data: {send: "message"}%></div>
