@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
+  require 'uri'
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_message, only: [:create]
   # GET /messages
   # GET /messages.json
   def index
@@ -28,6 +29,9 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        new_body = @message.body.split.map { |x| x =~ URI::regexp ? make_link(x) : x }.join(" ")
+        @message.body = new_body
+        @message.save!
         format.html { redirect_to conversation_path(@message.conversation_id), notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
@@ -62,6 +66,19 @@ class MessagesController < ApplicationController
   end
 
   private
+    def check_message
+      case params[:message][:body].include? "<script>"
+        when true
+          params[:message][:body] = params[:message][:body].split.drop_while { |w| w = '<script>' || '</script>'}.join(" ")
+        when false
+          true
+      end
+    end
+
+    def make_link(url)
+        '<a href="' + url + '" class="link-text"">' + url + '</a>'
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_message
       @message = Message.find(params[:id])

@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
     def self.admin?
       return true if self.admin
     end
+
+
     # def generate_random
     #   coach_id_array = []
     #   r = rand(1..5)
