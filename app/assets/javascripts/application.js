@@ -17,6 +17,7 @@
 //= require z.jquery.fileupload
 //= require jquery-fileupload/basic
 //= require_tree .
+
 $(document).on('ready page:load', function () {
   submitNewMessage();
 });
