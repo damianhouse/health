@@ -1,5 +1,5 @@
 class AboutsController < ApplicationController
-
+  before_action :logged_in?, only: [:signupconfirmation]
 
     def welcome
 
@@ -19,7 +19,8 @@ class AboutsController < ApplicationController
 
 
     def signupconfirmation
-
+      @stripe_list = Stripe::Plan.all
+      @plans = @stripe_list[:data]
     end
 
     def terms

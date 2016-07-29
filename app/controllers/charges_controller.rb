@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  before_action :logged_in?
   def new
     # @cart = Cart.where(user_id: session[:user_id]).first
     @amount = 10
@@ -8,7 +9,7 @@ class ChargesController < ApplicationController
     end
   end
 
-  def create
+  def update
     # @cart = Cart.where(user_id: session[:user_id]).first
     @amount = 10.00
 
@@ -28,8 +29,11 @@ class ChargesController < ApplicationController
       :receipt_email => customer.email
     )
 
-    @user = User.find_by(email: params[:stripeEmail])
-    @user.update_attribute(:paid, true)
+    @current_user.paid = true
+    @current_user.save!
+
+    redirect_to teams_index_path
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
