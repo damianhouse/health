@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718134322) do
+ActiveRecord::Schema.define(version: 20160802132446) do
+
+  create_table "charges", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "coupon_id"
+    t.integer  "stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "coaches", force: :cascade do |t|
     t.string   "first"
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
@@ -34,6 +42,16 @@ ActiveRecord::Schema.define(version: 20160718134322) do
     t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "discount_percent"
+    t.integer  "discount_amount"
+    t.datetime "expires_at"
+    t.string   "description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "messages", force: :cascade do |t|

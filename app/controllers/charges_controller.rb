@@ -1,19 +1,16 @@
 class ChargesController < ApplicationController
   before_action :logged_in?
-  def new
-    # @cart = Cart.where(user_id: session[:user_id]).first
-    @amount = 10
 
-    if @amount <= 0
-      redirect_to carts_path, notice: 'Please Add A Design Before Checking Out!'
-    end
+  def new
+    plans_data = Stripe::Plan.all
+    @plans = plans_data[:data]
   end
 
+  def create
+
+  end
+  
   def update
-    # @cart = Cart.where(user_id: session[:user_id]).first
-    @amount = 10.00
-
-
     # Create a Customer
     customer = Stripe::Customer.create(
     :source  => params[:stripeToken],
