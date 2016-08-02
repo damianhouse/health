@@ -8,31 +8,62 @@ class ChargesController < ApplicationController
     end
   end
 
+
   def create
-    # @cart = Cart.where(user_id: session[:user_id]).first
-    @amount = 10.00
+    # Amount in cents
+    @amount = 500
+    @final_amount = @amount
 
+    @code = params[:couponCode]
 
-    # Create a Customer
+    if !@code.blank?
+      @discount = get_discount(@code)
+
+      if @discount.nil?
+        flash[:error] = 'Coupon code is not valid or expired.'
+        redirect_to new_charge_path
+        return
+      else
+        @discount_amount = @amount * @discount
+        @final_amount = @amount - @discount_amount.to_i
+      end
+
+      charge_metadata = {
+        :coupon_code => @code,
+        :coupon_discount => (@discount * 100).to_s + '%'
+      }
+    end
+
+    charge_metadata ||= {}
+
     customer = Stripe::Customer.create(
-    :source  => params[:stripeToken],
-    :email => params[:stripeEmail],
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
     )
-
-
-    @charge = Stripe::Charge.create(
+    Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => charge_amount = (@amount * 100).to_i,
+      :amount      => @final_amount,
       :description => 'Rails Stripe customer',
       :currency    => 'usd',
-      :receipt_email => customer.email
+      :metadata    => charge_metadata
     )
-
-    @user = User.find_by(email: params[:stripeEmail])
-    @user.update_attribute(:paid, true)
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+  private
+
+    COUPONS = {
+      'RAVINGSAVINGS' => 0.10,
+      'SUMMERSALE' => 0.05
+    }
+
+    def get_discount(code)
+      # Normalize user input
+      code = code.gsub(/ +/, '')
+      code = code.upcase
+      COUPONS[code]
+    end
 
 end

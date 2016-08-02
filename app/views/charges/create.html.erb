@@ -1,3 +1,31 @@
+<p>
+  <label class="subtotal">
+    <span>Subtotal: <%= number_to_currency(@amount * 0.01) %></span>
+  </label>
+</p>
+<% if @discount.present? %>
+  <p>
+    <label class="coupon">
+      <span>Coupon: <%= @code %></span>
+    </label>
+  </p>
+  <p>
+    <label class="savings">
+      <span>Savings: <%= number_to_currency(@discount_amount * 0.01) %></span>
+    </label>
+  </p>
+  <p>
+    <label class="discount">
+      <span>Discount: <%= (@discount * 100).to_s + '%' %></span>
+    </label>
+  </p>
+<% end %>
+<p>
+  <label class="total">
+    <span>Total: <%= number_to_currency(@final_amount * 0.01) %></span>
+  </label>
+</p>
+
 <div class="order-receipt">
   <h4>Thank you for your payment!</h4>
   <h4>Amount Paid: </h4><%= number_to_currency(@amount, :unit => "$") %>, <%= @charge[:source][:brand] %> **** **** **** <%= @charge[:source][:last4] %><br>
