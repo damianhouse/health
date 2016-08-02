@@ -1,19 +1,27 @@
-<div class="order-receipt">
-  <h4>Thank you for your payment!</h4>
-  <h4>Amount Paid: </h4><%= number_to_currency(@amount, :unit => "$") %>, <%= @charge[:source][:brand] %> **** **** **** <%= @charge[:source][:last4] %><br>
-  <h4>Recipient: </h4><%= @charge[:source][:name] %>
-
-  <h4>Shipping Address: </h4>
-  <%= @charge[:source][:address_line1]%><br>
-  <%= @charge[:source][:address_line2] %>
-  <%= @charge[:source][:address_city] %>, <%= @charge[:source][:address_state] %> <%= @charge[:source][:address_zip] %><br>
-  <%= @charge[:source][:address_country] %>
-
-</div>
-
-
-<br>
-<br>
-
-
-<%= link_to 'Continue to Welcome Page!', menu_welcome_path, class: "btn btn-primary" %>
+<p>
+  <label class="subtotal">
+    <span>Subtotal: <%= number_to_currency(@amount * 0.01) %></span>
+  </label>
+</p>
+<% if @coupon.present? %>
+  <p>
+    <label class="coupon">
+      <span>Coupon: <%= @coupon.code %></span>
+    </label>
+  </p>
+  <p>
+    <label class="savings">
+      <span>Savings: <%= number_to_currency(@discount_amount * 0.01) %></span>
+    </label>
+  </p>
+  <p>
+    <label class="discount">
+      <span>Discount: <%= @coupon.discount_percent_human %></span>
+    </label>
+  </p>
+<% end %>
+<p>
+  <label class="total">
+    <span>Total: <%= number_to_currency(@charge.amount * 0.01) %></span>
+  </label>
+</p>

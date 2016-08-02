@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
 Thanks for signing up! Your account was successfully created!
 
@@ -11,9 +12,13 @@ Before any coaches are assigned to assist you, you must pay the subscription bel
   <% @plans.each do |plan| %>
     <div class="plan">
     <h1><%= plan[:name] %></h1>
-    <%= form_tag('/new', {method: :post, plan: plan}) do %>
-      <input name="plan_id" type="hidden" value"<%= plan[:id] %>">
-      </input>
+  <%= hidden_field_tag :amount, plan[:amount] %>
+
+    <% if plan[:interval] == "week" %>
+      <p>
+        <%= label_tag(:couponCode, 'Coupon:') %>
+        <%= text_field_tag(:couponCode) %>
+      </p>
     <% end %>
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
