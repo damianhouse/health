@@ -14,11 +14,13 @@
       <span>Savings: <%= number_to_currency(@discount_amount * 0.01) %></span>
     </label>
   </p>
-  <p>
-    <label class="discount">
-      <span>Discount: <%= @coupon.discount_percent_human %></span>
-    </label>
-  </p>
+  <% if @coupon.discount_percent %>
+    <p>
+      <label class="discount">
+        <span>Discount: <%= @coupon.discount_percent_human %></span>
+      </label>
+    </p>
+  <% end %>
 <% end %>
 <p>
   <label class="total">

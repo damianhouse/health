@@ -12,6 +12,7 @@ class ChargesController < ApplicationController
     @amount = params[:amount].to_f
     if !code.blank?
       @coupon = Coupon.get(code)
+      byebug
       if @coupon.nil?
         flash[:error] = 'Coupon code is not valid or expired.'
         redirect_to new_charge_path
