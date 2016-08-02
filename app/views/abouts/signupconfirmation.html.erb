@@ -1,23 +1,7 @@
- <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 
 
 Thanks for signing up! Your account was successfully created!
 
 Before any coaches are assigned to assist you, you must pay the subscription below:
-
-<%= form_tag charge_path(@current_user.id), method: :put do %>
-  <% @plans.each do |plan| %>
-    <div class="plan">
-    <h1><%= plan[:name] %></h1>
-    <%= form_tag('/new', {method: :post, plan: plan}) do %>
-      <input name="plan_id" type="hidden" value"<%= plan[:id] %>">
-      </input>
-  <% end %>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description= <%= plan[:name] %>
-    data-amount= <%= plan[:amount] %>
-    data-locale="auto"></script>
-    <% end %>
-<% end %>
