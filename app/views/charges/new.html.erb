@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
+<% flash.each do |key, value| %>
+  <%= content_tag :h3, value, class: "flash #{key}" %>
 <% end %>
 
 Thanks for signing up! Your account was successfully created!
@@ -13,7 +13,7 @@ Before any coaches are assigned to assist you, you must pay the subscription bel
     <div class="plan">
     <h1><%= plan[:name] %></h1>
   <%= hidden_field_tag :amount, plan[:amount] %>
-
+  <%= hidden_field_tag :plan, plan[:id] %>
     <% if plan[:interval] == "week" %>
       <p>
         <%= label_tag(:couponCode, 'Coupon:') %>

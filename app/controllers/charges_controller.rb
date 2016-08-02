@@ -10,38 +10,44 @@ class ChargesController < ApplicationController
     current_user = @current_user
     code = params[:couponCode]
     @amount = params[:amount].to_f
+    @plan = params[:plan]
+
     if !code.blank?
       @coupon = Coupon.get(code)
-      byebug
       if @coupon.nil?
-        flash[:error] = 'Coupon code is not valid or expired.'
+        flash[:error] = 'Coupon code is not valid or has expired.'
         redirect_to new_charge_path
         return
       else
         if @coupon.discount_percent
           @final_amount = @coupon.apply_percentage_discount(@amount.to_f)
           @discount_amount = (@amount - @final_amount)
+          charge_metadata = {
+            :coupon_code => @coupon.code,
+            :coupon_discount => @coupon.discount_percent_human
+          }
         elsif @coupon.discount_amount
           @final_amount = @coupon.apply_amount_discount(@amount.to_f)
           @discount_amount = (@amount - @final_amount)
+          charge_metadata = {
+            :coupon_code => @coupon.code
+          }
         else
           @final_amount = @amount.to_i
         end
       end
 
-      charge_metadata = {
-        :coupon_code => @coupon.code,
-        :coupon_discount => @coupon.discount_percent_human
-      }
       customer = Stripe::Customer.create(
         :email => params[:stripeEmail],
         :source  => params[:stripeToken],
+        :plan => @plan,
         :coupon => @coupon.code
       )
     else
       customer = Stripe::Customer.create(
         :email => params[:stripeEmail],
-        :source  => params[:stripeToken]
+        :source  => params[:stripeToken],
+        :plan => @plan
       )
     end
     stripe_charge = Stripe::Charge.create(
