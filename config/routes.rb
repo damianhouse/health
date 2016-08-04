@@ -65,7 +65,7 @@ Rails.application.routes.draw do
 
   post 'charges/index'
   post 'charges/new'
-
+  post 'webhook' => 'charges#webhook'
 
 
 
