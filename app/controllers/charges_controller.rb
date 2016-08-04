@@ -106,19 +106,18 @@ class ChargesController < ApplicationController
     if request_event
       request_json = JSON(request_event)
       parsed_json = JSON.parse(request_json)
-      stripe_event_id = parsed_json.id
+      stripe_event_id = parsed_json['id']
       request_event = Event.new(raw_body: request_json, stripe_event_id: stripe_event_id)
       event_type = parsed_json['type']
       customer_id = parsed_json['data']['object']['customer']
       plan_interval = parsed_json['data']['object']['metadata']['plan_interval']
-      interval_count = parsed_json['data']['object']['metadata']['interval_count']
-
+      interval_count = parsed_json['data']['object']['metadata']['interval_count'].to_i
 
       user = User.find_by(stripe_id: customer_id)
-      user.add_time(plan_interval, interval_count)
-      user.paid = true
-      user.save!
-      request_event.save!
+        user.add_time(plan_interval, interval_count)
+        user.paid = true
+        user.save!
+        request_event.save!
     end
     render nothing: true
   end
