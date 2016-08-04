@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804160228) do
+ActiveRecord::Schema.define(version: 20160804185421) do
 
   create_table "charges", force: :cascade do |t|
     t.integer  "amount"
@@ -51,8 +51,9 @@ ActiveRecord::Schema.define(version: 20160804160228) do
     t.integer  "discount_amount"
     t.datetime "expires_at"
     t.string   "description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "duration_in_months"
   end
 
   create_table "events", force: :cascade do |t|

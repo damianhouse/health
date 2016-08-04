@@ -18,6 +18,21 @@ class ChargesController < ApplicationController
     if !code.blank?
       @coupon = Coupon.get(code)
       if @coupon.nil?
+        coupon_raw = Stripe::Coupon.retrieve(Coupon.normalize_code(code))
+        coupon_json = JSON(coupon_raw)
+        coupon = JSON.parse(coupon_json)
+        if coupon && coupon["valid"] == true
+          discount_percent = coupon["percent_off"]
+          discount_amount =  coupon["amount_off"]
+          expire_date = coupon["redeem_by"]
+          if expire_date
+            expire_date = Time.at(expire_date)
+          end
+          duration_in_months = coupon["duration_in_months"]
+
+          Coupon.create!(code: Coupon.normalize_code(code), discount_percent: discount_percent, discount_amount: discount_amount, expires_at: expire_date, duration_in_months: duration_in_months)
+          return
+        end
         flash[:error] = 'Coupon code is not valid or has expired.'
         redirect_to new_charge_path
         return
@@ -73,7 +88,7 @@ class ChargesController < ApplicationController
       }
     end
 
-    stripe_charge = Stripe::Charge.create(
+    charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @final_amount.to_i,
       :description => 'Rails Stripe customer',
@@ -81,15 +96,13 @@ class ChargesController < ApplicationController
       :metadata    => charge_metadata
     )
 
-    json = JSON(stripe_charge)
-    parsed_json = JSON.parse(json)
     current_user.add_time(plan_interval, interval_count)
     current_user.stripe_id = customer.id
     current_user.paid = true
     current_user.save!
 
     @charge = Charge.create!(amount: @final_amount, coupon: @coupon, user_id: current_user.id, stripe_id: customer.id)
-    p stripe_charge
+
     rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
