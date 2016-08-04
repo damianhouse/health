@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <% flash.each do |key, value| %>
   <%= content_tag :h3, value, class: "flash #{key}" %>
 <% end %>
@@ -8,22 +7,26 @@ Thanks for signing up! Your account was successfully created!
 Before any coaches are assigned to assist you, you must pay the subscription below:
 
 
-<%= form_tag charges_path, method: :post do %>
-  <% @plans.each do |plan| %>
+<% @plans.each do |plan| %>
+  <%= form_tag charges_path, method: :post do %>
     <div class="plan">
-    <h1><%= plan[:name] %></h1>
-  <%= hidden_field_tag :amount, plan[:amount] %>
-  <%= hidden_field_tag :plan, plan[:id] %>
-    <% if plan[:interval] == "week" %>
-      <p>
-        <%= label_tag(:couponCode, 'Coupon:') %>
-        <%= text_field_tag(:couponCode) %>
-      </p>
-    <% end %>
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-description= <%= plan[:name] %>
-      data-amount= <%= plan[:amount] %>
-      data-locale="auto"></script>
+      <h1><%= plan[:name] %></h1>
+      <%= hidden_field_tag :amount, plan[:amount] %>
+      <%= hidden_field_tag :plan, plan[:id] %>
+      <%= hidden_field_tag :plan_interval, plan[:interval] %>
+      <%= hidden_field_tag :interval_count, plan[:interval_count] %>
+
+      <% if plan[:interval] == "week" %>
+        <p>
+          <%= label_tag(:couponCode, 'Coupon:') %>
+          <%= text_field_tag(:couponCode) %>
+        </p>
+      <% end %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description= <%= plan[:name] %>
+        data-amount= <%= plan[:amount] %>
+        data-locale="auto"></script>
+    </div>
   <% end %>
 <% end %>

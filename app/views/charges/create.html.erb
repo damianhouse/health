@@ -3,12 +3,13 @@
     <span>Plan: <%= @plan %></span>
   </label>
 </p>
-<p>
-  <label class="subtotal">
-    <span>Subtotal: <%= number_to_currency(@amount * 0.01) %></span>
-  </label>
-</p>
+
 <% if @coupon.present? %>
+  <p>
+    <label class="subtotal">
+      <span>Subtotal: <%= number_to_currency(@amount * 0.01) %></span>
+    </label>
+  </p>
   <p>
     <label class="coupon">
       <span>Coupon: <%= @coupon.code %></span>

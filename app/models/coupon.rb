@@ -29,4 +29,5 @@ class Coupon < ActiveRecord::Base
   def self.normalize_code(code)
     code.gsub(/ +/, '').upcase
   end
+
 end
