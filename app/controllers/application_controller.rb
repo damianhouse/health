@@ -11,9 +11,11 @@ class ApplicationController < ActionController::Base
 
     def paid?
       @current_user = User.find_by(id: session[:user_id]) || Coach.find_by(id: session[:coach_id])
-      if @current_user.respond_to?(:paid)
-        unless @current_user.user_expired?
-          redirect_to charges_new_path, notice: "Please pay before accessing this page."
+      unless @current_user.admin?
+        if @current_user.respond_to?(:paid)
+          unless @current_user.user_expired?
+            redirect_to charges_new_path, notice: "Please pay before accessing this page."
+          end
         end
       end
     end
