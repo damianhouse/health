@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803194416) do
+ActiveRecord::Schema.define(version: 20160804160228) do
 
   create_table "charges", force: :cascade do |t|
     t.integer  "amount"
     t.integer  "coupon_id"
-    t.integer  "stripe_id"
+    t.string   "stripe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(version: 20160803194416) do
 
   create_table "events", force: :cascade do |t|
     t.binary   "raw_body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "stripe_event_id"
+    t.string   "stripe_charge_id"
   end
 
   create_table "messages", force: :cascade do |t|

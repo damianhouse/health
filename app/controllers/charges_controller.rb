@@ -13,7 +13,7 @@ class ChargesController < ApplicationController
     @amount = params[:amount].to_f
     @plan = params[:plan]
     plan_interval = params[:plan_interval]
-    interval_count = params[:interval_count].to_f
+    interval_count = params[:interval_count].to_i
 
     if !code.blank?
       @coupon = Coupon.get(code)
@@ -81,13 +81,16 @@ class ChargesController < ApplicationController
       :metadata    => charge_metadata
     )
 
+    json = JSON(stripe_charge)
+    parsed_json = JSON.parse(json)
+    stripe_charge_id = parsed_json["id"]
     current_user.add_time(plan_interval, interval_count)
     current_user.stripe_id = customer.id
     current_user.paid = true
     current_user.save!
 
-    @charge = Charge.create!(amount: @final_amount, coupon: @coupon, user_id: current_user.id, stripe_id: stripe_charge.id)
-
+    @charge = Charge.create!(amount: @final_amount, coupon: @coupon, user_id: current_user.id, stripe_id: stripe_charge_id)
+    p stripe_charge
     rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
@@ -103,7 +106,8 @@ class ChargesController < ApplicationController
     if request_event
       request_json = JSON(request_event)
       parsed_json = JSON.parse(request_json)
-      request_event = Event.new(raw_body: request_json)
+      stripe_event_id = parsed_json.id
+      request_event = Event.new(raw_body: request_json, stripe_event_id: stripe_event_id)
       event_type = parsed_json['type']
       customer_id = parsed_json['data']['object']['customer']
       plan_interval = parsed_json['data']['object']['metadata']['plan_interval']

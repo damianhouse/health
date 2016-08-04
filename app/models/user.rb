@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
 
   def add_time(plan, interval_count)
+    interval_count.to_i
     unless plan.nil?
       if exp_date.nil?
         case plan
@@ -18,7 +19,7 @@ class User < ActiveRecord::Base
           self.exp_date = (DateTime.now + 1.week)
           self.save!
         when "month"
-          self.exp_date = (DateTime.now + (1.month * interval_count))
+          self.exp_date = (DateTime.now + (interval_count.month))
           self.save!
         when "year"
           self.exp_date = (DateTime.now + 1.year)
@@ -32,7 +33,7 @@ class User < ActiveRecord::Base
           self.exp_date += 1.week
           self.save!
         when "month"
-          self.exp_date += (1.month * interval_count)
+          self.exp_date += (interval_count.month)
           self.save!
         when "year"
           self.exp_date += 6.month
