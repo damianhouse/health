@@ -83,13 +83,12 @@ class ChargesController < ApplicationController
 
     json = JSON(stripe_charge)
     parsed_json = JSON.parse(json)
-    stripe_charge_id = parsed_json["id"]
     current_user.add_time(plan_interval, interval_count)
     current_user.stripe_id = customer.id
     current_user.paid = true
     current_user.save!
 
-    @charge = Charge.create!(amount: @final_amount, coupon: @coupon, user_id: current_user.id, stripe_id: stripe_charge_id)
+    @charge = Charge.create!(amount: @final_amount, coupon: @coupon, user_id: current_user.id, stripe_id: customer.id)
     p stripe_charge
     rescue Stripe::CardError => e
     flash[:error] = e.message
