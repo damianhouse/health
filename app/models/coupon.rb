@@ -3,6 +3,8 @@ class Coupon < ActiveRecord::Base
   validates_presence_of :code
   validates_uniqueness_of :code
 
+
+
   def self.get(code)
     where(code: normalize_code(code)).
     where('expires_at > ? OR expires_at IS NULL', Time.now).
