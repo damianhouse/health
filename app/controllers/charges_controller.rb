@@ -29,7 +29,7 @@ class ChargesController < ApplicationController
         false
       end
       @coupon = Coupon.get(code)
-      byebug
+
       # If they entered a coupon code and we don't have it in the database and it is on Stripe
       if @coupon.nil? && is_valid?(code)
         coupon_raw = Stripe::Coupon.retrieve(Coupon.normalize_code(code))
