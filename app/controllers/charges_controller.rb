@@ -125,12 +125,6 @@ class ChargesController < ApplicationController
       end
 
     else
-      customer = Stripe::Customer.create(
-        :email => params[:stripeEmail],
-        :source  => params[:stripeToken],
-        :plan => @plan,
-        :coupon => nil
-      )
       @final_amount = @amount.to_i
       charge_metadata = {
         :coupon_code => nil,
@@ -138,6 +132,12 @@ class ChargesController < ApplicationController
         :plan_interval => plan_interval,
         :interval_count => interval_count
       }
+      customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source  => params[:stripeToken],
+        :plan => @plan,
+        :coupon => nil
+      )
     end
 
     @current_user.add_time(plan_interval, interval_count)
