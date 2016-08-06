@@ -35,7 +35,7 @@ class ChargesController < ApplicationController
         coupon_raw = Stripe::Coupon.retrieve(Coupon.normalize_code(code))
         coupon_json = JSON(coupon_raw)
         coupon = JSON.parse(coupon_json)
-        
+
         if coupon && coupon["valid"] == true
           @discount_percent = coupon["percent_off"]
           @discount_amount =  coupon["amount_off"]
@@ -148,10 +148,10 @@ class ChargesController < ApplicationController
       :metadata    => charge_metadata
     )
 
-    current_user.add_time(plan_interval, interval_count)
-    current_user.stripe_id = customer.id
-    current_user.paid = true
-    current_user.save!
+    @current_user.add_time(plan_interval, interval_count)
+    @current_user.stripe_id = customer.id
+    @current_user.paid = true
+    @current_user.save!
 
     @charge = Charge.create!(amount: @final_amount, coupon: @coupon, user_id: current_user.id, stripe_id: customer.id)
 
