@@ -140,14 +140,6 @@ class ChargesController < ApplicationController
       }
     end
 
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @final_amount.to_i,
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd',
-      :metadata    => charge_metadata
-    )
-
     @current_user.add_time(plan_interval, interval_count)
     @current_user.stripe_id = customer.id
     @current_user.paid = true
