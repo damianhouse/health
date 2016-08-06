@@ -35,7 +35,7 @@ class ChargesController < ApplicationController
         coupon_raw = Stripe::Coupon.retrieve(Coupon.normalize_code(code))
         coupon_json = JSON(coupon_raw)
         coupon = JSON.parse(coupon_json)
-        byebug
+        
         if coupon && coupon["valid"] == true
           @discount_percent = coupon["percent_off"]
           @discount_amount =  coupon["amount_off"]
