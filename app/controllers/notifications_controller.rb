@@ -2,7 +2,8 @@ class NotificationsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  def notify(user)
+  def notify
+    user = User.find_by(id: session[:user_id])
     unless user.phone == ""
       begin
         client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
@@ -10,13 +11,13 @@ class NotificationsController < ApplicationController
 
         body: 'Welcome to MyHealthStyle! We are so excited and will contact you as soon as your coaching team is assigned to you!'
         notify_admin(user)
-        redirect_to abouts_signupconfirmation_path
+        redirect_to charges_new_path
       rescue
         redirect_to :back
         flash[:notice] =  "Please enter a valid phone number."
       end
     else
-      redirect_to abouts_signupconfirmation_path
+      redirect_to charges_new_path
     end
   end
 

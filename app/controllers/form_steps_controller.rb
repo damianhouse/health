@@ -16,7 +16,7 @@ class FormStepsController < ApplicationController
 private
 
   def redirect_to_finish_wizard(options=nil)
-    redirect_to charges_new_path
+    redirect_to notifications_notify_path
   end
 
   def user_params
