@@ -17,19 +17,7 @@ class ChargesController < ApplicationController
     interval_count = params[:interval_count].to_i
 
     if !code.blank?
-      def is_valid?(coupon)
-        return false unless coupon.present?
-        coupon = Coupon.normalize_code(coupon)
-        @coupon = Stripe::Coupon.retrieve(coupon)
-        @coupon.valid == true
-        @coupon.code = coupon
-
-      rescue => error
-        puts "#{error.class} :: #{error.message}"
-        false
-      end
       @coupon = Coupon.get(code)
-
       # If they entered a coupon code and we don't have it in the database and it is on Stripe
       if @coupon.nil? && is_valid?(code)
         coupon_raw = Stripe::Coupon.retrieve(Coupon.normalize_code(code))
@@ -176,6 +164,19 @@ class ChargesController < ApplicationController
         request_event.save!
     end
     render nothing: true
+  end
+  private
+
+  def is_valid?(coupon)
+    return false unless coupon.present?
+    coupon = Coupon.normalize_code(coupon)
+    @coupon = Stripe::Coupon.retrieve(coupon)
+    @coupon.valid == true
+    @coupon.code = coupon
+
+  rescue => error
+    puts "#{error.class} :: #{error.message}"
+    false
   end
 
 end
