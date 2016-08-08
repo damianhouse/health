@@ -35,7 +35,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         user = @user
-        # ReportMailer.send_confirmation(@user).deliver_now
+        ReportMailer.send_confirmation(@user).deliver_now
+        NotificationsController.notify_admin(@user)
+        NotificationsController.notify(@user)
         session[:user_id] = @user.id
         format.html { redirect_to form_steps_path }
         format.json { render :show, status: :created, location: @user }
