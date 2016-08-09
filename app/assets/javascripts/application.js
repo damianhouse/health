@@ -35,7 +35,7 @@ function refresh_conversation() {
   $(".conversation").load(location.href + " .conversation");
 }
 
-setInterval("refresh_conversation();",30000);
+setInterval("refresh_conversation();",15000);
 
 
 $("tr[data-link]").click(function() {

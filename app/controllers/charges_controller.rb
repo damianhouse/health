@@ -7,7 +7,6 @@ class ChargesController < ApplicationController
     @plans = plans_data[:data]
   end
 
-
   def create
     current_user = @current_user
     code = params[:couponCode]
