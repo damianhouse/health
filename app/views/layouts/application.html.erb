@@ -63,5 +63,9 @@
   <div class="content container-fluid" style="margin-top:40px;">
     <%= yield %>
   </div>
-
+  <div class="text-center">
+    <% if session[:user_id] %>
+      <p><%= link_to 'About Us', abouts_aboutus_path %></p>
+    <% end %>
+  </div>
 </html>

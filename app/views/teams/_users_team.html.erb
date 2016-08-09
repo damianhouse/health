@@ -9,7 +9,7 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td class="title">
-          <h2>Coach 1</h2>
+          <h2>Lead Coach</h2>
           <div class="msg">
             <% if user_convos.length >= 1 %>
               <% user_convos.each do |convo| %>
@@ -62,7 +62,7 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td class="title">
-          <h2>Coach 2</h2>
+          <h2>Team Coaches</h2>
           <div class="msg">
             <% if user_convos.length >= 1 %>
               <% user_convos.each do |convo| %>
@@ -111,7 +111,6 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td class="title">
-          <h2>Coach 3</h2>
           <div class="msg">
             <% if user_convos.length >= 1 %>
               <% user_convos.each do |convo| %>
@@ -160,7 +159,6 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td class="title">
-          <h2>Coach 4</h2>
           <div class="msg">
             <% if user_convos.length >= 1 %>
               <% user_convos.each do |convo| %>
@@ -209,7 +207,6 @@
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
       <tr>
         <td class="title">
-          <h2>Coach 5</h2>
           <div class="msg">
             <% if user_convos.length >= 1 %>
               <% user_convos.each do |convo| %>
