@@ -11,9 +11,11 @@ class ReportMailer < ApplicationMailer
   end
 
   def coaches_assigned(address, convo_id)
+    user = User.find_by_email(address)
+    @name = user.first
     @greeting = "Your coaches have been assigned! Check My Team after logging in to view your coach assignments,"
     @link = convo_id
-    mail to: address, subject: "Your Coach Has Been Assigned!"
+    mail to: address, subject: "Hooray! Your HealthStyle Coaches Have Been Assigned"
   end
 
 
