@@ -12,7 +12,7 @@ class ReportMailer < ApplicationMailer
 
   def coaches_assigned(address, convo_id)
     user = User.find_by_email(address)
-    attachments.inline['photo.jpg'] = File.read('#{RAILS_ROOT}/assets/images/HS_Logo_B3_LO.jpg')
+    attachments.inline['photo.jpg'] = File.read(Rails.root.join("app", "assets", "images", "HS_Logo_B3_LO.jpg")
     @name = user.first
     @link = convo_id
     mail to: address, subject: "Hooray! Your HealthStyle Coaches Have Been Assigned"
