@@ -1,3 +1,12 @@
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.price-chart {
+  width: 100%;
+  margin: 0;
+}
 .jumbotron.welcome {
   padding-top:10px;
 }
