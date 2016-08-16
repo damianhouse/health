@@ -84,6 +84,8 @@ class CoachDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(coach)
-    "#{coach.first.capitalize if coach.first}" + " " + "#{coach.last.capitalize if coach.last}"
+    if coach
+      "#{coach.first.capitalize if coach.first}" + " " + "#{coach.last.capitalize if coach.last}"
+    end
   end
 end
