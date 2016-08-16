@@ -55,6 +55,8 @@ class ConversationDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(conversation)
-    "#{conversation.coach.first if conversation.coach.first}" + " and " + "#{conversation.user.first if conversation.user.first}"
+    if conversation.coach && conversation.user
+      "#{conversation.coach.first if conversation.coach.first}" + " and " + "#{conversation.user.first if conversation.user.first}"
+    end
   end
 end
