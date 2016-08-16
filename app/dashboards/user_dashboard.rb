@@ -28,6 +28,8 @@ class UserDashboard < Administrate::BaseDashboard
     phone: Field::String,
     zip: Field::String,
     paid: Field::Boolean,
+    exp_date: Field::DateTime,
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -66,6 +68,7 @@ class UserDashboard < Administrate::BaseDashboard
     :phone,
     :zip,
     :paid,
+    :exp_date,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -88,6 +91,7 @@ class UserDashboard < Administrate::BaseDashboard
     :phone,
     :zip,
     :paid,
+    :exp_date,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
@@ -101,5 +105,5 @@ class UserDashboard < Administrate::BaseDashboard
       "#{user.first.capitalize if user.first}" + " " + "#{user.last.capitalize if user.first}"
     end
   end
-
+  
 end

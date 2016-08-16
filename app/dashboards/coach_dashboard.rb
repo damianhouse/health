@@ -85,7 +85,7 @@ class CoachDashboard < Administrate::BaseDashboard
   #
   def display_resource(coach)
     if coach
-      "#{coach.first if coach.first}" + " " + "#{coach.last if coach.last}"
+      "#{coach.first if coach.first}" + " " + "#{coach.last.capitalize if coach.last}"
     end
   end
 end
