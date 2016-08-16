@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password, length: { minimum: 8 }, allow_nil: true
   validate :uniqueness_of_email_across_models
+  validates :first, presence: true
+  validates :last, presence: true
   belongs_to :coach
   has_many :conversations, dependent: :destroy
   has_many :messages

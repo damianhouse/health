@@ -83,7 +83,7 @@ class CoachDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how coaches are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(coach)
-  #   "Coach ##{coach.id}"
-  # end
+  def display_resource(coach)
+    "#{coach.first.capitalize if coach.first}" + " " + "#{coach.last.capitalize if coach.last}"
+  end
 end

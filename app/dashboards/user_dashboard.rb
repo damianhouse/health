@@ -96,4 +96,8 @@ class UserDashboard < Administrate::BaseDashboard
   # def display_resource(user)
   #   "User ##{user.id}"
   # end
+  def display_resource(user)
+    "#{user.first.capitalize if user.first}" + " " + "#{user.last.capitalize if user.first}"
+  end
+
 end
