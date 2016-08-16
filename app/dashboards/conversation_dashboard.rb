@@ -56,7 +56,7 @@ class ConversationDashboard < Administrate::BaseDashboard
   #
   def display_resource(conversation)
     if conversation.coach && conversation.user
-      "#{conversation.coach.first if conversation.coach.first}" + " and " + "#{conversation.user.first if conversation.user.first}"
+      "#{conversation.coach.first if conversation.coach.first}" + " and " + "#{conversation.user.first.capitalize if conversation.user.first}"
     end
   end
 end
