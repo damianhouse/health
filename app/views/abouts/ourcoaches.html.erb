@@ -6,31 +6,13 @@
     <td>
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Korina</h3>
-        </div>
-        <div class="panel-body">
-          <div class="panel-body-left">
-            <%= image_tag("Korina.png", alt: "Coach - Korina", size:"100x137")%>
-          </div>
-          <div class="panel-body-right">
-            <p>Empowering you to be the best you</p>
-          </div>
-        </div>
-      </div>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
           <h3 class="panel-title">Trecy</h3>
         </div>
         <div class="panel-body">
-            <%= image_tag("Trecy.png", alt: "Coach - Trecy", size:"100x133")%>
+            <%= image_tag("Trecy.png", alt: "Coach - Trecy", width:"200")%>
         </div>
         <div class="panel-body-right">
-          <p>Christian Holistic Health Coach</p>
+          <p class="coach-text">Christian Holistic Health Coach</p>
         </div>
       </div>
     </td>
@@ -43,10 +25,10 @@
           <h3 class="panel-title">Leslie</h3>
         </div>
         <div class="panel-body">
-            <%= image_tag("Leslie.JPG", alt: "Coach - Leslie", size:"100x137")%>
+            <%= image_tag("Leslie.JPG", alt: "Coach - Leslie", width:"200")%>
         </div>
         <div class="panel-body-right">
-          <p>Let's focus on balance together</p>
+          <p class="coach-text">Let's focus on balance together</p>
         </div>
       </div>
     </td>
@@ -59,16 +41,17 @@
           <h3 class="panel-title">Sue</h3>
         </div>
         <div class="panel-body">
-            <%= image_tag("Sue.png", alt: "Coach - Sue", size: "112x93")%>
+            <%= image_tag("Sue.png", alt: "Coach - Sue", width:"200")%>
         </div>
         <div class="panel-body-right">
-          <p>Control what you can</p>
+          <p class="coach-text">Control what you can</p>
         </div>
       </div>
     </td>
   </tr>
 </table>
+<div class="text-center">
+  <p>Ready to get started?</p>
 
-<p>Ready to get started?</p>
-
-<%= link_to "Sign up today!", new_user_path, class: "btn btn-info" %>
+  <%= link_to "Sign up today!", new_user_path, class: "btn btn-info" %>
+</div>
