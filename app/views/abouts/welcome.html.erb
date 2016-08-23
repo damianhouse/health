@@ -1,72 +1,76 @@
 
-<div class="jumbotron welcome">
+<div class="jumbotron welcome col-sm-12">
   <span id="mobileshow" class="text-center"><h2><span class="tagline">Three Coaches, One Goal:</span> A Healthier You!</h2></span>
   <span id="desktopshow" class="text-center"><h1>Three Coaches, One Goal: A Healthier You!<br/></h1></span>
 
   <%= image_tag "HS_Logo_B3_LO.jpg", class: "main-image"%>
 
   <div class="col-md-12 text-center tagline">
-    <span id="mobileshow" class="text-center"><h2><span class="tagline">Long-term behavioral coaching</span> via mobile</h2></span>
+
     <span id="desktopshow" class="text-center"><h2>Long-term behavioral coaching via mobile<br/></h2></span><br/>
-    <div class="learn-more-button">
+    <div id="desktopshow" class="learn-more-button">
+      <button class="btn sign-up-button"><%= link_to 'Sign Up Now', new_user_path, class: "sign-up-text"%></button>
+      <button class="btn sign-up-button"><%= link_to 'Sign In', sessions_login_path, class: "sign-up-text"%></button>
       <button class="btn sign-up-button"><a href="#next" class="sign-up-text">Learn More</a></button>
     </div>
     <span class="mobile_hide"><br/><br/></span>
-
-    <div class="sign-up-button-group">
-
-      <button class="btn sign-up-button"><%= link_to 'Sign Up Now', new_user_path, class: "sign-up-text"%></button>
-      <button class="btn sign-up-button"><%= link_to 'Sign In', sessions_login_path, class: "sign-up-text"%></button>
-    </div>
-    <div>
+    <div id="desktopshow">
       <a class="arrow-wrap" href="#next" style="opacity: 0.395792;">
       <span class="arrow"></span></a>
     </div>
   </div>
   <br>
-</div>
-<div class="benefits-carousel col-sm-12">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Wrapper for carousel items -->
-    <div class="carousel-inner">
-      <div class="item active">
-          <h2 class="text-center carousel-benefits">Lose Weight</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Build Confidence</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Reduce Blood Pressure</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Sleep Better</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Prevent Diabetes</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Increase Joy</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Exercise More</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Reach Goals</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Quit Smoking or other habits</h2>
-      </div>
-      <div class="item">
-        <h2 class="text-center carousel-benefits">Make Better Choices</h2>
+  <div class="benefits-carousel col-sm-12">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for carousel items -->
+      <div class="carousel-inner">
+        <div class="item active">
+            <h2 class="text-center carousel-benefits">Lose Weight</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Build Confidence</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Reduce Blood Pressure</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Sleep Better</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Prevent Diabetes</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Increase Joy</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Exercise More</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Reach Goals</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Quit Smoking or other habits</h2>
+        </div>
+        <div class="item">
+          <h2 class="text-center carousel-benefits">Make Better Choices</h2>
+        </div>
       </div>
     </div>
   </div>
+  <div id="mobileshow" class="learn-more-button text-center col-sm-12">
+    <button class="btn sign-up-button"><%= link_to 'Sign Up Now', new_user_path, class: "sign-up-text"%></button>
+    <button class="btn sign-up-button"><%= link_to 'Sign In', sessions_login_path, class: "sign-up-text"%></button>
+    <div class="mobile-learn-more">
+      <button class="btn sign-up-button"><a href="#next" class="sign-up-text">Learn More</a></button>
+    </div>
+  </div>
 </div>
+<span id="mobileshow" class="long-term text-center"><h2>Long-term behavioral coaching via mobile<br/></h2></span><br/>
+
 <div class="next learn-more text-center">
-  <br/>
-  <span class="mobile_hide"><br/><br/><br/><br/></span>
-  <a name="next"></a>
+
   <div id="uno">
+    <a name="next"></a>
     <h2 id="uno">What is MyHealthStyle?</h2>
   </div>
   <p>
@@ -103,8 +107,8 @@
     Let the MyHealthStyle App make a difference for you. <i class="fa fa-male" aria-hidden="true"></i></p>
 </div>
 <div class="col-sm-12">
-  <div class="col-md-4 col-md-offset-4">
-    <%= image_tag "price_chart.jpg", class: "img-responsive" %>
+  <div class="col-md-4 col-md-offset-4" align="center">
+    <%= image_tag "price_chart.jpg", class: "img-responsive"%>
   </div>
 </div>
 <script>

@@ -1,15 +1,17 @@
 .carousel-benefits {
   font-weight: bold;
 }
-.benefits-carousel {
-  padding-top: 30px;
-  padding-bottom: 30px;
+.mobile-learn-more {
+  padding-top: 5px;
+}
+.long-term {
+  padding-bottom: 0;
 }
 .learn-more-button {
   padding-bottom: 5px;
 }
 #uno {
-  padding-top: 30px;
+  /*padding-top: 30px;*/
 }
 .img-responsive {
   display: block;
