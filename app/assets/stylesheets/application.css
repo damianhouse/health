@@ -54,6 +54,7 @@ body.healthstyle div.content {
 .main-image {
   display: block;
   margin: auto;
+  padding: 0;
 }
 
 .progress {

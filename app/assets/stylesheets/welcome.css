@@ -1,6 +1,7 @@
-.carousel-benefits {
-  font-weight: bold;
+.three-coaches {
+  padding: 0;
 }
+
 .mobile-learn-more {
   padding-top: 5px;
 }
@@ -23,7 +24,7 @@
   margin: 0;
 }
 .jumbotron.welcome {
-  padding-top:10px;
+  padding: 0;
 }
 ul.nav.welcome {
   text-align:right;
