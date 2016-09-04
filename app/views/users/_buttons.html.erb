@@ -1,5 +1,5 @@
   <div class="actions text-center">
     <p><%= f.submit "Continue" if @user.first_step? %></p>
     <p><%= f.submit "Submit" if @user.last_step? %></p>
-    <p><%= f.submit "Back", previous_button: "previous_button" unless @user.first_step? %></p>
+    <p><%= f.submit "Back", name: "previous_button" unless @user.first_step? %></p>
   </div>

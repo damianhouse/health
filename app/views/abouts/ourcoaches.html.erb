@@ -1,53 +1,27 @@
-<br><p>Please meet some of our HealthStyle coaches!</p>
+<br><p class="text-center">Please meet some of our HealthStyle coaches!</p>
 
 <table class="table table-responsive table-hover team">
-  <tr>
-    <td>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Trecy</h3>
+  <% @coaches.each do |coach| %>
+    <% if coach.approved %>
+    <tr>
+      <td>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= coach.first %></h3>
+          </div>
+          <div class="panel-body">
+            <% if coach.avatar_url.present? %>
+              <img src="<%= coach.avatar_url %>" class="img-responsive">
+            <% end %>
+          </div>
+          <div class="panel-body-right">
+            <p class="coach-text"><%= coach.philosophy %></p>
+          </div>
         </div>
-        <div class="panel-body">
-            <%= image_tag("Trecy.png", alt: "Coach - Trecy", width:"200")%>
-        </div>
-        <div class="panel-body-right">
-          <p class="coach-text">Christian Holistic Health Coach</p>
-        </div>
-      </div>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Leslie</h3>
-        </div>
-        <div class="panel-body">
-            <%= image_tag("Leslie.JPG", alt: "Coach - Leslie", width:"200")%>
-        </div>
-        <div class="panel-body-right">
-          <p class="coach-text">Let's focus on balance together</p>
-        </div>
-      </div>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Sue</h3>
-        </div>
-        <div class="panel-body">
-            <%= image_tag("Sue.png", alt: "Coach - Sue", width:"200")%>
-        </div>
-        <div class="panel-body-right">
-          <p class="coach-text">Control what you can</p>
-        </div>
-      </div>
-    </td>
-  </tr>
+      </td>
+    </tr>
+    <% end %>
+  <% end %>
 </table>
 <div class="text-center">
   <p>Ready to get started?</p>
