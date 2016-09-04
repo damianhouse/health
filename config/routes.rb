@@ -67,7 +67,8 @@ Rails.application.routes.draw do
   post 'charges/index'
   post 'charges/new'
   post 'webhook' => 'charges#webhook'
-
+  get 'choose_coaches' => 'users#choose_coaches'
+  patch 'choose_coaches' => 'users#choose_coaches'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

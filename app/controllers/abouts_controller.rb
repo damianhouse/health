@@ -10,7 +10,7 @@ class AboutsController < ApplicationController
     end
 
     def ourcoaches
-
+      @coaches = Coach.all
     end
 
     def recipes

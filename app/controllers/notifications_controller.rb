@@ -20,6 +20,22 @@ class NotificationsController < ApplicationController
       redirect_to charges_new_path
     end
   end
+  def notify_coach(coach)
+    unless coach.phone == ""
+      begin
+        client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+        message = client.messages.create from: '8284820730', to: coach.phone,
+
+        body: 'A user has assigned you as their coach! Go to www.myhealthstyleapp.com'
+        redirect_to charges_new_path
+      rescue
+        redirect_to :back
+        flash[:notice] =  "Please enter a valid phone number."
+      end
+    else
+      redirect_to charges_new_path
+    end
+  end
 
   def notify_admin(user)
     unless user.phone == ""

@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :notes, dependent: :destroy
   has_secure_password
   before_save { |user| user.email = user.email.downcase }
+  attr_accessor :first_step, :second_step, :current_step
+
 
   def user_expired?
     if self.exp_date
@@ -81,6 +83,42 @@ class User < ActiveRecord::Base
           return
         end
       end
+    end
+  end
+
+
+
+  def steps
+    %w[first_step second_step]
+  end
+
+  def current_step
+    @current_step ||= steps.first
+  end
+
+  def first_step?
+    current_step == "first_step"
+  end
+
+  def second_step?
+    current_step == "second_step"
+  end
+
+  def next_step
+    self.current_step = steps[steps.index(current_step)+1]
+  end
+
+  def previous_step
+    self.current_step = steps[steps.index(current_step)-1]
+  end
+
+  def last_step?
+    self.current_step == steps.last
+  end
+  def all_valid?
+    steps.all? do |step|
+      self.current_step = step
+      valid?
     end
   end
 

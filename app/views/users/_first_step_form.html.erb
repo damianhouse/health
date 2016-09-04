@@ -1,0 +1,48 @@
+<h1 class="text-center">Sign Up Steps:</h1>
+<h2 class="text-center"><strong>1 . .</strong> 2 . . 3</h2>
+<p>
+  <%= flash[:error] unless flash[:error].blank? %>
+</p>
+
+  <div class="field">
+    <%= f.label :first %>*<br>
+    <%= f.text_field :first, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last %>*<br>
+    <%= f.text_field :last, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>*<br>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>*<br>
+    <%= f.password_field :password, type: "password" %>
+    <p class="smalltext">(Password must be at least 8 characters long.)</p>
+  </div>
+
+  <div class="field" align="center">
+    <%= f.label :avatar_url, 'Upload Profile Pic' %><br>
+    <%= f.file_field :avatar_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>*<br>
+    <%= f.telephone_field :phone, required: true, pattern: '^\d{10}$', placeholder: "Mobile Number", title: "format: xxxxxxxxxx" %>
+    <p class="smalltext">(Please enter in the format: xxxxxxxxxx (no spaces, dashes, etc.))</p>
+  </div>
+
+    <%= f.label :zip %><br>
+    <%= f.number_field :zip %>
+  </div>
+
+  <div class="field" align="center">
+    <%= f.check_box :role, required: true %>
+    <%= f.label "I have read and agree to the"%>
+    <%= link_to "Terms of Use and Terms of Service", abouts_terms_path, target: '_blank' %>
+  </div>
+  <p class="smalltext text-center">* = Required field</p>

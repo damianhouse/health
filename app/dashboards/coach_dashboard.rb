@@ -24,6 +24,7 @@ class CoachDashboard < Administrate::BaseDashboard
     zip: Field::String,
     greeting: Field::Text,
     philosophy: Field::Text,
+    approved: Field::Boolean,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -78,6 +79,7 @@ class CoachDashboard < Administrate::BaseDashboard
     :avatar_url,
     :greeting,
     :philosophy,
+    :approved,
   ].freeze
 
   # Overwrite this method to customize how coaches are displayed

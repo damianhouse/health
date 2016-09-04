@@ -19,30 +19,42 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    session[:user_params] ||= {}
+    @user = User.new(session[:user_params])
+    @user.current_step = session[:user_step]
+    @coaches = Coach.all.where(approved: true)
   end
 
   # GET /users/1/edit
   def edit
-
   end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        user = @user
-        ReportMailer.send_confirmation(@user).deliver_now
+    session[:user_params].deep_merge!(params[:user]) if params[:user]
+    @user = User.new(session[:user_params])
+    @user.current_step = session[:user_step]
+    @coaches = Coach.all.where(approved: true)
+    if @user.valid?
+      if params[:previous_button]
+        @user.previous_step
+      elsif @user.last_step?
+        @user.save if @user.all_valid?
+        session[:user_step] = nil
+        session[:user_params] = nil
+        flash[:notice] = "User successfully created!"
         session[:user_id] = @user.id
-        format.html { redirect_to form_steps_path }
-        format.json { render :show, status: :created, location: @user }
+        redirect_to charges_new_path
+        return
+        # ReportMailer.send_confirmation(@user).deliver_now
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        @user.next_step
       end
+      session[:user_step] = @user.current_step
+    end
+    if @user.new_record?
+      render 'new'
     end
   end
 
@@ -77,8 +89,6 @@ class UsersController < ApplicationController
   def send_email
   end
 
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -107,6 +117,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first, :last, :email, :password, :password_digest, :role, :coach_id, :coach_1, :coach_2, :coach_3, :coach_4, :avatar_url, :phone, :zip, :admin, :stripe_id, :exp_date, :paid)
+      params.require(:user).permit(:first, :last, :email, :password, :password_digest, :role, :coach_id, :coach_1, :coach_2, :coach_3, :coach_4, :avatar_url, :phone, :zip, :admin, :stripe_id, :exp_date, :paid, :role, :current_step, :user, :previous_button)
     end
 end

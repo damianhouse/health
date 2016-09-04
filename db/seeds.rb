@@ -6,14 +6,14 @@
 #   cities = City.create([{ first: 'Chicago' }, { first: 'Copenhagen' }])
 #   Mayor.create(first: 'Emanuel', city: cities.first)
 
-coach1 = Coach.create!(first: "Mike", last: "fake", password:"password", email: "coach@coach.com", greeting: "Hey. Let's get out fitness on. ")
-coach2 = Coach.create!(first: "Jimmy",last: "fake", password:"password", email: "coach2@coach.com", greeting: "Hey. Let's get out fitness on. ")
-coach3 = Coach.create!(first: "Ashley",last: "fake", password:"password", email: "coach3@coach.com", greeting: "Hey. Let's get out fitness on. ")
-coach4 = Coach.create!(first: "Willy",last: "fake", password:"password", email: "coach4@coach.com", greeting: "Hey. Let's get out fitness on. ")
+coach1 = Coach.create!(first: "Mike", last: "fake", password:"password", email: "coach@coach.com", greeting: "Hey. Let's get out fitness on. ", phone: "3453453445", philosophy: "I just want to make people skinny and feel good about theyselves.")
+coach2 = Coach.create!(first: "Jimmy",last: "fake", password:"password", email: "coach2@coach.com", greeting: "Hey. Let's get out fitness on. ", phone: "3453453445", philosophy: "I like to help people quit smoking and other nasty habits.")
+coach3 = Coach.create!(first: "Ashley",last: "fake", password:"password", email: "coach3@coach.com", greeting: "Hey. Let's get out fitness on. ", phone: "3453453445", philosophy: "I like to help people discover healthy eating.")
+coach4 = Coach.create!(first: "Willy",last: "fake", password:"password", email: "coach4@coach.com", greeting: "Hey. Let's get out fitness on. ", phone: "3453453445", philosophy: "I love to help people mangage their addictions.")
 
 
 
-user1 = User.create!(first: "Thomas", password: "password", email: "user@user.com", coach_id: coach1.id, coach_1: coach2.id, coach_2: coach3.id, coach_3: coach4.id, admin: true)
+user1 = User.create!(first: "Thomas", last: "fake", password: "password", email: "user@user.com", coach_id: coach1.id, coach_1: coach2.id, coach_2: coach3.id, coach_3: coach4.id, admin: true)
 
 conversation_user1 = Conversation.create!(user_id: user1.id, coach_id: coach1.id)
 conversation_user2 = Conversation.create!(user_id: user1.id, coach_id: coach2.id)
@@ -52,7 +52,7 @@ message1 = Message.create!(user_id: user6.id, conversation_id: conversation6.id,
 
 
 
-coach_1 = Coach.create!(first: "coach1", password:"password", greeting: "Hey. Let's get out fitness on. ", email: "coach_1@coach.com")
+coach_1 = Coach.create!(first: "coach1", last: "fake", password:"password", greeting: "Hey. Let's get out fitness on. ", email: "coach_1@coach.com")
 
 user1 = User.create!(first: "one", last: "fake",password: "password", email: "user21@user.com", coach_1: coach_1.id)
 

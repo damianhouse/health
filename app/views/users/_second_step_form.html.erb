@@ -1,0 +1,11 @@
+<p>Choose your team</p>
+<div class="field">
+  Primary Coach: <%= f.collection_select :coach_id, @coaches, :id, :first %>
+</div>
+<p>The rest of your team:</p>
+<div class="field">
+  Coach: <%= f.collection_select :coach_1, @coaches, :id, :first %>
+</div>
+<div class="field">
+  Coach: <%= f.collection_select :coach_2, @coaches, :id, :first %>
+</div>
