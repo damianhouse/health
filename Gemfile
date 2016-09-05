@@ -14,7 +14,8 @@ gem 'aws-sdk', '~> 2.3'
 
 gem "jquery-fileupload-rails"
 
-gem "administrate", "~> 0.2.1"
+gem "administrate", "~> 0.2.2"
+gem "administrate-field-image"
 
 gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

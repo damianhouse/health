@@ -11,10 +11,9 @@ class UserDashboard < Administrate::BaseDashboard
     coach: Field::BelongsTo,
     conversations: Field::HasMany,
     messages: Field::HasMany,
+    notes: Field::HasMany,
     id: Field::Number,
     first: Field::String,
-    last: Field::String,
-
     email: Field::String,
     password_digest: Field::String,
     role: Field::String,
@@ -27,9 +26,12 @@ class UserDashboard < Administrate::BaseDashboard
     avatar_url: Field::String,
     phone: Field::String,
     zip: Field::String,
+    last_name: Field::String,
+    last: Field::String,
     paid: Field::Boolean,
+    admin: Field::Boolean,
+    stripe_id: Field::String,
     exp_date: Field::DateTime,
-
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -39,11 +41,9 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :coach,
-    :first,
-    :last,
     :conversations,
     :messages,
-    :id,
+    :notes,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -52,9 +52,9 @@ class UserDashboard < Administrate::BaseDashboard
     :coach,
     :conversations,
     :messages,
+    :notes,
     :id,
     :first,
-    :last,
     :email,
     :password_digest,
     :role,
@@ -67,7 +67,11 @@ class UserDashboard < Administrate::BaseDashboard
     :avatar_url,
     :phone,
     :zip,
+    :last_name,
+    :last,
     :paid,
+    :admin,
+    :stripe_id,
     :exp_date,
   ].freeze
 
@@ -78,8 +82,8 @@ class UserDashboard < Administrate::BaseDashboard
     :coach,
     :conversations,
     :messages,
+    :notes,
     :first,
-    :last,
     :email,
     :password_digest,
     :role,
@@ -90,7 +94,11 @@ class UserDashboard < Administrate::BaseDashboard
     :avatar_url,
     :phone,
     :zip,
+    :last_name,
+    :last,
     :paid,
+    :admin,
+    :stripe_id,
     :exp_date,
   ].freeze
 
@@ -100,10 +108,4 @@ class UserDashboard < Administrate::BaseDashboard
   # def display_resource(user)
   #   "User ##{user.id}"
   # end
-  def display_resource(user)
-    if user
-      "#{user.first.capitalize if user.first}" + " " + "#{user.last.capitalize if user.first}"
-    end
-  end
-  
 end

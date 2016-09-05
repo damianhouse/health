@@ -54,9 +54,7 @@ class ConversationDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how conversations are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(conversation)
-    if conversation.coach && conversation.user
-      "#{conversation.coach.first if conversation.coach.first}" + " and " + "#{conversation.user.first.capitalize if conversation.user.first}"
-    end
-  end
+  # def display_resource(conversation)
+  #   "Conversation ##{conversation.id}"
+  # end
 end

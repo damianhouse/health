@@ -19,7 +19,7 @@ class CoachDashboard < Administrate::BaseDashboard
     role: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    avatar_url: Field::String,
+    avatar_url: Field::Image,
     phone: Field::String,
     zip: Field::String,
     greeting: Field::Text,
@@ -33,17 +33,18 @@ class CoachDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :users,
     :first,
     :last,
-    :messages,
+    :users,
     :conversations,
-    :id,
+    :approved,
+    :avatar_url,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :avatar_url,
     :users,
     :messages,
     :conversations,
@@ -57,9 +58,9 @@ class CoachDashboard < Administrate::BaseDashboard
     :updated_at,
     :zip,
     :phone,
-    :avatar_url,
     :greeting,
     :philosophy,
+    :approved,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -90,4 +91,5 @@ class CoachDashboard < Administrate::BaseDashboard
       "#{coach.first if coach.first}" + " " + "#{coach.last.capitalize if coach.last}"
     end
   end
+
 end

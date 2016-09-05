@@ -47,6 +47,9 @@ GEM
       rails (~> 4.2)
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
+    administrate-field-image (0.0.2)
+      administrate (>= 0.2.0.rc1, < 0.3.0)
+      rails (~> 4.2)
     arel (6.0.3)
     autoprefixer-rails (6.3.6.1)
       execjs
@@ -236,7 +239,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  administrate (~> 0.2.1)
+  administrate (~> 0.2.2)
+  administrate-field-image
   aws-sdk (~> 2.3)
   bcrypt (~> 3.1.7)
   bootstrap-sass
@@ -265,5 +269,8 @@ DEPENDENCIES
   web-console (~> 2.0)
   wicked
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.5
