@@ -23,7 +23,7 @@ class UserDashboard < Administrate::BaseDashboard
     coach_4: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    avatar_url: Field::String,
+    avatar_url: Field::Image,
     phone: Field::String,
     zip: Field::String,
     last_name: Field::String,
@@ -44,6 +44,7 @@ class UserDashboard < Administrate::BaseDashboard
     :conversations,
     :messages,
     :notes,
+    :avatar_url,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

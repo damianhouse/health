@@ -1,18 +1,18 @@
 <h1 class="text-center">Sign Up Steps:</h1>
-<h2 class="text-center"><strong>1 . . 2 . . 3</strong></h2>
+<h1 class="text-center"><strong>1 . . 2 . . 3</strong></h1>
 <% flash.each do |key, value| %>
   <%= content_tag :h3, value, class: "flash #{key}" %>
 <% end %>
 
-Thanks for signing up! Your account was successfully created!
+<h3 class="text-center">Thanks for signing up! Your account was successfully created!</h3>
 
-Before any coaches are assigned to assist you, you must pay the subscription below:</br>
+<h3 class="text-center">Before any coaches are assigned to assist you, you must pay the subscription below:</h3></br>
 
-<h3>For the introductory $10 per week for a month coupon enter: <strong>Meet My Team</strong></h3>
+<h3 class="text-center"><span class="coupon">Coupon:</span> For the introductory $10 per week for a month coupon enter: <span class="coupon">Meet My Team</span></h3>
 
 <% @plans.each do |plan| %>
   <%= form_tag charges_path, method: :post do %>
-    <div class="plan">
+    <div class="plan text-center">
       <h1><%= plan[:name] %></h1>
       <%= hidden_field_tag :amount, plan[:amount] %>
       <%= hidden_field_tag :plan, plan[:id] %>

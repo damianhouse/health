@@ -115,6 +115,7 @@ class User < ActiveRecord::Base
   def last_step?
     self.current_step == steps.last
   end
+
   def all_valid?
     steps.all? do |step|
       self.current_step = step
@@ -122,6 +123,22 @@ class User < ActiveRecord::Base
     end
   end
 
+  def validate_primary_coach
+    self.coach_id.present?
+  end
+
+  def validate_coach_1
+    self.coach_1.present?
+  end
+
+  def validate_coach_2
+    self.coach_2.present?
+  end
+
+  def all_coaches_choosen?
+    true if validate_primary_coach && validate_coach_1 && validate_coach_2
+  end
+  
   def uniqueness_of_email_across_models
     self.errors.add(:email, 'is already taken') if Coach.where('lower(email) = ?', self.email.downcase).exists?
   end

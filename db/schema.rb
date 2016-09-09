@@ -102,15 +102,15 @@ ActiveRecord::Schema.define(version: 20160902143607) do
     t.integer  "coach_2"
     t.integer  "coach_3"
     t.integer  "coach_4"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "avatar_url"
     t.string   "phone"
     t.string   "zip"
     t.string   "last_name"
     t.string   "last"
     t.boolean  "paid"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
     t.string   "stripe_id"
     t.datetime "exp_date"
   end

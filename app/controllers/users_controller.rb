@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       if params[:previous_button]
         @user.previous_step
       elsif @user.last_step?
-        @user.save if @user.all_valid?
+        @user.save if @user.all_coaches_choosen?
         session[:user_step] = nil
         session[:user_params] = nil
         flash[:notice] = "User successfully created!"

@@ -164,6 +164,7 @@ class ChargesController < ApplicationController
     end
     render nothing: true
   end
+  
   private
 
   def is_valid?(coupon)
