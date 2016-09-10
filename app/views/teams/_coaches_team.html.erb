@@ -5,41 +5,64 @@
     <h1>My Primary Coach Users</h1>
     <% @coach.users.each do |user| %>
       <% user_note = user.notes.where(coach_id: @coach.id) %>
-      <tr>
-        <td class="avatar">
-          <% if !user.avatar_url.blank? %>
-            <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
-          <% else %>
-            <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
-          <% end %>
-        </td>
-        <td class="details">
-          <div class="name"><%= user.first %> <%= user.last %></div>
-
-          <div class="details">
-            <%= link_to 'View Profile', user %>
-          </div>
-        </td>
-        <td>
-          <% if user_note.empty? == false %>
-              <span><%= link_to 'Client Notes', user_note.first %></span>
-          <% else %>
-            <%= link_to "New Note", new_note_path(user_id: user.id, coach_id: @coach.id) %>
-          <% end %>
-        </td>
-
-        <td>
-          <% if user.conversations.length >= 1 && user.conversations.exists?(coach_id: @coach.id)%>
-            <% user.conversations.each do |convo| %>
-              <% if convo.coach_id == @coach.id %>
-                  <span><%= link_to 'View Conversation', convo%></span>
+      <% user_convos = user.conversations.where(coach_id: @coach.id) %>
+          <div>
+          <tr>
+            <td class="avatar">
+              <% if !user.avatar_url.blank? %>
+                <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
+              <% else %>
+                <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
               <% end %>
-            <% end %>
-          <% else %>
-            <%= render partial: "conversation_form", locals: { user: user} %>
-          <% end %>
-        </td>
-      </tr>
+            </td>
+            <td class="details">
+              <div class="name"><%= user.first %> <%= user.last %></div>
+
+              <div class="details">
+                <%= link_to 'View Profile', user %>
+              </div>
+            </td>
+
+            <td class="title">
+              <div class="msg">
+                <% user_convos.each do |convo| %>
+                <% if user_convos.length >= 1 %>
+                  <%= link_to convo do %>
+                    <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.user_id == nil%>
+                        <i class="status msg new"></i><span><i>No new  <br/>messages</i></span>
+                    <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.user_id != nil%>
+                        <i class="status msg unread"></i><span><i>New Message</i></span>
+                    <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                        <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                    <% elsif convo.messages.last == nil %>
+                        <i class="status msg empty"></i><span><i>No messages</i></span>
+                    <% end %>
+                  <% end %>
+                <% elsif user_convos.length == 0 %>
+                  <i class="status msg empty"></i><span><i>No messages</i></span>
+                <% end %>
+              </div>
+            </td>
+            <td>
+              <% if user_note.empty? == false %>
+                  <span><%= link_to 'Client Notes', user_note.first %></span>
+              <% else %>
+                <%= link_to "New Note", new_note_path(user_id: user.id, coach_id: @coach.id) %>
+              <% end %>
+            </td>
+            <td>
+              <% if user.conversations.length >= 1 && user.conversations.exists?(coach_id: @coach.id)%>
+                <% user.conversations.each do |convo| %>
+                  <% if convo.coach_id == @coach.id %>
+                      <span><%= link_to 'View Conversation', convo%></span>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <%= render partial: "conversation_form", locals: { user: user} %>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
     <% end %>
   </table>
 <% end %>

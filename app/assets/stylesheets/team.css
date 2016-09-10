@@ -42,6 +42,7 @@ table.team td.title h2 {
   padding:4px 0px 6px 5px;
 }
 table.team td.title div.msg {
+  display: inline-block;
   position:absolute;
   top:10px;
   right:8px;

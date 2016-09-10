@@ -7,249 +7,106 @@
     <% if @user.coach != nil %>
       <% coach = @user.coach %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
-      <tr>
-        <td class="title">
-          <h2>Lead Coach</h2>
-          <div class="msg">
+        <tr>
+          <td class="title">
+            <h2>Lead Coach</h2>
+            <div class="msg">
+              <% if user_convos.length >= 1 %>
+                <% user_convos.each do |convo| %>
+                  <%= link_to convo do %>
+                    <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+                      <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                    <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+                      <i class="status msg unread"></i><span><i>New Message</i></span>
+                    <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                      <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                    <% elsif convo.messages.last == nil %>
+                      <i class="status msg empty"></i><span><i>No messages</i></span>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% elsif user_convos.length == 0 %>
+                <i class="status msg empty"></i><span><i>No messages</i></span>
+              <% end %>
+            </div>
+          </td>
+          <td class="avatar">
+            <!-- <span class="badge"><%=image_tag coach.avatar_url, class: "center-block"%></span> -->
+            <% if !coach.avatar_url.blank? %>
+              <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
+            <% else %>
+              <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
+            <% end %>
+          </td>
+          <td class="details">
+            <div class="name"><%= coach.first %> <%= coach.last %></div>
+            <div class="details">
+              <%= link_to 'View Profile', coach %>
+            </div>
+          </td>
+          <td class="convo">
             <% if user_convos.length >= 1 %>
               <% user_convos.each do |convo| %>
-                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
-                  <i class="status msg unread"></i><span><i>New Message</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last == nil %>
-                  <i class="status msg empty"></i><span><i>No messages</i></span>
-                <% end %>
+                <span><%= link_to 'View Conversation', convo %></span>
               <% end %>
-            <% elsif user_convos.length == 0 %>
-              <i class="status msg empty"></i><span><i>No messages</i></span>
+            <% else %>
+              <%= render partial: "users_conversation_form", locals: { coach: coach} %>
             <% end %>
-          </div>
-        </td>
-        <td class="avatar">
-          <!-- <span class="badge"><%=image_tag coach.avatar_url, class: "center-block"%></span> -->
-          <% if !coach.avatar_url.blank? %>
-            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
-          <% else %>
-            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
-          <% end %>
-        </td>
-        <td class="details">
-          <div class="name"><%= coach.first %> <%= coach.last %></div>
-          <div class="details">
-            <%= link_to 'View Profile', coach %>
-          </div>
-        </td>
-        <td class="convo">
-          <% if user_convos.length >= 1 %>
-            <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo %></span>
-            <% end %>
-          <% else %>
-            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-          <% end %>
-        </td>
-      </tr>
+          </td>
+        </tr>
     <% end %>
 
-
-
-
-    <% if @user.find_coach_1 != nil %>
-      <% coach = @user.find_coach_1 %>
-      <% user_convos = coach.conversations.where(user_id: @user.id) %>
-      <tr>
-        <td class="title">
-          <h2>Team Coaches</h2>
-          <div class="msg">
+    <% if @secondary_coaches != nil %>
+      <% @secondary_coaches.each do |coach| %>
+        <% user_convos = coach.conversations.where(user_id: @user.id) %>
+        <tr>
+          <td class="title">
+            <h2>Team Coach</h2>
+            <div class="msg">
+              <% if user_convos.length >= 1 %>
+                <% user_convos.each do |convo| %>
+                  <%= link_to convo do %>
+                    <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
+                      <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                    <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
+                      <i class="status msg unread"></i><span><i>New Message</i></span>
+                    <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
+                      <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
+                    <% elsif convo.messages.last == nil %>
+                      <i class="status msg empty"></i><span><i>No messages</i></span>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% elsif user_convos.length == 0 %>
+                <i class="status msg empty"></i><span><i>No messages</i></span>
+              <% end %>
+            </div>
+          </td>
+          <td class="avatar">
+            <% if !coach.avatar_url.blank? %>
+              <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
+            <% else %>
+              <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
+            <% end %>
+          </td>
+          <td class="details">
+            <div class="name"><%= coach.first %> <%= coach.last %></div>
+            <div class="details">
+              <%= link_to 'View Profile', coach %>
+            </div>
+          </td>
+          <td class="convo">
             <% if user_convos.length >= 1 %>
               <% user_convos.each do |convo| %>
-                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
-                  <i class="status msg unread"></i><span><i>New Message</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last == nil %>
-                  <i class="status msg empty"></i><span><i>No messages</i></span>
-                <% end %>
+                <span><%= link_to 'View Conversation', convo %></span>
               <% end %>
-            <% elsif user_convos.length == 0 %>
-              <i class="status msg empty"></i><span><i>No messages</i></span>
+            <% else %>
+              <%= render partial: "users_conversation_form", locals: { coach: coach} %>
             <% end %>
-          </div>
-        </td>
-        <td class="avatar">
-          <% if !coach.avatar_url.blank? %>
-            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
-          <% else %>
-            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
-          <% end %>
-        </td>
-        <td class="details">
-          <div class="name"><%= coach.first %> <%= coach.last %></div>
-          <div class="details">
-            <%= link_to 'View Profile', coach %>
-          </div>
-        </td>
-        <td class="convo">
-          <% if user_convos.length >= 1 %>
-            <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo %></span>
-            <% end %>
-          <% else %>
-            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-          <% end %>
-        </td>
-      </tr>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
-
-    <% if @user.find_coach_2 != nil %>
-      <% coach = @user.find_coach_2 %>
-      <% user_convos = coach.conversations.where(user_id: @user.id) %>
-      <tr>
-        <td class="title">
-          <div class="msg">
-            <% if user_convos.length >= 1 %>
-              <% user_convos.each do |convo| %>
-                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
-                  <i class="status msg unread"></i><span><i>New Message</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last == nil %>
-                  <i class="status msg empty"></i><span><i>No messages</i></span>
-                <% end %>
-              <% end %>
-            <% elsif user_convos.length == 0 %>
-              <i class="status msg empty"></i><span><i>No messages</i></span>
-            <% end %>
-          </div>
-        </td>
-        <td class="avatar">
-          <% if !coach.avatar_url.blank? %>
-            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
-          <% else %>
-            <img class="avatar" src="/assets/male_coach.jpg" alt="alt avatar"/>
-          <% end %>
-        </td>
-        <td class="details">
-          <div class="name"><%= coach.first %> <%= coach.last %></div>
-          <div class="details">
-            <%= link_to 'View Profile', coach %>
-          </div>
-        </td>
-        <td class="convo">
-          <% if user_convos.length >= 1 %>
-            <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo %></span>
-            <% end %>
-          <% else %>
-            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-
-    <% if @user.find_coach_3 != nil %>
-      <% coach = @user.find_coach_3 %>
-      <% user_convos = coach.conversations.where(user_id: @user.id) %>
-      <tr>
-        <td class="title">
-          <div class="msg">
-            <% if user_convos.length >= 1 %>
-              <% user_convos.each do |convo| %>
-                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
-                  <i class="status msg unread"></i><span><i>New Message</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last == nil %>
-                  <i class="status msg empty"></i><span><i>No messages</i></span>
-                <% end %>
-              <% end %>
-            <% elsif user_convos.length == 0 %>
-              <i class="status msg empty"></i><span><i>No messages</i></span>
-            <% end %>
-          </div>
-        </td>
-        <td class="avatar">
-          <% if !coach.avatar_url.blank? %>
-            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
-          <% else %>
-            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
-          <% end %>
-        </td>
-        <td class="details">
-          <div class="name"><%= coach.first %> <%= coach.last %></div>
-          <div class="details">
-            <%= link_to 'View Profile', coach %>
-          </div>
-        </td>
-        <td class="convo">
-          <% if user_convos.length >= 1 %>
-            <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo %></span>
-            <% end %>
-          <% else %>
-            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-
-    <% if @user.find_coach_4 != nil %>
-      <% coach = @user.find_coach_4 %>
-      <% user_convos = coach.conversations.where(user_id: @user.id) %>
-      <tr>
-        <td class="title">
-          <div class="msg">
-            <% if user_convos.length >= 1 %>
-              <% user_convos.each do |convo| %>
-                <% if convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id == nil%>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read == nil && convo.messages.last.coach_id != nil%>
-                  <i class="status msg unread"></i><span><i>New Message</i></span>
-                <% elsif convo.messages.last != nil && convo.messages.last.read != nil %>
-                  <i class="status msg new"></i><span><i>No new <br/>messages</i></span>
-                <% elsif convo.messages.last == nil %>
-                  <i class="status msg empty"></i><span><i>No messages</i></span>
-                <% end %>
-              <% end %>
-            <% elsif user_convos.length == 0 %>
-              <i class="status msg empty"></i><span><i>No messages</i></span>
-            <% end %>
-          </div>
-        </td>
-        <td class="avatar">
-          <% if !coach.avatar_url.blank? %>
-            <img class="avatar" src="<%= coach.avatar_url %>" alt="coach avatar"/>
-          <% else %>
-            <img class="avatar" src="/assets/generic_avatar.jpg" alt="alt avatar"/>
-          <% end %>
-        </td>
-        <td class="details">
-          <div class="name"><%= coach.first %> <%= coach.last %></div>
-          <div class="details">
-            <%= link_to 'View Profile', coach %>
-          </div>
-        </td>
-        <td class="convo">
-          <% if user_convos.length >= 1 %>
-            <% user_convos.each do |convo| %>
-              <span><%= link_to 'View Conversation', convo %></span>
-            <% end %>
-          <% else %>
-            <%= render partial: "users_conversation_form", locals: { coach: coach} %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-
 </table>
 <h3>Your daily inspiration...</h3>
 <div class="well well-lg">
