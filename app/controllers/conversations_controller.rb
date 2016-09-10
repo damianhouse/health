@@ -28,9 +28,9 @@ class ConversationsController < ApplicationController
       @conversation.messages.each do |msg|
         if msg.read.nil?
           if session[:coach_id]
-            (msg[:read] = true) && msg.save! unless msg.user != nil
+            (msg[:read] = true) && msg.save! if msg.user != nil
           elsif session[:user_id]
-            (msg[:read] = true) && msg.save! unless msg.coach != nil
+            (msg[:read] = true) && msg.save! if msg.coach != nil
           end
         end
       end

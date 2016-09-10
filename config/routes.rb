@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'notifications/notify'
   post 'notifications/notify' => 'notifications#notify'
   get 'notifications/text_assignment'
+  get 'notifications/notify_admin'
   # post 'notifications/text_assignment'
 
   resources :notes

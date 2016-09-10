@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
 before_action :paid?, only: [:index]
 before_action :logged_in?
+
     def index
        if session[:coach_id] != nil
          @coach = Coach.find(session[:coach_id])
@@ -11,7 +12,6 @@ before_action :logged_in?
       @conversation = Conversation.new
       @note = Note.new
       @daily_inspo = Inspiration.new.random_inspo
-
     end
 
   end

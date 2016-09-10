@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     # @users = User.all
-
   end
 
   # GET /users/1
@@ -45,8 +44,12 @@ class UsersController < ApplicationController
         session[:user_params] = nil
         flash[:notice] = "User successfully created!"
         session[:user_id] = @user.id
+        notify_user(@user)
+        notify_coach(@user.coach)
+        notify_coach(@user.coach_1)
+        notify_coach(@user.coach_2)
+        notify_admin(@user)
         redirect_to charges_new_path
-        return
         # ReportMailer.send_confirmation(@user).deliver_now
       else
         @user.next_step
@@ -115,6 +118,50 @@ class UsersController < ApplicationController
       @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
     end
 
+    def notify_coach(coach)
+      coach = Coach.find(coach)
+      unless coach.phone == ""
+        begin
+          client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+          message = client.messages.create from: '8284820730', to: coach.phone,
+
+          body: "Good news #{coach.first}! A user choose you to be their coach. Go to http://www.myhealthstyleapp.com/teams/index and start chatting with them!"
+        rescue
+          flash[:notice] =  "Please enter a valid phone number."
+        end
+      else
+        redirect_to charges_new_path
+      end
+    end
+
+    def notify_user(user)
+      unless user.phone == ""
+        begin
+          client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+          message = client.messages.create from: '8284820730', to: user.phone,
+
+          body: 'Welcome to MyHealthStyle! We are so excited and will contact you as soon as your coaching team is assigned to you!'
+        rescue
+          flash[:notice] =  "Please enter a valid phone number."
+        end
+      else
+        redirect_to charges_new_path
+      end
+    end
+
+    def notify_admin(user)
+      user = User.find_by(id: session[:user_id])
+      unless user.phone == ""
+        begin
+          client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+          message = client.messages.create from: '8284820730', to: ENV['ALEXS_PHONE_NUMBER'],
+
+          body: "#{user.first + ' ' + user.last} just signed up for the app!"
+        rescue
+          flash[:notice] =  "Please enter a valid phone number."
+        end
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first, :last, :email, :password, :password_digest, :role, :coach_id, :coach_1, :coach_2, :coach_3, :coach_4, :avatar_url, :phone, :zip, :admin, :stripe_id, :exp_date, :paid, :role, :current_step, :user, :previous_button)
