@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <% if session[:avatar] != nil %>
+        <%= image_tag session[:avatar], class: "nav-bar-avatar" %>
+      <% end %>
+      <%= link_to 'MyHealthstyle', sessions_login_path, class: "navbar-brand font-health" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if session[:coach_id] != nil %>
+          <li><%= link_to 'My Clients', teams_index_path %></li>
+          <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
+          <li><a href="/abouts/recipes">Instant Recipe</a></li>
+          <li><%= link_to 'My Profile', Coach.find(session[:coach_id]) %></li>
+          <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
+        <% elsif session[:admin] == true %>
+          <li><%= link_to 'Welcome', menu_welcome_path %></li>
+          <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
+          <li><%= link_to 'Admin', admin_coaches_path %></li>
+          <li><%= link_to 'My Team', teams_index_path %></li>
+          <li><a href="/abouts/recipes">Instant Recipe</a></li>
+          <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>
+          <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
+        <% elsif session[:user_id] != nil %>
+          <li><%= link_to 'Welcome', menu_welcome_path %></li>
+          <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
+          <li><%= link_to 'My Team', teams_index_path %></li>
+          <li><a href="/abouts/recipes">Instant Recipe</a></li>
+          <li><%= link_to 'My Profile', User.find(session[:user_id]) %></li>
+          <li><td><%= link_to 'Logout', sessions_logout_path %></td></li>
+        <% else %>
+          <li><a href="/abouts/welcome">Welcome</a></li>
+          <li><a href="/abouts/ourcoaches">Our Coaches</a></li>
+          <li><a href="/abouts/testimonials">Testimonials</a></li>
+          <li><a href="/abouts/aboutus">About Us</a></li>
+          <li><a href="/abouts/recipes">Instant Recipe</a></li>
+          <li><a href="https://myhealthstyleapp.wordpress.com/">Community</a></li>
+          <li><%= link_to 'Sign In', sessions_login_path%></li>
+          <li><%= link_to 'Sign Up Now', new_user_path%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
