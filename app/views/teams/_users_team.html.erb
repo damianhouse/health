@@ -3,7 +3,6 @@
 <% end %>
 
 <table class="table table-responsive table-hover team">
-
     <% if @user.coach != nil %>
       <% coach = @user.coach %>
       <% user_convos = coach.conversations.where(user_id: @user.id) %>
@@ -55,7 +54,6 @@
           </td>
         </tr>
     <% end %>
-
     <% if @secondary_coaches != nil %>
       <% @secondary_coaches.each do |coach| %>
         <% user_convos = coach.conversations.where(user_id: @user.id) %>

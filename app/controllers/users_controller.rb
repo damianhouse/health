@@ -44,11 +44,19 @@ class UsersController < ApplicationController
         session[:user_params] = nil
         flash[:notice] = "User successfully created!"
         session[:user_id] = @user.id
+        coach1 = Coach.find(@user.coach_1)
+        coach2 = Coach.find(@user.coach_2)
         notify_user(@user)
         notify_coach(@user.coach)
         notify_coach(@user.coach_1)
         notify_coach(@user.coach_2)
         notify_admin(@user)
+        conversation = Conversation.create(user_id: @user.id, coach_id: @user.coach.id)
+        Message.create(conversation_id: conversation.id, body: @user.coach.greeting, coach_id: @user.coach)
+        conversation2 = Conversation.create(user_id: @user.id, coach_id: coach1.id)
+        Message.create(conversation_id: conversation2.id, body: coach1.greeting, coach_id: coach1.id)
+        conversation3 = Conversation.create(user_id: @user.id, coach_id: coach2.id)
+        Message.create(conversation_id: conversation3.id, body: coach2.greeting, coach_id: coach2.id)
         redirect_to charges_new_path
         # ReportMailer.send_confirmation(@user).deliver_now
       else
