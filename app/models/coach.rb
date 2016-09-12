@@ -2,6 +2,7 @@ class Coach < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password, length: { minimum: 8 }, allow_nil: true
   validates :greeting, presence: true
+  validates :philosphy, presence: true
   validates :first, presence: true
   validates :last, presence: true
   validate :uniqueness_of_email_across_models
