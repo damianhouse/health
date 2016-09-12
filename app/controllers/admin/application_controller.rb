@@ -9,7 +9,11 @@ module Admin
     before_filter :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      if session[:user_id]
+        User.find(session[:user_id]).admin
+      else
+        redirect_to root_path
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
