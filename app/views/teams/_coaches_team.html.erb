@@ -1,28 +1,13 @@
 <% if @coach.users.empty? %>
   <p>Looks like you don't currently have any clients!</p>
 <% else %>
-  <table class="table table-responsive table-hover team coach">
+  <table class="table table-responsive table-hover team">
     <h1>My Primary Coach Users</h1>
     <% @coach.users.each do |user| %>
       <% user_note = user.notes.where(coach_id: @coach.id) %>
       <% user_convos = user.conversations.where(coach_id: @coach.id) %>
           <div>
           <tr>
-            <td class="avatar">
-              <% if !user.avatar_url.blank? %>
-                <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
-              <% else %>
-                <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
-              <% end %>
-            </td>
-            <td class="details">
-              <div class="name"><%= user.first %> <%= user.last %></div>
-
-              <div class="details">
-                <%= link_to 'View Profile', user %>
-              </div>
-            </td>
-
             <td class="title">
               <div class="msg">
                 <% user_convos.each do |convo| %>
@@ -41,6 +26,20 @@
                 <% elsif user_convos.length == 0 %>
                   <i class="status msg empty"></i><span><i>No messages</i></span>
                 <% end %>
+              </div>
+            </td>
+            <td class="avatar">
+              <% if !user.avatar_url.blank? %>
+                <span class="badge"><img src="<%= user.avatar_url %>" alt="user avatar" style="width:75px;height:75px;" /></span>
+              <% else %>
+                <span class="badge"><img src="/assets/generic_avatar.jpg" alt="alt avatar" style="width:75px;height:75px;" /></span>
+              <% end %>
+            </td>
+            <td class="details">
+              <div class="name"><%= user.first %> <%= user.last %></div>
+
+              <div class="details">
+                <%= link_to 'View Profile', user %>
               </div>
             </td>
             <td>
