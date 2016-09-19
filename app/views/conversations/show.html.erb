@@ -14,11 +14,35 @@
         <div id="messages" class="msg <%= session[:coach_id] != nil ? (message.user_id != nil ? "receive" : "send") : (message.user_id != nil ? "send" : "receive") %>">
           <div id="message_body" class="msgtext"><%= message.body.empty? ? raw("&nbsp;") : message.body.html_safe %></div>
           <% if message.created_at >= DateTime.now.beginning_of_day %>
-            <div class="time"> <%= message.updated_at.in_time_zone.localtime.strftime("%I:%M %P") %></div>
+            <div class="time">
+              <% if message == @conversation.messages.last %>
+                <%= "Read " if (message.user != nil && @perspective == "user" && message.read == true) || (message.coach != nil && @perspective == "coach" && message.read == true)%>
+                <%= "Delivered " if (message.user != nil && @perspective == "user" && message.read == nil) || (message.coach != nil && @perspective == "coach" && message.read == nil)%>
+                <%= message.updated_at.in_time_zone.localtime.strftime("%I:%M %P") %>
+              <% else %>
+                <%= message.created_at.in_time_zone.localtime.strftime("%I:%M %P") %>
+              <% end %>
+            </div>
           <% elsif message.created_at >= (DateTime.now - 7.days) %>
-            <div class="time"><%= message.updated_at.in_time_zone.localtime.strftime("%A %I:%M %P") %></div>
+            <div class="time">
+              <% if message == @conversation.messages.last %>
+                <%= "Read " if (message.user != nil && @perspective == "user" && message.read == true) || (message.coach != nil && @perspective == "coach" && message.read == true)%>
+                <%= "Delivered " if (message.user != nil && @perspective == "user" && message.read == nil) || (message.coach != nil && @perspective == "coach" && message.read == nil)%>
+                <%= message.updated_at.in_time_zone.localtime.strftime("%A %I:%M %P") %>
+              <% else %>
+                <%= message.created_at.in_time_zone.localtime.strftime("%A %I:%M %P") %>
+              <% end %>
+            </div>
           <% else %>
-          <div class="time"><%= message.updated_at.in_time_zone.localtime.strftime("%a, %b %d, %I:%M %P") %></div>
+            <div class="time">
+              <% if message == @conversation.messages.last %>
+                <%= "Read " if (message.user != nil && @perspective == "user" && message.read == true) || (message.coach != nil && @perspective == "coach" && message.read == true)%>
+                <%= "Delivered " if (message.user != nil && @perspective == "user" && message.read == nil) || (message.coach != nil && @perspective == "coach" && message.read == nil)%>
+                <%= message.updated_at.in_time_zone.localtime.strftime("%a, %b %d, %I:%M %P") %>
+              <% else %>
+                <%= message.updated_at.in_time_zone.localtime.strftime("%a, %b %d, %I:%M %P") %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -31,8 +55,3 @@
     <%= render partial: "message_form", locals: {f: f} %>
   <% end %>
 </div>
-<% if @anchor %>
-  <script type="text/javascript">
-    window.location.hash = "<%= @anchor %>";
-  </script>
-<% end %>
