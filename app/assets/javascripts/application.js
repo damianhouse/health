@@ -21,6 +21,7 @@
 $(document).on('ready page:load', function () {
   submitNewMessage();
 });
+
 function submitNewMessage(){
   $('textarea#message_body').keydown(function(event) {
     if (event.keyCode == 13) {
@@ -30,6 +31,7 @@ function submitNewMessage(){
      }
   });
 }
+
 
 function refresh_conversation() {
   $(".conversation").load(location.href + " .conversation");

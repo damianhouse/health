@@ -16,11 +16,10 @@
     <%= f.hidden_field :conversation_id, value: params[:id] %>
   </div>
   <!-- <div class="col-xs-1 upload"><i class="fa fa-camera"></i></div> -->
-  <div id="mobileshow" class="field text col-xs-10">
+
+  <div class="field text col-xs-10 col-md-12">
     <%= f.text_area :body, class: 'form-control', placeholder: 'Enter a message', data: {textarea: "message"} %>
   </div>
-  <div id="mobileshow" class="actions col-xs-1"><%= f.submit 'Send', :class => 'send_button' %></div>
-  <div id="desktopshow" class="field text col-xs-12">
-    <%= f.text_area :body, class: 'form-control', placeholder: 'Enter a message', data: {textarea: "message"} %>
+  <div class="actions col-xs-1">
+    <%= f.submit 'Send', :class => 'send_button', data: {send: "message"}%>
   </div>
-  <div id="desktopshow" class="actions col-xs-3"><%= f.submit "send", class: "btn btn-primary", style: "display: none", data: {send: "message"}%></div>

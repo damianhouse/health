@@ -1,5 +1,5 @@
 // $(document).on('ready page:load', function () {
-//   submitNewMessage();
+//   scrollTop;
 // });
 // function submitNewMessage(){
 //   $('textarea#message_body').keydown(function(event) {
