@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
         @perspective = "coach"
       end
 
-      @name = "#{@profile.first} #{@profile.last}"
+      @name = "#{@profile.first}"
 
     #mark conversations read after user/coach views
       @conversation.messages.each do |msg|
