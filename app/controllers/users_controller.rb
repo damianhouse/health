@@ -42,7 +42,6 @@ class UsersController < ApplicationController
         @user.save if @user.all_coaches_choosen?
         session[:user_step] = nil
         session[:user_params] = nil
-        flash[:notice] = "User successfully created!"
         session[:user_id] = @user.id
         coach1 = Coach.find(@user.coach_1)
         coach2 = Coach.find(@user.coach_2)
@@ -58,7 +57,7 @@ class UsersController < ApplicationController
         conversation3 = Conversation.create(user_id: @user.id, coach_id: coach2.id)
         Message.create(conversation_id: conversation3.id, body: coach2.greeting, coach_id: coach2.id)
         redirect_to charges_new_path
-        ReportMailer.send_confirmation(@user).deliver_now
+        # ReportMailer.send_confirmation(@user).deliver_now
       else
         @user.next_step
       end

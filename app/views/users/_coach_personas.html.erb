@@ -4,7 +4,7 @@
   <p>
     <%= flash[:error] unless flash[:error].blank? %>
   </p>
-  <p class="text-center">Build your team! Choose one primary coach and two secondary coaches to be your HealthStyle team.</p>
+  <p class="text-center">Build your team! Choose your Lead Coach to work with you everyday and two Team Coaches who will work with you on specific habits/bevaviors.</p>
   <% @coaches.each do |coach| %>
       <% if coach.approved %>
         <div class="text-center each-coach col-sm-12 col-md-4 col-lg-3">
