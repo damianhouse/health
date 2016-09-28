@@ -57,7 +57,7 @@ class UsersController < ApplicationController
         conversation3 = Conversation.create(user_id: @user.id, coach_id: coach2.id)
         Message.create(conversation_id: conversation3.id, body: coach2.greeting, coach_id: coach2.id)
         redirect_to charges_new_path
-        # ReportMailer.send_confirmation(@user).deliver_now
+        ReportMailer.send_confirmation(@user).deliver_now
       else
         @user.next_step
       end
