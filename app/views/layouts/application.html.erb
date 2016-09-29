@@ -16,10 +16,10 @@
     <%= render 'layouts/nav_bar' %>
   <div class="content container-fluid" style="margin-top:40px;">
     <%= yield %>
-  </br>
   </div>
   <div class="text-center">
     <% if session[:user_id] %>
+    <br \>
       <button class="btn sign-up-button"><%= link_to 'About Us', abouts_aboutus_path, class: "sign-up-text" %></button>
     <% end %>
   </div>
