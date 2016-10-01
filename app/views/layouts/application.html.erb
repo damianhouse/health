@@ -23,4 +23,21 @@
       <button class="btn sign-up-button"><%= link_to 'About Us', abouts_aboutus_path, class: "sign-up-text" %></button>
     <% end %>
   </div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '545036969022775',
+        xfbml      : true,
+        version    : 'v2.7'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 </html>
