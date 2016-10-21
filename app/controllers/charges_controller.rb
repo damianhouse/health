@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
         coupon_json = JSON(coupon_raw)
         coupon = JSON.parse(coupon_json)
 
-        if coupon && coupon["valid"] == true
+        if coupon && coupon.valid
           @discount_percent = coupon["percent_off"]
           @discount_amount =  coupon["amount_off"]
           expire_date = coupon["redeem_by"]
@@ -164,7 +164,7 @@ class ChargesController < ApplicationController
     end
     render nothing: true
   end
-  
+
   private
 
   def is_valid?(coupon)
