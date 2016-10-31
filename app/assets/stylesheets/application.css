@@ -55,6 +55,9 @@ body.healthstyle div.content {
   width: 100%;
   max-width: 600px;
 }
+.top-testimonial-photo {
+  padding-top: 50px;
+}
 .testimonials-text {
   padding-top: 21%;
   padding-bottom: 21%;
