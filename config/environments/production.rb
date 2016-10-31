@@ -77,11 +77,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-
-
-
   config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.delivery_method = :smtp
+  
   config.action_mailer.smtp_settings = {
     address:              ENV['MAILGUN_SMTP_SERVER'],
     port:                 ENV['MAILGUN_SMTP_PORT'],
@@ -97,7 +96,7 @@ Rails.application.configure do
 
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
 
 
